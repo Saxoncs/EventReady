@@ -11,7 +11,8 @@ namespace EventReady
     {
         protected void Application_Start(object sender, EventArgs e)
         {
-            //This is a test to see if the batch is being comitted 
+            //This is a test to see if the batch is being comitted
+            //cunt//
         }
     }
 }
