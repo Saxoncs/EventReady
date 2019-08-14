@@ -4,19 +4,25 @@
 
 <html>
 <head runat="server">
-    <title></title>
-    <asp:ContentPlaceHolder ID="head" runat="server">
-    </asp:ContentPlaceHolder>
+    <title>
+            <asp:ContentPlaceHolder ID="title" runat="server">
+            </asp:ContentPlaceHolder>
+
+
+
+    </title>
+        <asp:ContentPlaceHolder ID="head" runat="server">
+        </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
         <div>
+             <ul>
+                 <li> <a href="Home.aspx">Home</a></li>
+                 <li> <a href="Calendar.aspx">Calendar</a></li>
+                 <li> <a href="Events.aspx">Events</a></li>
+            </ul>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-                <ul>
-                    <li> <a href="#">Home</a></li>
-                    <li> <a href="#">Calendar</a></li>
-                    <li> <a href="#">Events</a></li>
-                </ul>
             </asp:ContentPlaceHolder>
         </div>
     </form>
