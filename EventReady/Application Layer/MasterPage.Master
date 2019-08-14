@@ -12,6 +12,11 @@
     <form id="form1" runat="server">
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                <ul>
+                    <li> <a href="#">Home</a></li>
+                    <li> <a href="#">Calendar</a></li>
+                    <li> <a href="#">Events</a></li>
+                </ul>
             </asp:ContentPlaceHolder>
         </div>
     </form>
