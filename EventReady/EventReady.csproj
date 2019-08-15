@@ -73,6 +73,7 @@
     <Content Include="Application Layer\Events.aspx" />
     <Content Include="Application Layer\GuestList.aspx" />
     <Content Include="Application Layer\Home.aspx" />
+    <Content Include="Application Layer\Invites.aspx" />
     <Content Include="Application Layer\Schedule.aspx" />
     <Content Include="Application Layer\Venue.aspx" />
     <Content Include="Global.asax" />
@@ -120,6 +121,13 @@
     </Compile>
     <Compile Include="Application Layer\Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Application Layer\Invites.aspx.cs">
+      <DependentUpon>Invites.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Application Layer\Invites.aspx.designer.cs">
+      <DependentUpon>Invites.aspx</DependentUpon>
     </Compile>
     <Compile Include="Application Layer\MasterPage.Master.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
