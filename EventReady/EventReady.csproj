@@ -150,6 +150,7 @@
     <Compile Include="Application Layer\Venue.aspx.designer.cs">
       <DependentUpon>Venue.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Data Access Layer\EmailDataAccess.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -168,7 +169,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Business Layer\" />
-    <Folder Include="Data Access Layer\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>
