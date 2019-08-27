@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Net.Mail;
+using System.IO;
 
 namespace EventReady.Application_Layer
 {
@@ -14,22 +15,26 @@ namespace EventReady.Application_Layer
         {
 
         }
-        private string invitationMessage(bool isHtml)
+    
+        //https://www.aspsnippets.com/Articles/Create-and-send-HTML-Formatted-Emails-in-ASP.Net-using-C-and-VB.Net.aspx
+        private string PopulateBody()
         {
-            //Content if html is available 
-            if (isHtml)
-                return "<html><head><title>Guest Invitation"
-                        + " </title></head>"
-                        + "<body><img src=cid:logoImage>" + "<br />"
-                        + "<h3> This is a test email</h3>"
-                        + "<p>Test</p></body></html>";
-            //PLain text if html is not
-            else
-                return "Guest Invitation \r\n"
-                        + "Test";
-        }
+            string body = string.Empty;
+            
+            
+            using (StreamReader reader = new StreamReader(Server.MapPath("../Application Layer/EmailTemplate.html")))
+            {
+                body = reader.ReadToEnd();
+            }
+            //Adding an image to the email
 
-        protected void btnInviteGuest(object sender, EventArgs e)
+            //view.LinkedResources.Add(img);
+
+            //body = body.Replace("{ribbonImgPlaceHolder}", img.ContentId);
+          
+            return body;
+        }
+        private void SendHtmlFormattedEmail(string body)
         {
             SmtpClient client = new SmtpClient();
             client.DeliveryMethod = SmtpDeliveryMethod.Network;
@@ -49,15 +54,17 @@ namespace EventReady.Application_Layer
             msg.To.Add(new MailAddress("robertpiercy2199@gmail.com"));
             msg.Subject = "EventReady - Invitation";
             //If html does not exist return non-html email
-            msg.Body = invitationMessage(false);
+            msg.Body = body;
+            msg.IsBodyHtml = true;
 
-            //create an alternate HTML view that includes images and formatting 
-            string html = invitationMessage(true);
             AlternateView view = AlternateView
-                .CreateAlternateViewFromString(
-                    html, null, "text/html");
+             .CreateAlternateViewFromString(
+                 body, null, "text/html");
+            string imgPathOne = Server.MapPath("../Image/ribbon.png");
+            LinkedResource img = new LinkedResource(imgPathOne);
+            img.ContentId = "ribbonImage";
+            view.LinkedResources.Add(img);
 
-            //add the HTML view to the message and send
             msg.AlternateViews.Add(view);
 
             try
@@ -70,6 +77,11 @@ namespace EventReady.Application_Layer
                 //Display error message for email failing to send 
 
             }
+        }
+        protected void btnInviteGuest(object sender, EventArgs e)
+        {
+            string body = this.PopulateBody();
+            this.SendHtmlFormattedEmail(body);
         }
     }
 }

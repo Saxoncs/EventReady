@@ -91,7 +91,7 @@ namespace EventReady.Data_Access_Layer
 
         //adds a guest to the database under specified userId, will add an overload for both a class entry and a string entry just to make things easier. - Saxon
         [DataObjectMethod(DataObjectMethodType.Insert)]
-        public IEnumerable AddGuest(string userId, string name, string )
+        public IEnumerable AddGuest(string userId, string name, string something) //DELETE THIS LATER
         {
             return null;
 
