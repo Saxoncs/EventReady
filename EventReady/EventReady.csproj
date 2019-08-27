@@ -151,6 +151,7 @@
       <DependentUpon>Venue.aspx</DependentUpon>
     </Compile>
     <Compile Include="Data Access Layer\EmailDataAccess.cs" />
+    <Compile Include="Data Access Layer\EventDataAccess.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

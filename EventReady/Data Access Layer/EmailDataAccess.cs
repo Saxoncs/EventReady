@@ -10,13 +10,13 @@ using System.ComponentModel;
 
 namespace EventReady.Data_Access_Layer
 {
-    //Converts the information stored within the database into a class that is usable by the site. Needs to access and update the logged in user's guest list - Saxon
+    //Converts the information stored within the database into a class that is usable by the site. the email section only really needs to access and update the logged in user's guest list - Saxon
 
     [DataObject(true)]
     public class EmailDataAccess
     {
 
-        // Reads Guest data from the database in regards to specified user (just add the user's Id as an argument) may be superseded by following function - Saxon
+        // Reads Guest data from the database in regards to specified user (just add the user's Id as an argument) may be made redundant by the following function - Saxon
         [DataObjectMethod(DataObjectMethodType.Select)]
         public static IEnumerable GetAllGuests(string userId)
         {
