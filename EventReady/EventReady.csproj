@@ -69,6 +69,7 @@
   <ItemGroup>
     <Content Include="Application Layer\Budget.aspx" />
     <Content Include="Application Layer\Calendar.aspx" />
+    <Content Include="Application Layer\EmailTemplate.html" />
     <Content Include="Application Layer\EventDetails.aspx" />
     <Content Include="Application Layer\Events.aspx" />
     <Content Include="Application Layer\GuestList.aspx" />
@@ -77,6 +78,7 @@
     <Content Include="Application Layer\Schedule.aspx" />
     <Content Include="Application Layer\Venue.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="Image\ribbon.PNG" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
