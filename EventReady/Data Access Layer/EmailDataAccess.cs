@@ -89,35 +89,53 @@ namespace EventReady.Data_Access_Layer
             }
         }
 
-        //adds a guest to the database under specified userId, will add an overload for both a class entry and a string entry just to make things easier. - Saxon
+        //function takes a guest class from the business layer and adds it to the database - Saxon
         [DataObjectMethod(DataObjectMethodType.Insert)]
+
         public IEnumerable AddGuest(string userId, string name, string something) //DELETE THIS LATER
         {
-            return null;
 
         }
 
-        //overloaded function takes a guest class instead of an individual string, probably more useful - Saxon
-        [DataObjectMethod(DataObjectMethodType.Insert)]
-        public IEnumerable AddGuest(string userId, Guest guest)
+        public static int AddGuest(string userId, Guest guest)
+
         {
-            return null;
+            string sql = "INSERT INTO Guest VALUES (@email, @name, " + userId + ")";
+
+            using (SqlConnection con = new SqlConnection(GetConnectionString()))
+            {
+                using (SqlCommand cmd = new SqlCommand(sql, con))
+                {
+                    cmd.Parameters.AddWithValue("name", guest.name);
+                    cmd.Parameters.AddWithValue("email", guest.email);
+
+                    con.Open();
+
+                    return cmd.ExecuteNonQuery();
+                }
+            }
+
 
         }
 
-        //Deletes a guest, also contains an overloaded option - Saxon
+
+        //Delete a guest row in the database by inserting a guest class from the business layer - Saxon
         [DataObjectMethod(DataObjectMethodType.Delete)]
-        public IEnumerable DeleteGuest(string userId, string email)
+        public static int DeleteGuest(string userId, Guest guest)
         {
-            return null;
 
-        }
+            string sql = "DELETE FROM Guest WHERE userId = " + userId + " AND email = @email";
 
-        //Delete a guest by inserting a guest class instead - Saxon
-        [DataObjectMethod(DataObjectMethodType.Delete)]
-        public IEnumerable DeleteGuest(string userId, Guest guest)
-        {
-            return null;
+            using (SqlConnection con = new SqlConnection(GetConnectionString()))
+            {
+                using (SqlCommand cmd = new SqlCommand(sql, con))
+                {
+                    cmd.Parameters.AddWithValue("email", guest.email);
+
+                    con.Open();
+                    return cmd.ExecuteNonQuery();
+                }
+            }
 
         }
 
