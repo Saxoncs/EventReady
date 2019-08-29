@@ -198,6 +198,7 @@
     <Compile Include="Business Layer\Event.cs" />
     <Compile Include="Business Layer\GlobalData.cs" />
     <Compile Include="Data Access Layer\EmailDataAccess.cs" />
+    <Compile Include="Data Access Layer\EventDataAccess.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
