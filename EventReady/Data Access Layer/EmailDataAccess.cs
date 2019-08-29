@@ -92,10 +92,10 @@ namespace EventReady.Data_Access_Layer
         //function takes a guest class from the business layer and adds it to the database - Saxon
         [DataObjectMethod(DataObjectMethodType.Insert)]
 
-        public IEnumerable AddGuest(string userId, string name, string something) //DELETE THIS LATER
-        {
-
-        }
+        //public IEnumerable AddGuest(string userId, string name, string something) //DELETE THIS LATER
+        //{
+           
+        //}
 
         public static int AddGuest(string userId, Guest guest)
 
