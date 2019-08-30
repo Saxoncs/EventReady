@@ -22,8 +22,11 @@ namespace EventReady.Data_Access_Layer
         {
 
             public string eventId;
-            public string Name;
-            public string Description;
+            public string name;
+            public string description;
+            public int daysDelayed;
+            public DateTime start;
+            public DateTime deadline;
             public string userId;
 
         }
@@ -32,9 +35,10 @@ namespace EventReady.Data_Access_Layer
         public class Step
         {
             public string stepId;
-            public string Name;
-            public string actualStart;
+            public string name;
+            public string predictedCompletion;
             public string actualCompletion;
+            public string predictedCost;
             public string actualCost;
             public string eventId;
         }
@@ -44,7 +48,7 @@ namespace EventReady.Data_Access_Layer
         public static List<Event> GetEvents(string userId)
         {
             List<Event> eventList = new List<Event>();
-            string sql = "SELECT eventId, Name, Description FROM Event WHERE userId = @userId ORDER BY Name";
+            string sql = "SELECT eventId, name, description, daysDelayed, start, deadline FROM Event WHERE userId = @userId ORDER BY Name";
 
             using (SqlConnection con = new SqlConnection(GetConnectionString()))
             {
@@ -55,14 +59,18 @@ namespace EventReady.Data_Access_Layer
                     //need to name an individual event singleEvent to prevent errors -Saxon
                     Event singleEvent;
 
+                    //I need to look up how to change values into not strings... it's possible that you just store the values as strings for now then change them later but that seems odd -Saxon
                     while (dr.Read())
                     {
 
                         singleEvent = new Event();
                         singleEvent.eventId = dr["eventId"].ToString();
-                        singleEvent.Name = dr["Name"].ToString();
-                        singleEvent.Description = dr["Description"].ToString();
+                        singleEvent.name = dr["name"].ToString();
+                        singleEvent.description = dr["description"].ToString();
                         singleEvent.userId = dr["userId"].ToString();
+                        //singleEvent.daysDelayed = dr["daysDelayed"];
+                        //singleEvent.start = dr["start"];
+                        //singleEvent.deadline = dr["deadline"];
                         eventList.Add(singleEvent);
 
                     }
@@ -76,7 +84,7 @@ namespace EventReady.Data_Access_Layer
         public static List<Step> GetSteps(string eventId)
         {
             List<Step> stepList = new List<Step>();
-            string sql = "SELECT stepId, Name, actualStart, actualCompletion, actualCost FROM Step WHERE eventId = @eventId ORDER BY actualCompletion";
+            string sql = "SELECT stepId, name, predictedCompletion, actualCompletion, predictedCost, actualCost FROM Step WHERE eventId = @eventId ORDER BY predictedCompletion";
 
             using (SqlConnection con = new SqlConnection(GetConnectionString()))
             {
@@ -92,10 +100,12 @@ namespace EventReady.Data_Access_Layer
 
                         step = new Step();
                         step.eventId = dr["eventId"].ToString();
-                        step.Name = dr["Name"].ToString();
-                        step.actualStart = dr["actualStart"].ToString();
-                        step.actualCompletion = dr["actualCompletion"].ToString();
+                        step.stepId = dr["stepId"].ToString();
+                        step.name = dr["Name"].ToString();
                         step.actualCost = dr["actualCost"].ToString();
+                        step.actualCompletion = dr["actualCompletion"].ToString();
+                        step.predictedCost = dr["predictedCost"].ToString();
+                        step.predictedCompletion = dr["predictedCompletion"].ToString();
                         stepList.Add(step);
 
                     }
