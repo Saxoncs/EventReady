@@ -23,12 +23,14 @@ namespace EventReady.Data_Access_Layer
             SqlConnection con = new SqlConnection(GetConnectionString());
             string sql = "SELECT name, email FROM Guest WHERE userId = @userId ";
             SqlCommand cmd = new SqlCommand(sql, con);
+            cmd.Parameters.AddWithValue("userId", userId);
             con.Open();
             SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
             return dr;
         }
 
         //Returns the guest list for the specified user as a strongly typed list - Saxon
+        [DataObjectMethod(DataObjectMethodType.Select)]
         public static List<Guest> GetGuests(string userId)
         {
             List<Guest> guestList = new List<Guest>();
@@ -38,6 +40,7 @@ namespace EventReady.Data_Access_Layer
             {
                 using (SqlCommand cmd = new SqlCommand(sql, con))
                 {
+                    cmd.Parameters.AddWithValue("userId",      userId);
                     con.Open();
                     SqlDataReader dr = cmd.ExecuteReader();
                     Guest guest;
@@ -60,9 +63,9 @@ namespace EventReady.Data_Access_Layer
         //the guest class that is mirrors a row in the Guest data table - Saxon
         public class Guest
         {
-            public string name;
-            public string email;
-            public string userId;
+            public string name { get; set; }
+            public string email { get; set; }
+            public string userId { get; set; }
         }
 
         // updates a specific guest entry with a new set of values provided in the form of a guest class - Saxon
@@ -91,12 +94,6 @@ namespace EventReady.Data_Access_Layer
 
         //function takes a guest class from the business layer and adds it to the database - Saxon
         [DataObjectMethod(DataObjectMethodType.Insert)]
-
-        //public IEnumerable AddGuest(string userId, string name, string something) //DELETE THIS LATER
-        //{
-           
-        //}
-
         public static int AddGuest(string userId, Guest guest)
 
         {

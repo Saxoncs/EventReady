@@ -21,26 +21,26 @@ namespace EventReady.Data_Access_Layer
         public class Event
         {
 
-            public string eventId;
-            public string name;
-            public string description;
-            public int daysDelayed;
-            public DateTime start;
-            public DateTime deadline;
-            public string userId;
+            public string eventId { get; set; }
+            public string name { get; set; }
+            public string description { get; set; }
+            public int daysDelayed { get; set; }
+            public DateTime start { get; set; }
+            public DateTime deadline { get; set; }
+            public string userId { get; set; }
 
         }
 
         //the Step class mirrors a row in the Step data table - Saxon
         public class Step
         {
-            public string stepId;
-            public string name;
-            public string predictedCompletion;
-            public string actualCompletion;
-            public string predictedCost;
-            public string actualCost;
-            public string eventId;
+            public string stepId { get; set; }
+            public string name { get; set; }
+            public string predictedCompletion { get; set; }
+            public string actualCompletion { get; set; }
+            public string predictedCost { get; set; }
+            public string actualCost { get; set; }
+            public string eventId { get; set; }
         }
 
 
