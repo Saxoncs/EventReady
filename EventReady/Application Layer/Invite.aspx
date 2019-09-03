@@ -5,9 +5,9 @@
     <asp:TextBox runat="server"></asp:TextBox>
 
 
-     <!-- trying to connect the front end to the back end database through EmailDataAccess -Saxon-->
-    <asp:DropDownList runat="server" AutoPostBack="True" DataSourceID="ObjectDataSource1" DataTextField="name" DataValueField="email">
-    </asp:DropDownList>
+     <!-- trying to connect the front end to the back end database through EmailDataAccess -Saxon -->
+    <asp:DropdownList runat="server" AutoPostBack="True" DataSourceID="ObjectDataSource1" DataTextField="name" DataValueField="email">
+    </asp:DropdownList>
     
     <!-- Default value for Data source is set to the test value in the database should be changed later -Saxon -->
     <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetGuests" TypeName="EventReady.Data_Access_Layer.EmailDataAccess">
