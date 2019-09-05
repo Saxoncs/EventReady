@@ -88,6 +88,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Global.asax" />
+    <Content Include="Image\eventreadybackground.jpg" />
     <Content Include="Image\ribbon.PNG" />
     <Content Include="Image\strip4.jpg" />
     <Content Include="Scripts\bootstrap.bundle.js" />
