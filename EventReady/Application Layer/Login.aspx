@@ -26,18 +26,20 @@
 
             <div class="center">
                   <div>
-                      <label for="username">Username</label>
-                      <input type="text" name="username" id="username"/>
+                      <label for="email">Email Address</label>
+                      <asp:Textbox runat="server" id="email"/> <br />
+                      <asp:RegularExpressionValidator Display="Dynamic" ID="RegularExpressionValidator1" CssClass="label-error" runat="server" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="email" ErrorMessage="Invalid Email Format"></asp:RegularExpressionValidator>
                   </div>
                   <br/>
                   <div>
                       <label for="password">Password</label>
-                      <input type="password" name="password" id="password"/>
+                      <asp:Textbox runat="server" id="password"/>
                   </div>
                   <br/>
             <a href="needhelpage.html">need help?</a>
 
-                  <input type="submit" value="Login"/>
+                  <asp:Button runat="server" Text="Login" OnClick="login_Click"/>
+                  <asp:Label runat="server" ID="errorMessage" Text="This login attempt has failed" Visible="false" class= "errorMessage"/>
             </div>
         </div>
     </form>

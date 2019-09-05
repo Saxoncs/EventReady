@@ -10,3 +10,7 @@
 .heading {
     text-align: center;
 }
+
+.errorMessage {
+    color: red;
+}
