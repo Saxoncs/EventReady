@@ -1,0 +1,12 @@
+﻿body {
+    background-image: url("eventreadybackground.jpg");
+    color: white;
+}
+
+.center {
+    text-align: center;
+}
+
+.heading {
+    text-align: center;
+}
