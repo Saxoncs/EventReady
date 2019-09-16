@@ -215,7 +215,7 @@
       <DependentUpon>Venue.aspx</DependentUpon>
     </Compile>
     <Compile Include="Business Layer\EmailBL.cs" />
-    <Compile Include="Business Layer\Event.cs" />
+    <Compile Include="Business Layer\EventBL.cs" />
     <Compile Include="Business Layer\GlobalData.cs" />
     <Compile Include="Business Layer\User.cs" />
     <Compile Include="Data Access Layer\EmailDataAccess.cs" />

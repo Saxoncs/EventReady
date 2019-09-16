@@ -34,13 +34,13 @@ namespace EventReady.Data_Access_Layer
         public static List<Guest> GetGuests(string userId)
         {
             List<Guest> guestList = new List<Guest>();
-            string sql = "SELECT name, email, userId FROM Guest WHERE userId = @userId ORDER BY name";
+            string sql = "SELECT name, email, userId, active FROM Guest WHERE userId = @userId ORDER BY name";
 
             using (SqlConnection con = new SqlConnection(GetConnectionString()))
             {
                 using (SqlCommand cmd = new SqlCommand(sql, con))
                 {
-                    cmd.Parameters.AddWithValue("userId",      userId);
+                    cmd.Parameters.AddWithValue("userId", userId);
                     con.Open();
                     SqlDataReader dr = cmd.ExecuteReader();
                     Guest guest;
@@ -51,6 +51,7 @@ namespace EventReady.Data_Access_Layer
                         guest.name = dr["name"].ToString();
                         guest.email = dr["email"].ToString();
                         guest.userId = dr["userId"].ToString();
+                        guest.active = dr.GetBoolean(dr.GetOrdinal("active"));
                         guestList.Add(guest);
 
                     }
@@ -66,6 +67,7 @@ namespace EventReady.Data_Access_Layer
             public string name { get; set; }
             public string email { get; set; }
             public string userId { get; set; }
+            public bool active { get; set; }
         }
 
         // updates a specific guest entry with a new set of values provided in the form of a guest class - Saxon

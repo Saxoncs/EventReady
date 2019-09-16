@@ -27,7 +27,7 @@
                     </thead>
                     <tbody>
                         <%int countID = 0; %>
-                        <%foreach (Event e in GlobalData.Events)
+                        <%foreach (EventBL e in GlobalData.Events)
                             {
                                 countID++;  %>
                         <!-- Adds the event name to the page -->

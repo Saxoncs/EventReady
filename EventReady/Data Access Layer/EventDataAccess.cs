@@ -27,6 +27,7 @@ namespace EventReady.Data_Access_Layer
             public int daysDelayed { get; set; }
             public DateTime start { get; set; }
             public DateTime deadline { get; set; }
+            public bool active { get; set; }
             public string userId { get; set; }
 
         }
@@ -48,7 +49,7 @@ namespace EventReady.Data_Access_Layer
         public static List<Event> GetEvents(string userId)
         {
             List<Event> eventList = new List<Event>();
-            string sql = "SELECT eventId, name, description, daysDelayed, start, deadline FROM Event WHERE userId = @userId ORDER BY Name";
+            string sql = "SELECT eventId, name, description, daysDelayed, start, deadline, active FROM Event WHERE userId = @userId ORDER BY Name";
 
             using (SqlConnection con = new SqlConnection(GetConnectionString()))
             {
@@ -68,9 +69,10 @@ namespace EventReady.Data_Access_Layer
                         singleEvent.name = dr["name"].ToString();
                         singleEvent.description = dr["description"].ToString();
                         singleEvent.userId = dr["userId"].ToString();
-                        //singleEvent.daysDelayed = dr["daysDelayed"];
-                        //singleEvent.start = dr["start"];
-                        //singleEvent.deadline = dr["deadline"];
+                        singleEvent.daysDelayed = dr.GetInt32(dr.GetOrdinal("daysDelayed"));
+                        singleEvent.start = dr.GetDateTime(dr.GetOrdinal("start"));
+                        singleEvent.deadline = dr.GetDateTime(dr.GetOrdinal("deadline"));
+                        singleEvent.active = dr.GetBoolean(dr.GetOrdinal("active"));
                         eventList.Add(singleEvent);
 
                     }
