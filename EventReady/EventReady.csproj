@@ -78,6 +78,7 @@
     <Content Include="Application Layer\Home.aspx" />
     <Content Include="Application Layer\Invite.aspx" />
     <Content Include="Application Layer\Login.aspx" />
+    <Content Include="Application Layer\LoginVer2.aspx" />
     <Content Include="Application Layer\Register.aspx" />
     <Content Include="Application Layer\Schedule.aspx" />
     <Content Include="Application Layer\Venue.aspx" />
@@ -128,16 +129,16 @@
     <Content Include="Scripts\umd\popper.min.js" />
     <Content Include="Style\StyleSheet.css" />
     <Content Include="Web.config" />
-    <Content Include="Style\magnific-popup.css" />
-    <None Include="Style\.DS_Store" />
-    <Content Include="Style\bootstrap.css" />
-    <Content Include="Style\owl.theme.default.min.css" />
-    <Content Include="Style\main.css" />
-    <Content Include="Style\util.css" />
-    <Content Include="Style\responsive.css" />
-    <Content Include="Style\owl.carousel.min.css" />
-    <Content Include="Style\style.css" />
-    <Content Include="Style\font-awesome.min.css" />
+    <Content Include="Style\StyleTemplate\magnific-popup.css" />
+    <None Include="Style\StyleTemplate\.DS_Store" />
+    <Content Include="Style\StyleTemplate\bootstrap.css" />
+    <Content Include="Style\StyleTemplate\owl.theme.default.min.css" />
+    <Content Include="Style\StyleTemplate\main.css" />
+    <Content Include="Style\StyleTemplate\util.css" />
+    <Content Include="Style\StyleTemplate\responsive.css" />
+    <Content Include="Style\StyleTemplate\owl.carousel.min.css" />
+    <Content Include="Style\StyleTemplate\style.css" />
+    <Content Include="Style\StyleTemplate\font-awesome.min.css" />
     <None Include="Style\Image\.DS_Store" />
     <Content Include="Style\Image\header-bg.jpg" />
     <None Include="Image\.DS_Store" />
@@ -212,6 +213,13 @@
     </Compile>
     <Compile Include="Application Layer\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Application Layer\LoginVer2.aspx.cs">
+      <DependentUpon>LoginVer2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Application Layer\LoginVer2.aspx.designer.cs">
+      <DependentUpon>LoginVer2.aspx</DependentUpon>
     </Compile>
     <Compile Include="Application Layer\MasterPage.Master.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
