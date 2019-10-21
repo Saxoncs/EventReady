@@ -1,19 +1,13 @@
 ﻿<Properties StartupConfiguration="{2C4EC722-5252-43B0-97C2-1321A4290C74}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="EventReady/Application Layer/Venue.aspx">
-    <Files>
-      <File FileName="EventReady/Global.asax" Line="1" Column="1" />
-      <File FileName="EventReady/Global.asax.cs" Line="18" Column="2" />
-      <File FileName="EventReady/Application Layer/GuestList.aspx" Line="10" Column="1" />
-      <File FileName="EventReady/Application Layer/Venue.aspx" Line="1" Column="1" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="EventReady" expanded="True">
             <Node name="EventReady" expanded="True">
-              <Node name="Application Layer" expanded="True" />
-              <Node name="Properties" selected="True" />
-              <Node name="Global.asax" expanded="True" />
+              <Node name="Application Layer" expanded="True">
+                <Node name="Venue.aspx" selected="True" />
+              </Node>
             </Node>
           </Node>
         </State>
