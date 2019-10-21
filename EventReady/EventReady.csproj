@@ -128,6 +128,33 @@
     <Content Include="Scripts\umd\popper.min.js" />
     <Content Include="Style\StyleSheet.css" />
     <Content Include="Web.config" />
+    <Content Include="Style\magnific-popup.css" />
+    <None Include="Style\.DS_Store" />
+    <Content Include="Style\bootstrap.css" />
+    <Content Include="Style\owl.theme.default.min.css" />
+    <Content Include="Style\main.css" />
+    <Content Include="Style\util.css" />
+    <Content Include="Style\responsive.css" />
+    <Content Include="Style\owl.carousel.min.css" />
+    <Content Include="Style\style.css" />
+    <Content Include="Style\font-awesome.min.css" />
+    <None Include="Style\Image\.DS_Store" />
+    <Content Include="Style\Image\header-bg.jpg" />
+    <None Include="Image\.DS_Store" />
+    <Content Include="Image\er.jpg" />
+    <Content Include="Image\header-bg.jpg" />
+    <Content Include="js\jquery.magnific-popup.min.js" />
+    <Content Include="js\isotope.pkgd.js" />
+    <Content Include="js\masonry.js" />
+    <Content Include="js\isotope.js" />
+    <Content Include="js\owl.carousel.min.js" />
+    <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\active.js" />
+    <Content Include="js\jquery-3.1.1.min.js" />
+    <Content Include="home.html" />
+    <Content Include="Guide.html" />
+    <None Include=".DS_Store" />
+    <Content Include="login.html" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Application Layer\Budget.aspx.cs">
@@ -282,6 +309,11 @@
         </WebProjectProperties>
       </FlavorProperties>
     </VisualStudio>
+    <MonoDevelop>
+      <Properties>
+        <XspParameters Port="8080" Address="127.0.0.1" SslMode="None" SslProtocol="Default" KeyType="None" CertFile="" KeyFile="" PasswordOptions="None" Password="" Verbose="True" />
+      </Properties>
+    </MonoDevelop>
   </ProjectExtensions>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
