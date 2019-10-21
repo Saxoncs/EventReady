@@ -3,26 +3,26 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="../Content/bootstrap.min.css" rel="stylesheet" />
     <link href="../Content/Site.css" rel="stylesheet" />
-    <link href="../Content/stylesheet.css" rel="stylesheet" />
+    <link href="../Style/StyleSheet.css" rel="stylesheet" />
     <script src="../Scripts/jquery-3.3.1.min.js"></script>
     <script src="../Scripts/bootstrap.bundle.min.js"></script>
     <script src="Scripts/bootstrap.min.js"></script>
 </asp:Content>
 
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:Content ID="ViewContent2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div id="viewItemlist">
-        <div class="overflow-auto">
+        <div class="itemlist overflow-auto">
             <div style="min-width: 600px">
                  <table border="0">
                     <thead>
                         <tr>
                             <!-- The names of all the headings in the table -->
-                            <th>ID #</th>
-                            <th class="text-left">NAME</th>
-                            <th class="text-right">DESCRIPTION</th>
-                            <th class="text-right">DurationModifier</th>
-                            <th class="text-right">EDIT</th>
-                            <th class="text-right">DELETE</th>
+                            <th class="text-list-colour"><strong>ID #</strong></th>
+                            <th class="text-left, text-list-colour"><strong>NAME</strong></th>
+                            <th class="text-left, text-list-colour"><strong>DESCRIPTION</strong></th>
+                            <th class="text-left, text-list-colour"><strong>DurationModifier</strong></th>
+                            <th class="text-left, text-list-colour"><strong>EDIT</strong></th>
+                            <th class="text-left, text-list-colour"><strong>DELETE</strong></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -34,28 +34,28 @@
                     <tr>
                             <td class="no"><%= countID %></td>
                             <td class="text-left">
-                                <p><%=e.Name %></p>
+                                <p class ="text-list-colour"><%=e.Name %></p>
                                 
                             </td>
                             
                                 
                            <!-- Adds event description -->
                             <td class="text-left">
-                                <p><%=e.Description %></p>
+                                <p class ="text-list-colour"><%=e.Description %></p>
                                 
                             </td>
  
                             
                             <!-- Adds event duration modifier -->
                             <td class="text-left">
-                                <p><%=e.DurationModifier %></p>
+                                <p class ="text-list-colour"><%=e.DurationModifier %></p>
                                 
                             </td>
 
                             <td class="text-left">
-                                 <td class="text-left">
+                                
                                     <input type="button" class="btn btn-success" value="EDIT"/>
-                                </td>
+                            
          
                             </td>
                         
