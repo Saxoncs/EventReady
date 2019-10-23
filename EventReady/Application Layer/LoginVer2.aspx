@@ -44,7 +44,7 @@
         
 </head>
 <body>
-    <div class="container-login100" style="background-image: url('Image/header-bg.jpg');">
+    <div class="container-login100" style="background-image: url('../Image/header-bg.jpg');">
 		<div class="wrap-login100 p-l-55 p-r-55 p-t-80 p-b-30">
     <form id="form1" runat="server" class="login100-form validate-form">
         
@@ -88,6 +88,9 @@
 					<a href="#" class="txt2 hov1">
 						Sign Up
 					</a>
+				</div>
+                <div class="text-center">
+					<asp:HyperLink id="forgotPasswordLink" NavigateUrl="ForgotPassword.aspx" Text="Forgot your password?" runat="server"></asp:HyperLink>
 				</div>
 			</form>
 

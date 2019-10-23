@@ -165,3 +165,4 @@ C:\Users\Gryvvin\source\repos\EventReady\EventReady\obj\Debug\EventReady.csproj.
 C:\Users\Gryvvin\source\repos\EventReady\EventReady\obj\Debug\EventReady.dll
 C:\Users\Gryvvin\source\repos\EventReady\EventReady\obj\Debug\EventReady.pdb
 C:\Users\Gryvvin\source\repos\EventReady\EventReady\obj\Debug\EventReady.csprojAssemblyReference.cache
+C:\Users\robby\Documents\GitHub\EventReady\EventReady\bin\AjaxControlToolkit.dll

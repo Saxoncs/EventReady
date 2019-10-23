@@ -45,6 +45,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=19.1.0.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <HintPath>..\packages\AjaxControlToolkit.19.1.0\lib\net40\AjaxControlToolkit.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -74,7 +77,9 @@
     <Content Include="Application Layer\EmailTemplate.html" />
     <Content Include="Application Layer\EventDetails.aspx" />
     <Content Include="Application Layer\Events.aspx" />
+    <Content Include="Application Layer\ForgotPassword.aspx" />
     <Content Include="Application Layer\GuestList.aspx" />
+    <Content Include="Application Layer\Guide.aspx" />
     <Content Include="Application Layer\Home.aspx" />
     <Content Include="Application Layer\Invite.aspx" />
     <Content Include="Application Layer\Login.aspx" />
@@ -186,12 +191,26 @@
     <Compile Include="Application Layer\Events.aspx.designer.cs">
       <DependentUpon>Events.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Application Layer\ForgotPassword.aspx.cs">
+      <DependentUpon>ForgotPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Application Layer\ForgotPassword.aspx.designer.cs">
+      <DependentUpon>ForgotPassword.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Application Layer\GuestList.aspx.cs">
       <DependentUpon>GuestList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Application Layer\GuestList.aspx.designer.cs">
       <DependentUpon>GuestList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Application Layer\Guide.aspx.cs">
+      <DependentUpon>Guide.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Application Layer\Guide.aspx.designer.cs">
+      <DependentUpon>Guide.aspx</DependentUpon>
     </Compile>
     <Compile Include="Application Layer\Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
