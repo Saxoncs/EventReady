@@ -82,6 +82,7 @@
     <Content Include="Application Layer\Guide.aspx" />
     <Content Include="Application Layer\Home.aspx" />
     <Content Include="Application Layer\Invite.aspx" />
+    <Content Include="Application Layer\InviteVers2.aspx" />
     <Content Include="Application Layer\Login.aspx" />
     <Content Include="Application Layer\LoginVer2.aspx" />
     <Content Include="Application Layer\Register.aspx" />
@@ -225,6 +226,13 @@
     </Compile>
     <Compile Include="Application Layer\Invite.aspx.designer.cs">
       <DependentUpon>Invite.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Application Layer\InviteVers2.aspx.cs">
+      <DependentUpon>InviteVers2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Application Layer\InviteVers2.aspx.designer.cs">
+      <DependentUpon>InviteVers2.aspx</DependentUpon>
     </Compile>
     <Compile Include="Application Layer\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
