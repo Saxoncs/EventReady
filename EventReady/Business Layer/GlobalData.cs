@@ -15,9 +15,9 @@ namespace EventReady.Business_Layer
         static GlobalData()
         {
             Events = new List<EventBL>();
-            Events.Add(new EventBL("Birthday", "18th birthday party", 5));
-            Events.Add(new EventBL("Party", "Big party at my fav resturant", 5));
-            Events.Add(new EventBL("Get together", "Some random text that will do somethibg", 5));
+            Events.Add(new EventBL("Birthday", "18th birthday party", "bob", "done", "21/09/19", "2123 random place dr", "0432564356", "testemail@gmail.com"));
+            Events.Add(new EventBL("Get together", "Big wedding", "josh", "hob", "12/02/19", "432 place dr", "0542564356", "randomemail@gmail.com"));
+            Events.Add(new EventBL("Wedding", "Some other stuff", "dylon", "cobey", "30/04/19", "2123 random place dr", "0432564356", "otheremail@gmail.com"));
 
             userMap = new Dictionary<string, User>();
             userMap.Add("user@gmail.com", new User("Jo", "Black", "user@gmail.com", "password", "43 random dr City 2131"));

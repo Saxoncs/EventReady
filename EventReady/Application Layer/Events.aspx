@@ -20,7 +20,12 @@
                             <th class="text-list-colour"><strong>ID #</strong></th>
                             <th class="text-left, text-list-colour"><strong>NAME</strong></th>
                             <th class="text-left, text-list-colour"><strong>DESCRIPTION</strong></th>
-                            <th class="text-left, text-list-colour"><strong>DurationModifier</strong></th>
+                            <th class="text-left, text-list-colour"><strong>FIRSTNAME</strong></th>
+                            <th class="text-left, text-list-colour"><strong>LASTNAME</strong></th>
+                            <th class="text-left, text-list-colour"><strong>EVENT DATE</strong></th>
+                            <th class="text-left, text-list-colour"><strong>EVENT ADDRESS</strong></th>
+                            <th class="text-left, text-list-colour"><strong>CONTACT NUMBER</strong></th>
+                            <th class="text-left, text-list-colour"><strong>CONTACT EMAIL</strong></th>
                             <th class="text-left, text-list-colour"><strong>EDIT</strong></th>
                             <th class="text-left, text-list-colour"><strong>DELETE</strong></th>
                         </tr>
@@ -34,7 +39,7 @@
                     <tr>
                             <td class="no"><%= countID %></td>
                             <td class="text-left">
-                                <p class ="text-list-colour"><%=e.Name %></p>
+                                <p class ="text-list-colour"><%=e.EventName %></p>
                                 
                             </td>
                             
@@ -48,7 +53,32 @@
                             
                             <!-- Adds event duration modifier -->
                             <td class="text-left">
-                                <p class ="text-list-colour"><%=e.DurationModifier %></p>
+                                <p class ="text-list-colour"><%=e.FirstName %></p>
+                                
+                            </td>
+
+                            <td class="text-left">
+                                <p class ="text-list-colour"><%=e.LastName %></p>
+                                
+                            </td>
+
+                            <td class="text-left">
+                                <p class ="text-list-colour"><%=e.EventDate %></p>
+                                
+                            </td>
+
+                            <td class="text-left">
+                                <p class ="text-list-colour"><%=e.EventAddress %></p>
+                                
+                            </td>
+
+                            <td class="text-left">
+                                <p class ="text-list-colour"><%=e.ContactPhone %></p>
+                                
+                            </td>
+
+                            <td class="text-left">
+                                <p class ="text-list-colour"><%=e.ContactEmail %></p>
                                 
                             </td>
 

@@ -10,21 +10,31 @@ namespace EventReady.Business_Layer
     {
 
         //These should be deleted and the system rebuilt to work with the classes from the database using the "GetActiveEvents" function -Saxon
-        public string Name { get; set; }
+        public string EventName { get; set; }
         public string Description { get; set; }
-        public int DurationModifier { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string EventDate { get; set; }
+        public string EventAddress { get; set; }
+        public string ContactPhone { get; set; }
+        public string ContactEmail { get; set; }
 
-        public EventBL(string name, string description, int durationmodifier)
+        public EventBL(string eventname, string description, string firstname, string lastname, string eventdate, string eventaddress, string contactphone, string contactemail)
         {
-            Name = name;
+            EventName = eventname;
             Description = description;
-            DurationModifier = durationmodifier;
+            FirstName = firstname;
+            LastName = lastname;
+            EventDate = eventdate;
+            EventAddress = eventaddress;
+            ContactPhone = contactphone;
+            ContactEmail = contactemail;
         }
         // All this should go - Saxon
 
 
         //Needs to get the user id from session data, should otherwise return a list of guests associated with the logged in user to be worked with by the user layer - Saxon
-        public List<Event> GetActiveEvents(string userId)
+       /* public List<Event> GetActiveEvents(string userId)
         {
 
             List<Event> eventList = GetEvents(userId);
@@ -42,6 +52,6 @@ namespace EventReady.Business_Layer
 
 
             return activeEvents;
-        }
+        }*/
     }
 }

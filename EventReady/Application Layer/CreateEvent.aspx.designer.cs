@@ -10,87 +10,123 @@
 namespace EventReady.Application_Layer {
     
     
-    public partial class EventDetails {
+    public partial class CreateEvent {
         
         /// <summary>
-        /// lblEName control.
+        /// lblHeader control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEName;
+        protected global::System.Web.UI.WebControls.Label lblHeader;
         
         /// <summary>
-        /// lblFName control.
+        /// lblEventName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFName;
+        protected global::System.Web.UI.WebControls.Label lblEventName;
         
         /// <summary>
-        /// lblLName control.
+        /// txtbxEventName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLName;
+        protected global::System.Web.UI.WebControls.TextBox txtbxEventName;
         
         /// <summary>
-        /// lblEDate control.
+        /// lblNames control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEDate;
+        protected global::System.Web.UI.WebControls.Label lblNames;
         
         /// <summary>
-        /// lblEAddress control.
+        /// txtbxFirstName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEAddress;
+        protected global::System.Web.UI.WebControls.TextBox txtbxFirstName;
         
         /// <summary>
-        /// lblEDescription control.
+        /// txtbxLastName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEDescription;
+        protected global::System.Web.UI.WebControls.TextBox txtbxLastName;
         
         /// <summary>
-        /// lblEEmail control.
+        /// txtbxDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEEmail;
+        protected global::System.Web.UI.WebControls.TextBox txtbxDate;
         
         /// <summary>
-        /// lblEPhone control.
+        /// txtbxAddress control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEPhone;
+        protected global::System.Web.UI.WebControls.TextBox txtbxAddress;
         
         /// <summary>
-        /// btnConfirm control.
+        /// txtbxConPhone control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnConfirm;
+        protected global::System.Web.UI.WebControls.TextBox txtbxConPhone;
+        
+        /// <summary>
+        /// txtbxConEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtbxConEmail;
+        
+        /// <summary>
+        /// lblDescription control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDescription;
+        
+        /// <summary>
+        /// txtbxDescription control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtbxDescription;
+        
+        /// <summary>
+        /// btnContinue control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnContinue;
     }
 }

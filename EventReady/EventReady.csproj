@@ -74,6 +74,7 @@
   <ItemGroup>
     <Content Include="Application Layer\Budget.aspx" />
     <Content Include="Application Layer\Calendar.aspx" />
+    <Content Include="Application Layer\CreateEvent.aspx" />
     <Content Include="Application Layer\EmailTemplate.html" />
     <Content Include="Application Layer\EventDetails.aspx" />
     <Content Include="Application Layer\Events.aspx" />
@@ -177,6 +178,13 @@
     </Compile>
     <Compile Include="Application Layer\Calendar.aspx.designer.cs">
       <DependentUpon>Calendar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Application Layer\CreateEvent.aspx.cs">
+      <DependentUpon>CreateEvent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Application Layer\CreateEvent.aspx.designer.cs">
+      <DependentUpon>CreateEvent.aspx</DependentUpon>
     </Compile>
     <Compile Include="Application Layer\EventDetails.aspx.cs">
       <DependentUpon>EventDetails.aspx</DependentUpon>
