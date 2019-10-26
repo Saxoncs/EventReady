@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Net.Mail;
 using System.IO;
+using EventReady.Business_Layer;
 
 namespace EventReady.Application_Layer
 {
@@ -218,7 +219,9 @@ namespace EventReady.Application_Layer
                     {
                         client.Send(msg);
                         //Send to main page with pop message about sent email
+                        GlobalData.guestList.Add(GlobalData.guestList[GlobalData.guestList.IndexOf(((TextBox)ctr).Text)]);
                     }
+
                     catch
                     {
                         //Display error message for email failing to send 

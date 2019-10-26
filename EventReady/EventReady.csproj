@@ -87,6 +87,7 @@
     <Content Include="Application Layer\Login.aspx" />
     <Content Include="Application Layer\LoginVer2.aspx" />
     <Content Include="Application Layer\Register.aspx" />
+    <Content Include="Application Layer\RSVPPage.aspx" />
     <Content Include="Application Layer\Schedule.aspx" />
     <Content Include="Application Layer\Venue.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
@@ -269,6 +270,13 @@
     </Compile>
     <Compile Include="Application Layer\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Application Layer\RSVPPage.aspx.cs">
+      <DependentUpon>RSVPPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Application Layer\RSVPPage.aspx.designer.cs">
+      <DependentUpon>RSVPPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Application Layer\Schedule.aspx.cs">
       <DependentUpon>Schedule.aspx</DependentUpon>

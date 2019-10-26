@@ -19,7 +19,9 @@ namespace EventReady.Application_Layer
         {
             if (IsValid)
             {
-                EventBL ev = new EventBL(txtbxEventName.Text, txtbxDescription.Text, txtbxFirstName.Text, txtbxLastName.Text, txtbxDate.Text, txtbxAddress.Text, txtbxConPhone.Text, txtbxConEmail.Text);
+                List<String> temp = new List<String>();
+                temp.Add("");
+                EventBL ev = new EventBL("tempuser@gmail.com", txtbxEventName.Text, txtbxDescription.Text, txtbxFirstName.Text, txtbxLastName.Text, txtbxDate.Text, txtbxAddress.Text, txtbxConPhone.Text, txtbxConEmail.Text, temp);
                 
                 Session.Add("event", ev);
                 Response.Redirect("EventDetails.aspx");

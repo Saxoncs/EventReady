@@ -29,7 +29,7 @@ namespace EventReady.Application_Layer
             }
             else
             {
-                Response.Redirect("Invite.aspx");
+                Response.Redirect("InviteVers2.aspx");
             }
         }
 
@@ -37,6 +37,7 @@ namespace EventReady.Application_Layer
         {
             eventbl = (EventBL)Session["event"];
             GlobalData.Events.Add(eventbl);
+            
             /*foreach (Product p in order.Products)
             {
                 foreach (Product p2 in GlobalData.productList)

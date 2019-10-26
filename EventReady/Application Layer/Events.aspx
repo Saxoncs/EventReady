@@ -26,8 +26,9 @@
                             <th class="text-left, text-list-colour"><strong>EVENT ADDRESS</strong></th>
                             <th class="text-left, text-list-colour"><strong>CONTACT NUMBER</strong></th>
                             <th class="text-left, text-list-colour"><strong>CONTACT EMAIL</strong></th>
+                            <th class="text-left, text-list-colour"><strong>GUEST LIST</strong></th>
                             <th class="text-left, text-list-colour"><strong>EDIT</strong></th>
-                            <th class="text-left, text-list-colour"><strong>DELETE</strong></th>
+                            <th class="text-left, text-list-colour"><strong>REMOVE</strong></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -39,14 +40,14 @@
                     <tr>
                             <td class="no"><%= countID %></td>
                             <td class="text-left">
-                                <p class ="text-list-colour"><%=e.EventName %></p>
+                                <p class="text-list-colour"><%=e.EventName %></p>
                                 
                             </td>
                             
                                 
                            <!-- Adds event description -->
                             <td class="text-left">
-                                <p class ="text-list-colour"><%=e.Description %></p>
+                                <p class="text-list-colour"> <%=e.Description %></p>
                                 
                             </td>
  
@@ -81,6 +82,14 @@
                                 <p class ="text-list-colour"><%=e.ContactEmail %></p>
                                 
                             </td>
+                            
+
+                            <td class="text-left">
+                                
+                                    <input type="button" class="btn btn-success" value="RSVP"/>
+                            
+         
+                            </td>
 
                             <td class="text-left">
                                 
@@ -90,7 +99,7 @@
                             </td>
                         
                             <td class="text-left">
-                                <input type="button" class="btn btn-danger" value="DELETE" onclick="window.location.href = 'Events.aspx?mode=toggleDelete&event=<%=GlobalData.Events.IndexOf(e)%>'; return false"/>
+                                <input type="button" class="btn btn-danger" value="REMOVE" onclick="window.location.href = 'Events.aspx?mode=toggleDelete&event=<%=GlobalData.Events.IndexOf(e)%>'; return false"/>
  
                             </td>
                         </tr>
