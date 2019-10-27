@@ -12,6 +12,9 @@ namespace EventReady.Application_Layer
 {
     public partial class InviteVers2 : System.Web.UI.Page
     {
+        //List<String> guestListTemp;
+        protected EventBL eventbl;
+        //protected List<String> list;
         TextBox tb;
         static int i = 0;
         static int p = 0;
@@ -20,10 +23,15 @@ namespace EventReady.Application_Layer
         int z = 0;
         //Date: 23/mar/14
         //Author: Win
-        //URL:
+        //URL: https://stackoverflow.com/questions/22591756/get-values-from-dynamically-added-textboxes-asp-net-c-sharp
         //USE: to get values out of dynamic created textboxes
 
-        protected
+            private List <String> guestListTemp
+        {
+            get;
+            set;
+        }
+        //protected
             private List<string> TextBoxIdCollection
         {
             get
@@ -47,6 +55,7 @@ namespace EventReady.Application_Layer
         
         protected void btnAddField_Click(object sender, EventArgs e)
         {
+          
             //Author: Pranay Rana
             //Date: 21/11/19
             //https://stackoverflow.com/questions/13488006/dynamically-add-a-new-text-box-when-clicking-a-button
@@ -168,6 +177,8 @@ namespace EventReady.Application_Layer
         }
         private void SendHtmlFormattedEmail(string body)
         {
+            guestListTemp = new List<String>();
+
             //for (p = 1; p <= j; p++)
             //{ 
             foreach (Control ctr in PlaceHolder1.Controls)
@@ -195,7 +206,7 @@ namespace EventReady.Application_Layer
                     client.Credentials = credentials;
                     //------------------------------------------------------------------------------
 
-
+                    
                     //Add email content including from, to, subject and body
                     MailMessage msg = new MailMessage();
                     msg.From = new MailAddress("eventready281@gmail.com");
@@ -215,11 +226,22 @@ namespace EventReady.Application_Layer
 
                     msg.AlternateViews.Add(view);
 
+                    
+                     string tempEmail = ((TextBox)ctr).Text;
+
+
+                    
                     try
                     {
+
+                        //GlobalData.
+                            guestListTemp.Add(tempEmail);
+
+                        //GlobalData.guestList.Add(tempEmail);
                         client.Send(msg);
-                        //Send to main page with pop message about sent email
-                        GlobalData.guestList.Add(GlobalData.guestList[GlobalData.guestList.IndexOf(((TextBox)ctr).Text)]);
+                        //GlobalData.guestList.Add(GlobalData.guestList[GlobalData.guestList.IndexOf(((TextBox)ctr).Text)]);
+                        
+
                     }
 
                     catch
@@ -234,9 +256,20 @@ namespace EventReady.Application_Layer
         
         protected void btnConfirmGuests_Click(object sender, EventArgs e)
         {
-           
+            
+
             string body = this.PopulateBody();
             this.SendHtmlFormattedEmail(body);
+            if (Session["event"] != null)
+            {
+                //list = (List<String>)Session["event"];
+                eventbl = (EventBL)Session["event"];
+               
+                eventbl.GuestList = guestListTemp;
+                GlobalData.Events.Add(eventbl);
+
+                Session.Remove("event");
+            }
         }
     }
 }

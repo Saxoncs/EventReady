@@ -34,8 +34,10 @@
                     <tbody>
                         <%int countID = 0; %>
                         <%foreach (EventBL e in GlobalData.Events)
-                            {
-                                countID++;  %>
+                            { 
+                                  %>
+                            <%if (user.Equals(e.UserEmail))
+                                { countID++; %>
                         <!-- Adds the event name to the page -->
                     <tr>
                             <td class="no"><%= countID %></td>
@@ -86,7 +88,7 @@
 
                             <td class="text-left">
                                 
-                                    <input type="button" class="btn btn-success" value="RSVP"/>
+                                    <a href="RSVPPage.aspx?guestList=<%=GlobalData.Events.IndexOf(e) %>"> RSVP List</a>
                             
          
                             </td>
@@ -103,7 +105,8 @@
  
                             </td>
                         </tr>
-                        <% } %>
+                        <% }
+                            }%>
                         </tbody>
                      </table>
             </div>

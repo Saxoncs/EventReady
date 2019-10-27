@@ -24,17 +24,21 @@
                     </thead>
                     <tbody>
                         <%int countID = 0; %>
-                        <%foreach (String e in GlobalData.guestList)
-                            {
-                                countID++;  %>
+                         <%foreach (EventBL e in GlobalData.Events)
+    {
+        if (Convert.ToInt32(guestList) == GlobalData.Events.IndexOf(e))
+        {
+            countID++;  %>
                         <!-- Adds the event name to the page -->
                     <tr>
                             <td class="no"><%= countID %></td>
+                            <%// Need a for each here that will loop through the guest list 
+                            %>
                             <td class="text-left">
-                                <p class="text-list-colour"><%=e %></p>
+                                <p class="text-list-colour"><%//= %></p>
                                 
                             </td>
-                            
+                            <% %>
                                 
                            <!-- Adds event description -->
                             <td class="text-left">
@@ -45,7 +49,8 @@
                             
                             
                         </tr>
-                        <% } %>
+                        <% }
+    }%>
                         </tbody>
                      </table>
             </div>

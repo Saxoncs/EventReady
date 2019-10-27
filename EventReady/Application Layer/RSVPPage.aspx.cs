@@ -9,9 +9,10 @@ namespace EventReady.Application_Layer
 {
     public partial class RSVPPage : System.Web.UI.Page
     {
+        protected string guestList;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            guestList = Request.QueryString["guestList"];
         }
     }
 }

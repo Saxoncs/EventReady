@@ -11,11 +11,22 @@ namespace EventReady.Application_Layer
     public partial class EventDetails : System.Web.UI.Page
     {
         protected EventBL eventbl;
+        //protected List<String> list; 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["event"] != null )
             {
+                //list = (List<String>)Session["event"];
                 eventbl = (EventBL)Session["event"];
+                //lblEName.Text = list[1];
+                //lblEDescription.Text = list[2];
+                //lblFName.Text = list[3];
+                //lblLName.Text = list[4];
+                //lblEDate.Text = list[5];
+                //lblEAddress.Text = list[6];
+                //lblEPhone.Text = list[7];
+                //lblEEmail.Text = list[8];
+
                 lblEName.Text = eventbl.EventName;
                 lblFName.Text = eventbl.FirstName;
                 lblLName.Text = eventbl.LastName;
@@ -24,8 +35,8 @@ namespace EventReady.Application_Layer
                 lblEPhone.Text = eventbl.ContactPhone;
                 lblEEmail.Text = eventbl.ContactEmail;
                 lblEDescription.Text = eventbl.Description;
-                
-                 
+
+
             }
             else
             {
@@ -36,7 +47,8 @@ namespace EventReady.Application_Layer
         protected void btnConfirm_Click(object sender, EventArgs e)
         {
             eventbl = (EventBL)Session["event"];
-            GlobalData.Events.Add(eventbl);
+           
+           // GlobalData.Events.Add(eventbl);
             
             /*foreach (Product p in order.Products)
             {
@@ -56,7 +68,7 @@ namespace EventReady.Application_Layer
                 }
             }*/
             //GlobalData.productList = temp;
-            Session.Remove("event");
+            //Session.Remove("event");
             Response.Redirect("InviteVers2.aspx");
         }
     }

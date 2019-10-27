@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Application Layer/MasterPage.Master" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="EventReady.Application_Layer.Home" %>
+<%@ Import Namespace="EventReady.Business_Layer"%>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="https://fonts.googleapis.com/css?family=Dancing+Script:400,700|Open+Sans:400,600,700,800" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800,900" rel="stylesheet">
@@ -35,13 +36,15 @@
                                         <img src="../Image/er.jpg" alt="Image/er.jpg" style="width:80px;height:80px;" />
 
                                     </div>
+                                    <% User user = (User)Session["user"]; %>
                                 </div>
                                 <div class="col-md-9 col-sm-12 col-xs-12">
                                     <div class="menu">
                                         <ul class="nav navbar-nav">
                                             <li class="active"><a href="#">HOME</a></li>
                                             <li><a href="#">ABOUT</a></li>
-                                            <li><a href="#">EVENTS</a></li>
+                                            <li><a href="CreateEvent.aspx?user=<%=user.Email%>">Create Event</a></li>
+                                            <li><a href="Events.aspx?user=<%=user.Email %>">EVENTS</a></li>
                                             <li><a href="guide.html">GUIDE</a></li>
                                             <li><a href="#">LOG OUT</a></li>
                                         </ul>

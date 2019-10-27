@@ -66,22 +66,21 @@
 
 				<div class="wrap-input100 validate-input m-b-20" data-validate="Enter username or email">
                   
-					<asp:Textbox class="input100" runat="server" Text="Email"/>
+					<asp:Textbox class="input100" runat="server" Text="Email" ID="txtbxEmail"/>
                   
 					<span class="focus-input100"></span>
 				</div>
 
 				<div class="wrap-input100 validate-input m-b-25" data-validate = "Enter password">
-					<asp:Textbox class="input100" runat="server" Text ="Password"/>
+					<asp:Textbox class="input100" runat="server" Text ="Password" ID="txtbxPassword"/>
 					<span class="focus-input100"></span>
 				</div>
 
 
 
 				<div class="container-login100-form-btn">
-					<button class="login100-form-btn">
-						Sign In
-					</button>
+					<asp:button class="login100-form-btn" runat="server" Text="Sign In" OnClick="btnLogin_Click"/>
+						
 				</div>
 <br/>
 				<div class="text-center">
