@@ -31,6 +31,15 @@ namespace EventReady.Application_Layer {
         protected global::System.Web.UI.WebControls.Label lblEventName;
         
         /// <summary>
+        /// ValEventName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ValEventName;
+        
+        /// <summary>
         /// txtbxEventName control.
         /// </summary>
         /// <remarks>
@@ -49,6 +58,15 @@ namespace EventReady.Application_Layer {
         protected global::System.Web.UI.WebControls.Label lblNames;
         
         /// <summary>
+        /// ValFirstName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ValFirstName;
+        
+        /// <summary>
         /// txtbxFirstName control.
         /// </summary>
         /// <remarks>
@@ -58,6 +76,15 @@ namespace EventReady.Application_Layer {
         protected global::System.Web.UI.WebControls.TextBox txtbxFirstName;
         
         /// <summary>
+        /// ValLastName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ValLastName;
+        
+        /// <summary>
         /// txtbxLastName control.
         /// </summary>
         /// <remarks>
@@ -65,6 +92,24 @@ namespace EventReady.Application_Layer {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtbxLastName;
+        
+        /// <summary>
+        /// ValDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ValDate;
+        
+        /// <summary>
+        /// valDateCheck control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator valDateCheck;
         
         /// <summary>
         /// txtbxDate control.
@@ -92,6 +137,15 @@ namespace EventReady.Application_Layer {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtbxConPhone;
+        
+        /// <summary>
+        /// ValConEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator ValConEmail;
         
         /// <summary>
         /// txtbxConEmail control.

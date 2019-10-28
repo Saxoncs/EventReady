@@ -64,6 +64,7 @@ namespace EventReady.Data_Access_Layer
         //the guest class that is mirrors a row in the Guest data table - Saxon
         public class Guest
         {
+            
             public string name { get; set; }
             public string email { get; set; }
             public string userId { get; set; }

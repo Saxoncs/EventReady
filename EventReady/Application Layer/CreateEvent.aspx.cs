@@ -14,6 +14,7 @@ namespace EventReady.Application_Layer
         protected void Page_Load(object sender, EventArgs e)
         {
             user = Request.QueryString["user"];
+            valDateCheck.ValueToCompare = DateTime.Now.ToShortDateString();
         }
 
         protected void btnContinue_Click(object sender, EventArgs e)

@@ -1,11 +1,11 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="LoginVer2.aspx.cs" Inherits="EventReady.Application_Layer.LoginVer2" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RegisterVers2.aspx.cs" Inherits="EventReady.Application_Layer.RegisterVers2" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+        <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="../Style/StyleTemplate/bootstrap.min.css"/>
 <!--===============================================================================================-->
@@ -41,58 +41,58 @@
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>
-        
 </head>
 <body>
-    <div class="container-login100" style="background-image: url('../Image/header-bg.jpg');">
+   
+        <div class="container-login100" style="background-image: url('../Image/header-bg.jpg');">
 		<div class="wrap-login100 p-l-55 p-r-55 p-t-80 p-b-30">
-    <form id="form1" runat="server" class="login100-form validate-form">
-        
-			
+			<form class="login100-form validate-form" runat="server">
 				<div class="login100-form-title p-b-37" >
 
 				<div>
-			
-                    <img src="../Image/er.jpg"  style="width:80px;height:80px;"/> 
+					<img src="../Image/er.jpg"  style="width:80px;height:80px;"/>
 				</div>
 
 					<h1>Event Ready</h1>
 				</div>
 				<span class="login100-form-title p-b-37">
-					Sign In
+					Register
 				</span>
-          
 
-                <asp:RegularExpressionValidator Display="Dynamic" ID="ValEmail" class="input100" runat="server" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="txtbxEmail" ErrorMessage="Invalid Email Format" style="color:red"></asp:RegularExpressionValidator>
-				<div class="wrap-input100 validate-input m-b-20" data-validate="Enter username or email">
-                  
-					<asp:Textbox class="input100" runat="server" placeholder="Email" ID="txtbxEmail"/>
-                    
+				<div class="wrap-input100 validate-input m-b-20" data-validate="Enter First Name">
+					<asp:textbox class="input100" type="text" name="First Name" placeholder="First Name" runat="server"/>
 					<span class="focus-input100"></span>
 				</div>
-                
-                <asp:requiredfieldvalidator display="Dynamic" class="input100" runat="server" ID="ValPassword" ControlToValidate="txtbxPassword" ErrorMessage="Password field cannot be empty" style="color:red"></asp:requiredfieldvalidator>
+
+				<div class="wrap-input100 validate-input m-b-20" data-validate="Enter Last Name">
+					<asp:textbox class="input100" type="text" name="Last Name" placeholder="Last Name" runat="server"/>
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input m-b-20" data-validate="Enter username">
+					<asp:textbox class="input100" type="text" name="username" placeholder="Username" runat="server"/>
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input m-b-20" data-validate="Enter email">
+					<asp:textbox class="input100" type="text" name="email" placeholder="Email" runat="server" />
+					<span class="focus-input100"></span>
+				</div>
+
 				<div class="wrap-input100 validate-input m-b-25" data-validate = "Enter password">
-					<asp:Textbox class="input100" runat="server" placeholder="Password" ID="txtbxPassword" type="password"/>
-                    
+					<asp:textbox class="input100" type="password" name="pass" placeholder="Password" runat="server" />
 					<span class="focus-input100"></span>
 				</div>
 
 
 
 				<div class="container-login100-form-btn">
-					<asp:button class="login100-form-btn" runat="server" Text="Sign In" OnClick="btnLogin_Click"/>
-						
-				</div>
-<br/>
-				<div class="text-center">
-					<a href="#" class="txt2 hov1">
+					<button class="login100-form-btn">
 						Sign Up
-					</a>
+					</button>
 				</div>
-                <div class="text-center">
-					<asp:HyperLink id="forgotPasswordLink" NavigateUrl="ForgotPassword.aspx" Text="Forgot your password?" runat="server"></asp:HyperLink>
-				</div>
+</br>
+
 			</form>
 
 
@@ -102,8 +102,6 @@
 
 
 	<div id="dropDownSelect1"></div>
-
-
- 
+  
 </body>
 </html>
