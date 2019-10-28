@@ -30,10 +30,10 @@ namespace EventReady.Business_Layer
             Events.Add(new EventBL("test@gmail.com", "Wedding", "Some other stuff", "dylon", "cobey", "30/04/19", "2123 random place dr", "0432564356", "otheremail@gmail.com", guestList));
 
             userMap = new Dictionary<string, User>();
-            userMap.Add("user@gmail.com", new User("Jo", "Black", "user@gmail.com", "password", "43 random dr City 2131"));
+            userMap.Add("user@gmail.com", new User("Jo", "Black", "user@gmail.com", "password"));
 
-            User1 = new List<User>();
-            User1.Add(new User("Jo", "Black", "user@gmail.com", "password1", "43 random dr City 2131"));
+            //User1 = new List<User>();
+           // User1.Add(new User("Jo", "Black", "user@gmail.com", "password1", "43 random dr City 2131"));
         }
     }
 }

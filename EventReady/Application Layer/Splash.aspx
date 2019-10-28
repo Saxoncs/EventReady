@@ -45,18 +45,14 @@
 <body>
     <div class="container-login100" style="background-image: url('../Image/header-bg.jpg');">
 		<div class="wrap-login100 p-l-55 p-r-55 p-t-80 p-b-30">
-			<form class="login100-form validate-form">
+			<form class="login100-form validate-form" runat="server">
 				<div class="login100-form-title p-b-37" >
 
-				<div>
-					<img src="../Image/er.jpg"  style="width:80px;height:80px;"/>
-				</div>
-
+				    <div>
+					    <img src="../Image/er.jpg"  style="width:80px;height:80px;"/>
+				    </div>
 					<h1>Welcome</h1>
 				</div>
-
-
-
 
 				<div>
 					<a>Welcome to Event Ready. At Event Ready we provide services for blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah</a>
@@ -64,26 +60,12 @@
 
 				<br/>
 
-
-
-
-
 				<div class="container-login100-form-btn">
-					<button class="login100-form-btn">
-						Sign In
-					</button>
+                    <asp:Button runat="server" class="login100-form-btn" ID="btnSignInCheck" OnClick="btnSignIn_Click" Text="Sign In" />
 				</div>
-<br/>
-
-
+            <br/>
 			</form>
-
-
 		</div>
 	</div>
-
-
-
-	<div id="dropDownSelect1"></div>
 </body>
 </html>

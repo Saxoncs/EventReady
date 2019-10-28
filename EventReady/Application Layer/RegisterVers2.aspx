@@ -59,39 +59,56 @@
 					Register
 				</span>
 
-				<div class="wrap-input100 validate-input m-b-20" data-validate="Enter First Name">
-					<asp:textbox class="input100" type="text" name="First Name" placeholder="First Name" runat="server"/>
+                <asp:requiredfieldvalidator display="Dynamic" class="input100" runat="server" ID="ValEmail" ControlToValidate="txtbxEmail" ErrorMessage="Email field cannot be empty" style="color:red"></asp:requiredfieldvalidator>
+                <asp:RegularExpressionValidator Display="Dynamic" class="input100" ID="ValEmailCheck" runat="server" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="txtbxEmail" ErrorMessage="Invalid Email Format" style="color:red"></asp:RegularExpressionValidator>
+                <div class="wrap-input100 validate-input m-b-20" data-validate="Enter email">
+					<asp:textbox class="input100" type="text" id="txtbxEmail" placeholder="Email" runat="server" />
+					<span class="focus-input100"></span>
+				</div>
+                <asp:CompareValidator 
+                                   ID="compareEmails" Display="Dynamic" Operator="Equal" runat="server"
+                                   ValidationGroup="Validate" ControlToValidate="txtbxEmail" class="input100"
+                                   ControlToCompare="txtbxEmailConfirm" ErrorMessage="Emails do not match." SetFocusOnError="true" style="color:red;">
+                            </asp:CompareValidator>
+                <div class="wrap-input100 validate-input m-b-20" data-validate="Enter email">
+					<asp:textbox class="input100" type="text" id="txtbxEmailConfirm" placeholder="Confirm Email" runat="server" />
 					<span class="focus-input100"></span>
 				</div>
 
-				<div class="wrap-input100 validate-input m-b-20" data-validate="Enter Last Name">
-					<asp:textbox class="input100" type="text" name="Last Name" placeholder="Last Name" runat="server"/>
-					<span class="focus-input100"></span>
-				</div>
-
-				<div class="wrap-input100 validate-input m-b-20" data-validate="Enter username">
-					<asp:textbox class="input100" type="text" name="username" placeholder="Username" runat="server"/>
-					<span class="focus-input100"></span>
-				</div>
-
-				<div class="wrap-input100 validate-input m-b-20" data-validate="Enter email">
-					<asp:textbox class="input100" type="text" name="email" placeholder="Email" runat="server" />
-					<span class="focus-input100"></span>
-				</div>
-
+                <asp:requiredfieldvalidator display="Dynamic" class="input100" runat="server" ID="ValPassword" ControlToValidate="txtbxPw" ErrorMessage="Password field cannot be empty" style="color:red"></asp:requiredfieldvalidator>
 				<div class="wrap-input100 validate-input m-b-25" data-validate = "Enter password">
-					<asp:textbox class="input100" type="password" name="pass" placeholder="Password" runat="server" />
+					<asp:textbox class="input100" textmode="Password" id="txtbxPw" placeholder="Password" runat="server" />
+					<span class="focus-input100"></span>
+				</div>
+                <asp:CompareValidator 
+                                   ID="comparePasswords" Display="Dynamic" Operator="Equal" runat="server"
+                                   ValidationGroup="Validate" ControlToValidate="txtbxPw" class="input100"
+                                   ControlToCompare="txtbxPwConfirm" ErrorMessage="Emails do not match." SetFocusOnError="true" style="color:red;">
+                            </asp:CompareValidator>
+                <div class="wrap-input100 validate-input m-b-25" data-validate = "Confirm password">
+					<asp:textbox class="input100" textmode="Password" id="txtbxPwConfirm" placeholder="Confirm Password" runat="server" />
 					<span class="focus-input100"></span>
 				</div>
 
+                <asp:requiredfieldvalidator display="Dynamic" class="input100" runat="server" ID="ValFirstName" ControlToValidate="txtbxFirstName" ErrorMessage="Firstname field cannot be empty" style="color:red"></asp:requiredfieldvalidator>
+				<div class="wrap-input100 validate-input m-b-20" data-validate="Enter First Name">
+					<asp:textbox class="input100" type="text" id="txtbxFirstName" placeholder="First Name" runat="server"/>
+					<span class="focus-input100"></span>
+				</div>
 
+                <asp:requiredfieldvalidator display="Dynamic" class="input100" runat="server" ID="ValLastName" ControlToValidate="txtbxLastName" ErrorMessage="Lastname field cannot be empty" style="color:red"></asp:requiredfieldvalidator>
+				<div class="wrap-input100 validate-input m-b-20" data-validate="Enter Last Name">
+					<asp:textbox class="input100" type="text" id="txtbxLastName" placeholder="Last Name" runat="server"/>
+					<span class="focus-input100"></span>
+				</div>
+
+				
 
 				<div class="container-login100-form-btn">
-					<button class="login100-form-btn">
-						Sign Up
-					</button>
+					<asp:Button class="login100-form-btn"  Text="Register" runat="server" ID="btnRegister" OnClick="btnRegister_Click"/>
 				</div>
-</br>
+                
+                <br/>
 
 			</form>
 

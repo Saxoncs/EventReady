@@ -13,5 +13,10 @@ namespace EventReady.Application_Layer
         {
 
         }
+
+        protected void btnSignIn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("LoginVer2.aspx");
+        }
     }
 }

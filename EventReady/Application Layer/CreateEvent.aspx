@@ -6,26 +6,37 @@
     <asp:Label runat="server" ID="lblEventName">Event Name</asp:Label><br />
     <asp:requiredfieldvalidator display="Dynamic" runat="server" ID="ValEventName" ControlToValidate="txtbxEventName" ErrorMessage="Event name field cannot be empty" style="color:red"></asp:requiredfieldvalidator>
     <asp:TextBox runat="server" ID="txtbxEventName"></asp:TextBox> <br />
+    
     <asp:Label runat="server" ID ="lblNames">Name of person inviting people to the event</asp:Label> <br/>
     <asp:Label runat="server">Firstname</asp:Label><br/>
     <asp:requiredfieldvalidator display="Dynamic" runat="server" ID="ValFirstName" ControlToValidate="txtbxFirstName" ErrorMessage="Firstname field cannot be empty" style="color:red"></asp:requiredfieldvalidator>
     <asp:TextBox runat="server" id="txtbxFirstName"></asp:TextBox><br/>
+    
     <asp:Label runat="server">Lastname</asp:Label><br/>
     <asp:requiredfieldvalidator display="Dynamic" runat="server" ID="ValLastName" ControlToValidate="txtbxLastName" ErrorMessage="Lastname field cannot be empty" style="color:red"></asp:requiredfieldvalidator>
     <asp:TextBox runat="server" id="txtbxLastName"></asp:TextBox><br/>
+    
     <asp:Label runat="server">Date of event</asp:Label><br/>
-    <!--<asp:requiredfieldvalidator display="Dynamic" runat="server" ID="ValDate" ControlToValidate="txtbxLastName" ErrorMessage="Lastname field cannot be empty" style="color:red"></asp:requiredfieldvalidator>-->
-    <asp:CompareValidator ID="valDateCheck" Operator="LessThan" type="String" ControltoValidate="txtbxDate" ErrorMessage="Date is invalid" runat="server" />
+    <asp:requiredfieldvalidator display="Dynamic" runat="server" ID="ValDate" ControlToValidate="txtbxDate" ErrorMessage="Date field cannot be empty" style="color:red"></asp:requiredfieldvalidator>
+    <asp:CompareValidator Display="Dynamic" ID="valDateCheck" Operator="GreaterThanEqual" type="Date" ControltoValidate="txtbxDate" ErrorMessage="Date has to greater than current date" runat="server" style="color:red"/>
     <asp:TextBox runat="server" TextMode="Date" ID="txtbxDate"></asp:TextBox><br/>
+    
     <asp:Label runat="server">Event Address</asp:Label><br/>
+    <asp:requiredfieldvalidator display="Dynamic" runat="server" ID="ValAddress" ControlToValidate="txtbxAddress" ErrorMessage="Address field cannot be empty" style="color:red"></asp:requiredfieldvalidator>
     <asp:TextBox runat="server" ID="txtbxAddress"></asp:TextBox><br/>
-    <asp:Label runat="server">Contact Phone Number</asp:Label><br/>
+
+    <asp:Label runat="server">Contact Phone Number (10 Digits)</asp:Label><br/>
+    <asp:requiredfieldvalidator display="Dynamic" runat="server" ID="ValConPhone" ControlToValidate="txtbxConPhone" ErrorMessage="Address field cannot be empty" style="color:red"></asp:requiredfieldvalidator>
+    <asp:RegularExpressionValidator Display="Dynamic" ID="regexPhone" runat="server" ValidationExpression="^[0-9]{10}$" ControlToValidate="txtbxConPhone" ErrorMessage="Invalid Phone Number" style="color:red"></asp:RegularExpressionValidator>
     <asp:TextBox runat="server" ID="txtbxConPhone"></asp:TextBox><br />
+    
     <asp:Label runat="server" >Contact Email Address</asp:Label><br/>
+    <asp:requiredfieldvalidator display="Dynamic" runat="server" ID="ValConEmailEmpty" ControlToValidate="txtbxConEmail" ErrorMessage="Address field cannot be empty" style="color:red"></asp:requiredfieldvalidator>
     <asp:RegularExpressionValidator Display="Dynamic" ID="ValConEmail" runat="server" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="txtbxConEmail" ErrorMessage="Invalid Email Format" style="color:red"></asp:RegularExpressionValidator>
     <asp:TextBox runat="server" ID="txtbxConEmail"></asp:TextBox><br/>
+    
     <asp:Label runat="server" ID="lblDescription">Description</asp:Label><br />
-    <asp:TextBox runat="server" ID="txtbxDescription" TextMode="MultiLine"></asp:TextBox>
+    <asp:TextBox runat="server" ID="txtbxDescription" TextMode="MultiLine"></asp:TextBox><br />
     
     <asp:Button runat="server" id="btnContinue" OnClick="btnContinue_Click"/>
 </asp:Content>

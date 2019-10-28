@@ -121,6 +121,15 @@ namespace EventReady.Application_Layer {
         protected global::System.Web.UI.WebControls.TextBox txtbxDate;
         
         /// <summary>
+        /// ValAddress control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ValAddress;
+        
+        /// <summary>
         /// txtbxAddress control.
         /// </summary>
         /// <remarks>
@@ -130,6 +139,24 @@ namespace EventReady.Application_Layer {
         protected global::System.Web.UI.WebControls.TextBox txtbxAddress;
         
         /// <summary>
+        /// ValConPhone control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ValConPhone;
+        
+        /// <summary>
+        /// regexPhone control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator regexPhone;
+        
+        /// <summary>
         /// txtbxConPhone control.
         /// </summary>
         /// <remarks>
@@ -137,6 +164,15 @@ namespace EventReady.Application_Layer {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtbxConPhone;
+        
+        /// <summary>
+        /// ValConEmailEmpty control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ValConEmailEmpty;
         
         /// <summary>
         /// ValConEmail control.

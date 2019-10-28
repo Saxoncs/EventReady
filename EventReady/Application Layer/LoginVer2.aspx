@@ -62,7 +62,7 @@
 					Sign In
 				</span>
           
-
+                <asp:requiredfieldvalidator display="Dynamic" class="input100" runat="server" ID="ValEmailEmpty" ControlToValidate="txtbxEmail" ErrorMessage="Email field cannot be empty" style="color:red"></asp:requiredfieldvalidator>
                 <asp:RegularExpressionValidator Display="Dynamic" ID="ValEmail" class="input100" runat="server" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="txtbxEmail" ErrorMessage="Invalid Email Format" style="color:red"></asp:RegularExpressionValidator>
 				<div class="wrap-input100 validate-input m-b-20" data-validate="Enter username or email">
                   
@@ -86,7 +86,7 @@
 				</div>
 <br/>
 				<div class="text-center">
-					<a href="#" class="txt2 hov1">
+					<a href="RegisterVers2.aspx" class="txt2 hov1">
 						Sign Up
 					</a>
 				</div>
