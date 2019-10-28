@@ -9,11 +9,11 @@ namespace EventReady.Business_Layer
     public class EmailBL
     {
         
-        //Needs to get the user id from session data, should otherwise return a list of guests associated with the logged in user to be worked with by the user layer - Saxon
-        public List<Guest> GetActiveGuests(string userId)
+        //Needs to get the user id and event id from session data, should otherwise return a list of guests associated with the logged in user and selected event to be worked with by the user layer this will work for the RSVP page - Saxon
+        public List<Guest> GetActiveGuests(string eventId)
         {
             
-            List<Guest> guestList = GetGuests(userId);
+            List<Guest> guestList = GetGuests(eventId);
             List<Guest> activeGuests = new List<Guest>();
             
             foreach (Guest guest in guestList)
@@ -26,6 +26,7 @@ namespace EventReady.Business_Layer
 
             return activeGuests;
         }
+
         
         
 

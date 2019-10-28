@@ -18,29 +18,29 @@ namespace EventReady.Data_Access_Layer
 
         // Reads Guest data from the database in regards to specified user (just add the user's Id as an argument) may be superseded by following function - Saxon
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public static IEnumerable GetAllGuests(string userId)
+        public static IEnumerable GetAllGuests(string eventId)
         {
             SqlConnection con = new SqlConnection(GetConnectionString());
-            string sql = "SELECT name, email FROM Guest WHERE userId = @userId ";
+            string sql = "SELECT name, email FROM Guest WHERE eventId = @eventId ";
             SqlCommand cmd = new SqlCommand(sql, con);
-            cmd.Parameters.AddWithValue("userId", userId);
+            cmd.Parameters.AddWithValue("eventId", eventId);
             con.Open();
             SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
             return dr;
         }
 
-        //Returns the guest list for the specified user as a strongly typed list - Saxon
+        //Returns the guest list for the specified event as a strongly typed list, I removed the user from the picture here as a guest is already associated with a user through the event so eventId makes more sense - Saxon
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public static List<Guest> GetGuests(string userId)
+        public static List<Guest> GetGuests(string eventId)
         {
             List<Guest> guestList = new List<Guest>();
-            string sql = "SELECT name, email, userId, active FROM Guest WHERE userId = @userId ORDER BY name";
+            string sql = "SELECT name, email, active, eventId FROM Guest WHERE eventId = @eventId ORDER BY name";
 
             using (SqlConnection con = new SqlConnection(GetConnectionString()))
             {
                 using (SqlCommand cmd = new SqlCommand(sql, con))
                 {
-                    cmd.Parameters.AddWithValue("userId", userId);
+                    cmd.Parameters.AddWithValue("eventId", eventId);
                     con.Open();
                     SqlDataReader dr = cmd.ExecuteReader();
                     Guest guest;
@@ -50,7 +50,7 @@ namespace EventReady.Data_Access_Layer
                         guest = new Guest();
                         guest.name = dr["name"].ToString();
                         guest.email = dr["email"].ToString();
-                        guest.userId = dr["userId"].ToString();
+                        guest.eventId = dr["eventId"].ToString();
                         guest.active = dr.GetBoolean(dr.GetOrdinal("active"));
                         guestList.Add(guest);
 
@@ -67,7 +67,7 @@ namespace EventReady.Data_Access_Layer
             
             public string name { get; set; }
             public string email { get; set; }
-            public string userId { get; set; }
+            public string eventId { get; set; }
             public bool active { get; set; }
         }
 
@@ -75,7 +75,7 @@ namespace EventReady.Data_Access_Layer
         [DataObjectMethod(DataObjectMethodType.Update)]
         public static int UpdateGuestList(Guest original_guest, Guest guest)
         {
-            string sql = "UPDATE Guest SET name = @name, email = @email WHERE userId = @original_userId AND name = @original_name AND email = @original_email";
+            string sql = "UPDATE Guest SET name = @name, email = @email WHERE eventId = @original_eventId AND name = @original_name AND email = @original_email";
             using (SqlConnection con = new SqlConnection(GetConnectionString()))
             {
                 using (SqlCommand cmd = new SqlCommand(sql, con))
@@ -87,7 +87,7 @@ namespace EventReady.Data_Access_Layer
                     //original values
                     cmd.Parameters.AddWithValue("original_name", original_guest.name);
                     cmd.Parameters.AddWithValue("original_email", original_guest.email);
-                    cmd.Parameters.AddWithValue("original_userId", original_guest.userId);
+                    cmd.Parameters.AddWithValue("original_eventId", original_guest.eventId);
 
                     con.Open();
                     return cmd.ExecuteNonQuery();
@@ -97,10 +97,10 @@ namespace EventReady.Data_Access_Layer
 
         //function takes a guest class from the business layer and adds it to the database - Saxon
         [DataObjectMethod(DataObjectMethodType.Insert)]
-        public static int AddGuest(string userId, Guest guest)
+        public static int AddGuest(string eventId, Guest guest)
 
         {
-            string sql = "INSERT INTO Guest VALUES (@email, @name, " + userId + ")";
+            string sql = "INSERT INTO Guest VALUES (@email, @name, " + eventId + ")";
 
             using (SqlConnection con = new SqlConnection(GetConnectionString()))
             {
@@ -121,10 +121,10 @@ namespace EventReady.Data_Access_Layer
 
         //Delete a guest row in the database by inserting a guest class from the business layer - Saxon
         [DataObjectMethod(DataObjectMethodType.Delete)]
-        public static int DeleteGuest(string userId, Guest guest)
+        public static int DeleteGuest(string eventId, Guest guest)
         {
 
-            string sql = "DELETE FROM Guest WHERE userId = " + userId + " AND email = @email";
+            string sql = "DELETE FROM Guest WHERE userId = " + eventId + " AND email = @email";
 
             using (SqlConnection con = new SqlConnection(GetConnectionString()))
             {
