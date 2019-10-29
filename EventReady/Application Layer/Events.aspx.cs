@@ -21,12 +21,17 @@ namespace EventReady.Application_Layer
             mode = Request.QueryString["mode"];
             eventDelete = Convert.ToInt32(Request.QueryString["event"]);
 
+            User userSession = (User)Session["user"];
+
             if (mode != null)
             {
                 if (mode.Equals("toggleDelete"))
                 {
                     //Delete an event
                     GlobalData.Events.RemoveAt(eventDelete);
+                    Response.Redirect("Home.aspx?remove=true");
+                    
+                  
                 }
             }
         }

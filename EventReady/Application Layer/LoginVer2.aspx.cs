@@ -10,9 +10,15 @@ namespace EventReady.Application_Layer
 {
     public partial class LoginVer2 : System.Web.UI.Page
     {
+        protected string log;
         protected void Page_Load(object sender, EventArgs e)
         {
+            log = Request.QueryString["log"];
 
+            if (log=="Logout")
+            {
+                Session.Remove("user"); 
+            }
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)

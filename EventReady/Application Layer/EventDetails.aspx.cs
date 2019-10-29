@@ -18,14 +18,7 @@ namespace EventReady.Application_Layer
             {
                 //list = (List<String>)Session["event"];
                 eventbl = (EventBL)Session["event"];
-                //lblEName.Text = list[1];
-                //lblEDescription.Text = list[2];
-                //lblFName.Text = list[3];
-                //lblLName.Text = list[4];
-                //lblEDate.Text = list[5];
-                //lblEAddress.Text = list[6];
-                //lblEPhone.Text = list[7];
-                //lblEEmail.Text = list[8];
+              
 
                 lblEName.Text = eventbl.EventName;
                 lblFName.Text = eventbl.FirstName;
@@ -38,6 +31,20 @@ namespace EventReady.Application_Layer
 
 
             }
+            else if (Session["eventEdit"] != null)
+            {
+                eventbl = (EventBL)Session["eventEdit"];
+
+
+                lblEName.Text = eventbl.EventName;
+                lblFName.Text = eventbl.FirstName;
+                lblLName.Text = eventbl.LastName;
+                lblEDate.Text = eventbl.EventDate;
+                lblEAddress.Text = eventbl.EventAddress;
+                lblEPhone.Text = eventbl.ContactPhone;
+                lblEEmail.Text = eventbl.ContactEmail;
+                lblEDescription.Text = eventbl.Description;
+            }
             else
             {
                 Response.Redirect("InviteVers2.aspx");
@@ -46,7 +53,7 @@ namespace EventReady.Application_Layer
 
         protected void btnConfirm_Click(object sender, EventArgs e)
         {
-            eventbl = (EventBL)Session["event"];
+            //eventbl = (EventBL)Session["event"];
            
            // GlobalData.Events.Add(eventbl);
             

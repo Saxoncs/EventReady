@@ -268,7 +268,28 @@ namespace EventReady.Application_Layer
                 eventbl.GuestList = guestListTemp;
                 GlobalData.Events.Add(eventbl);
 
+                
                 Session.Remove("event");
+            }
+            else if (Session["eventEdit"] != null)
+            {
+                eventbl = (EventBL)Session["eventEdit"];
+                int value = Convert.ToInt32(Session["eventValue"]);
+
+                eventbl.GuestList = guestListTemp;
+                GlobalData.Events[value].EventName = eventbl.EventName;
+                GlobalData.Events[value].FirstName = eventbl.FirstName;
+                GlobalData.Events[value].LastName = eventbl.LastName;
+                GlobalData.Events[value].EventDate = eventbl.EventDate;
+                GlobalData.Events[value].EventAddress = eventbl.EventAddress;
+                GlobalData.Events[value].ContactEmail = eventbl.ContactEmail;
+                GlobalData.Events[value].ContactPhone = eventbl.ContactPhone;
+                GlobalData.Events[value].Description = eventbl.Description;
+                GlobalData.Events[value].GuestList = eventbl.GuestList;
+
+                Session.Remove("eventEdit");
+                Session.Remove("eventValue");
+
             }
         }
     }

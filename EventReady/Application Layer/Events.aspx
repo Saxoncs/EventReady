@@ -94,15 +94,13 @@
                             </td>
 
                             <td class="text-left">
-                                
-                                    <input type="button" class="btn btn-success" value="EDIT"/>
-                            
-         
+                                    <input type="button" class="btn btn-success" value="EDIT" onclick="window.location.href = 'CreateEvent.aspx?value=<%=GlobalData.Events.IndexOf(e)%>'; return false"/>
                             </td>
                         
                             <td class="text-left">
+                                   <% User user = (User)Session["user"]; %>
                                 <input type="button" class="btn btn-danger" value="REMOVE" onclick="window.location.href = 'Events.aspx?mode=toggleDelete&event=<%=GlobalData.Events.IndexOf(e)%>'; return false"/>
- 
+                                <!-- GlobalData.Events.IndexOf(e) --> 
                             </td>
                         </tr>
                         <% }

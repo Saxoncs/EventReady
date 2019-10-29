@@ -27,16 +27,19 @@
                          <%foreach (EventBL e in GlobalData.Events)
                              {
                                  if (Convert.ToInt32(guestList) == GlobalData.Events.IndexOf(e))
-                                 { 
+                                 {
                                      //countID++;  %> 
                         <!-- Adds the event name to the page -->
+                         <%for (int a = 0; a < 2; a++) { 
+                             countID++; %>
                     <tr>
-                        <%//foreach (GuestTest p in ) {
-        countID++; %>
+                            
+                       
+       
                             <td class="no"><%= countID %></td>
                             
                             <td class="text-left">
-                                <p class="text-list-colour"><%//= %></p>
+                                <p class="text-list-colour"> <% e.GuestList.ElementAt(a); %></p>
                                 
                             </td>
                             
@@ -47,10 +50,11 @@
                                 <p class="text-list-colour"> Going </p>
                                 <p class="text-list-colour"> Not going  </p>
                             </td>
-                                <% //} %>
+                                
                             
                             
                         </tr>
+                        <% } %>
                         <% }
     }%>
                         </tbody>
