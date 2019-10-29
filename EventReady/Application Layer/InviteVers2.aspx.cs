@@ -56,10 +56,7 @@ namespace EventReady.Application_Layer
         protected void btnAddField_Click(object sender, EventArgs e)
         {
           
-            //Author: Pranay Rana
-            //Date: 21/11/19
-            //https://stackoverflow.com/questions/13488006/dynamically-add-a-new-text-box-when-clicking-a-button
-            //Use to add a texbox field on button click
+           
             var collection = new List<string>();
             int total;
             
@@ -161,19 +158,52 @@ namespace EventReady.Application_Layer
         private string PopulateBody()
         {
             string body = string.Empty;
-
-
+           
             using (StreamReader reader = new StreamReader(Server.MapPath("../Application Layer/EmailTemplate.html")))
             {
                 body = reader.ReadToEnd();
             }
+
+            if (Session["eventEdit"] != null)
+            {
+                eventbl = (EventBL)Session["eventEdit"];
+
+                body = body.Replace("{EventName}", eventbl.EventName);
+                body = body.Replace("{Date}", eventbl.EventDate);
+                body = body.Replace("{Phone}", eventbl.ContactPhone);
+                body = body.Replace("{Email}", eventbl.ContactEmail);
+                body = body.Replace("{Address}", eventbl.EventAddress);
+                body = body.Replace("{FirstName}", eventbl.FirstName);
+                body = body.Replace("{LastName}", eventbl.LastName);
+
+            }
+            else if (Session["event"] != null)
+            {
+                eventbl = (EventBL)Session["event"];
+
+                body = body.Replace("{EventName}", eventbl.EventName);
+                body = body.Replace("{Date}", eventbl.EventDate);
+                body = body.Replace("{Phone}", eventbl.ContactPhone);
+                body = body.Replace("{Email}", eventbl.ContactEmail);
+                body = body.Replace("{Address}", eventbl.EventAddress);
+                body = body.Replace("{FirstName}", eventbl.FirstName);
+                body = body.Replace("{LastName}", eventbl.LastName);
+
+            }
+            /*body = body.Replace("{EventName}", eventbl.EventName);
+            body = body.Replace("{Date}", eventbl.EventDate);
+            body = body.Replace("{Phone}", eventbl.ContactPhone);
+            body = body.Replace("{Email}", eventbl.ContactEmail);
+            body = body.Replace("{Address}", eventbl.EventAddress);
+            body = body.Replace("{FirstName}", eventbl.FirstName);
+            body = body.Replace("{LastName}", eventbl.LastName);*/
             //Adding an image to the email
 
             //view.LinkedResources.Add(img);
 
             //body = body.Replace("{ribbonImgPlaceHolder}", img.ContentId);
-
             return body;
+            
         }
         private void SendHtmlFormattedEmail(string body)
         {

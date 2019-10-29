@@ -31,7 +31,8 @@ namespace EventReady.Application_Layer
             //view.LinkedResources.Add(img);
 
             //body = body.Replace("{ribbonImgPlaceHolder}", img.ContentId);
-          
+            
+
             return body;
         }
         private void SendHtmlFormattedEmail(string body)
