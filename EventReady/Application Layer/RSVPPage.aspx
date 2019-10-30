@@ -26,18 +26,17 @@
                         <%int countID = 0; %>
                          <%foreach (GuestUL e in displayedGuestList)
                              {
-                                 // this if statement is what matches up an event with what was clicked in rsvp
-                                 if (selectedEvent == e.eventId)
-                                 {
-                                     //saved the database classes as local variables
-                                     string guestName = e.name;
-                                     string guestRSVP = e.rsvp;
+                                 //saved the database classes as local variables -saxon
+                                 string guestName = e.name;
+                                 string guestEmail = e.email;
+                                 string guestRSVP = e.rsvp;
 
-                                     countID++;  
+                                 countID++;
                                      %> 
-                        <!-- Adds the event name to the page -->
-                         <%for (int a = 0; a < 2; a++) { 
-                             countID++; %>
+                        <!-- WHAT DOES TRHIS FOR STATEMENT DO!? -saxon -->
+                            <%for (int a = 0; a < 2; a++)
+                              {
+                                    countID++; %>
                     <tr>
                             
                        
@@ -48,9 +47,15 @@
                                 <p class="text-list-colour"> <%= guestName %></p>
                                 
                             </td>
+
+                            
+                            <td class="text-left">
+                                <p class="text-list-colour"> <%= guestEmail %></p>
+                                
+                            </td>
                             
                                 
-                           <!-- Adds event description -->
+                           <!-- Adds rsvp status -->
                             <td class="text-left">
                                 <p class="text-list-colour"> <%= guestRSVP %> </p>
                             </td>
@@ -58,9 +63,8 @@
                             
                             
                         </tr>
-                        <% } %>
-                        <% }
-    }%>
+                           <% } %>
+                         <%} %>
                         </tbody>
                      </table>
             </div>

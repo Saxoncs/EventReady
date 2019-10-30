@@ -29,12 +29,11 @@ namespace EventReady.Application_Layer
         protected string selectedEvent;
         protected void Page_Load(object sender, EventArgs e)
         {
+            //Gets the selected event from Event.aspx
             selectedEvent = Request.QueryString["selectedEvent"];
-
-            //0000001 needs to be replaced with the event number of whichever event is clicked
             
             //Function for converting data guests to native guests
-            List<Guest> guestList = email.GetActiveGuests("0000001");
+            List<Guest> guestList = email.GetActiveGuests(selectedEvent);
             displayedGuestList = new List<GuestUL>();
 
             foreach (Guest guest in guestList)
@@ -44,6 +43,7 @@ namespace EventReady.Application_Layer
                 displayedGuest.email = guest.email;
                 displayedGuest.eventId = guest.eventId;
                 displayedGuest.rsvp = guest.rsvp;
+
                 displayedGuestList.Add(displayedGuest);
             }
 
