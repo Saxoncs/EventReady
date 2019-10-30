@@ -11,7 +11,7 @@ namespace EventReady.Application_Layer
 {
 
 
-    public partial class LoginVer2
+    public partial class forgotpasswordtest
     {
 
         /// <summary>
@@ -49,14 +49,5 @@ namespace EventReady.Application_Layer
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblEmailMessage;
-
-        /// <summary>
-        /// lblEmailMessage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        //protected global::System.Web.UI.WebControls.Label lblEmailMessage;
     }
 }

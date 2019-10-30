@@ -320,7 +320,10 @@ namespace EventReady.Application_Layer
                 Session.Remove("eventEdit");
                 Session.Remove("eventValue");
 
+                
+
             }
+            Response.Redirect("Home.aspx");
         }
     }
 }

@@ -79,12 +79,15 @@
     <Content Include="Application Layer\EventDetails.aspx" />
     <Content Include="Application Layer\Events.aspx" />
     <Content Include="Application Layer\ForgotPassword.aspx" />
+    <Content Include="Application Layer\forgotpasswordtest.aspx.aspx" />
     <Content Include="Application Layer\GuestList.aspx" />
     <Content Include="Application Layer\Guide.aspx" />
+    <Content Include="Application Layer\atesttesttesttesttesttestest.aspx" />
     <Content Include="Application Layer\Home.aspx" />
     <Content Include="Application Layer\Invite.aspx" />
     <Content Include="Application Layer\InviteVers2.aspx" />
     <Content Include="Application Layer\Login.aspx" />
+    <Content Include="Application Layer\forgotpasswordtest.aspx" />
     <Content Include="Application Layer\LoginVer2.aspx" />
     <Content Include="Application Layer\Register.aspx" />
     <Content Include="Application Layer\RegisterVers2.aspx" />
@@ -251,6 +254,13 @@
     </Compile>
     <Compile Include="Application Layer\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Application Layer\forgotpasswordtest.aspx.cs">
+      <DependentUpon>forgotpasswordtest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Application Layer\forgotpasswordtest.aspx.designer.cs">
+      <DependentUpon>forgotpasswordtest.aspx</DependentUpon>
     </Compile>
     <Compile Include="Application Layer\LoginVer2.aspx.cs">
       <DependentUpon>LoginVer2.aspx</DependentUpon>
