@@ -68,6 +68,7 @@ namespace EventReady.Data_Access_Layer
             public string name { get; set; }
             public string email { get; set; }
             public string eventId { get; set; }
+            public string rsvp { get; set; }
             public bool active { get; set; }
         }
 

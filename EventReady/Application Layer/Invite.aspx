@@ -13,14 +13,14 @@
     <!-- Default value for Data source is set to the test value in the database, this should be changed later to be drawn from session data -Saxon -->
     <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetGuests" TypeName="EventReady.Data_Access_Layer.EmailDataAccess">
         <SelectParameters>
-            <asp:Parameter DefaultValue="3282914" Name="userId" Type="String" />
+            <asp:Parameter DefaultValue="0000001" Name="eventId" Type="String" />
         </SelectParameters>
     </asp:ObjectDataSource>
 
     <!-- 2nd version of the drop down list now checks to see that the guest is considered 'active' guests will be set as inactive if deleted from a user's page. -->
         <asp:ObjectDataSource ID="ObjectDataSource2" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetActiveGuests" TypeName="EventReady.Business_Layer.EmailBL">
         <SelectParameters>
-            <asp:Parameter DefaultValue="3282914" Name="userId" Type="String" />
+            <asp:Parameter DefaultValue="0000001" Name="eventId" Type="String" />
         </SelectParameters>
     </asp:ObjectDataSource>
 

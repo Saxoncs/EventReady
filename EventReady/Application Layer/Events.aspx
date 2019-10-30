@@ -88,7 +88,8 @@
 
                             <td class="text-left">
                                 
-                                    <a href="RSVPPage.aspx?guestList=<%=GlobalData.Events.IndexOf(e) %>"> RSVP List</a>
+                                    <!-- pressing the RSVP button currently hard codes the selected event to be event 0000001 -->
+                                    <a href="RSVPPage.aspx?selectedEvent=0000001"> RSVP List</a>
                             
          
                             </td>

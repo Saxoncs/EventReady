@@ -24,11 +24,17 @@
                     </thead>
                     <tbody>
                         <%int countID = 0; %>
-                         <%foreach (EventBL e in GlobalData.Events)
+                         <%foreach (GuestUL e in displayedGuestList)
                              {
-                                 if (Convert.ToInt32(guestList) == GlobalData.Events.IndexOf(e))
+                                 // this if statement is what matches up an event with what was clicked in rsvp
+                                 if (selectedEvent == e.eventId)
                                  {
-                                     //countID++;  %> 
+                                     //saved the database classes as local variables
+                                     string guestName = e.name;
+                                     string guestRSVP = e.rsvp;
+
+                                     countID++;  
+                                     %> 
                         <!-- Adds the event name to the page -->
                          <%for (int a = 0; a < 2; a++) { 
                              countID++; %>
@@ -39,16 +45,14 @@
                             <td class="no"><%= countID %></td>
                             
                             <td class="text-left">
-                                <p class="text-list-colour"> <% e.GuestList.ElementAt(a); %></p>
+                                <p class="text-list-colour"> <%= guestName %></p>
                                 
                             </td>
                             
                                 
                            <!-- Adds event description -->
                             <td class="text-left">
-                                <p class="text-list-colour"> Not Responded </p>
-                                <p class="text-list-colour"> Going </p>
-                                <p class="text-list-colour"> Not going  </p>
+                                <p class="text-list-colour"> <%= guestRSVP %> </p>
                             </td>
                                 
                             
