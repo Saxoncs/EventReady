@@ -1,19 +1,39 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="EventReady.Application_Layer.MasterPage1" %>
+<%@ Import Namespace="EventReady" %>
+<%@ Import Namespace="EventReady.Business_Layer" %>
+<!-- https://www.c-sharpcorner.com/article/how-to-create-master-page-in-asp-net/ -->
+<html xmlns="http://www.w3.org/1999/xhtml">  
+<head runat="server">  
+    <title>c# corner</title>  
+    <link href="../Style/StyleSheet.css" rel="stylesheet" type="text/css" media="screen" runat="server"/>  
+    <asp:ContentPlaceHolder ID="head" runat="server">  
+    </asp:ContentPlaceHolder>  
+</head>  
+<body>  
 
-<!DOCTYPE html>
 
-<html>
-<head runat="server">
-    <title></title>
-    <asp:ContentPlaceHolder ID="head" runat="server">
-    </asp:ContentPlaceHolder>
-</head>
-<body>
-    <form id="form1" runat="server">
-        <div>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
-        </div>
-    </form>
-</body>
+
+<nav id="nav">  
+    <ul>  
+        <li><a href="home.aspx">Home</a></li>  
+        <li><a href="#">About</a></li>  
+        <li><a href="#">Article</a></li>  
+        <li><a href="#">Contact</a></li>  
+    </ul>  
+</nav>  
+ 
+  
+  
+    <div id="con">  
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">  
+          
+        </asp:ContentPlaceHolder>  
+    </div>  
+  
+  
+<footer id="footer">  
+    © 2019 Copyright: Event Ready
+</footer>  
+
+</body>  
 </html>
