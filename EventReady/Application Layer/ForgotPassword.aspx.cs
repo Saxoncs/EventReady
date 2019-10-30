@@ -34,12 +34,11 @@ namespace EventReady.Application_Layer
         }
         protected void btnContinue_Click(object sender, EventArgs e)
         {
-            
 
-            foreach (User u in GlobalData.User1)
+            string email = txtForgottenEmail.Text; 
+            if (GlobalData.userMap.ContainsKey(email))
             {
-                if (u.Email == txtForgottenEmail.Text)
-                {
+                
                     lblEmailMessage.Visible = false;
 
                     // Author:  
@@ -67,10 +66,10 @@ namespace EventReady.Application_Layer
                     msg.To.Add(new MailAddress(txtForgottenEmail.Text));
                     msg.Subject = "Event Ready - Account Password Retrieval";
                     //If html does not exist return non-html email
-                    msg.Body = GetForgotPasswordMessage(false, u.Password);
+                    msg.Body = GetForgotPasswordMessage(false, GlobalData.userMap[email].Password);
 
                     //create an alternate HTML view that includes images and formatting 
-                    string html = GetForgotPasswordMessage(true, u.Password);
+                    string html = GetForgotPasswordMessage(true, GlobalData.userMap[email].Password);
                     AlternateView view = AlternateView
                         .CreateAlternateViewFromString(
                             html, null, "text/html");
@@ -98,7 +97,7 @@ namespace EventReady.Application_Layer
                     }
 
                      check = 1; 
-                }
+                
                 
 
             }

@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="../Style/StyleTemplate/magnific-popup.css">
     <link rel="stylesheet" href="../Style/StyleTemplate/style.css">
     <link rel="stylesheet" href="../Style/StyleTemplate/responsive.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round" rel="stylesheet">
     <script src="../js/jquery-3.1.1.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/owl.carousel.min.js"></script>
@@ -17,12 +20,14 @@
     <script src="../js/masonry.js"></script>
     <script src="../js/jquery.magnific-popup.min.js"></script>
     <script src="../js/active.js"></script>
+   
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <!-- Generated datasource for testing -->
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [userInfo]"></asp:SqlDataSource>
     <!-- end of test datasource -->
+    
 
     <div class="wrapper" style="background-image: url('../Image/header-bg.jpg'); background-size: 100% auto; position: relative; background-repeat: no-repeat;">
         <header class="header">

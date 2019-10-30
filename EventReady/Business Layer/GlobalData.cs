@@ -32,8 +32,6 @@ namespace EventReady.Business_Layer
             userMap = new Dictionary<string, User>();
             userMap.Add("user@gmail.com", new User("Jo", "Black", "user@gmail.com", "password"));
 
-            //User1 = new List<User>();
-           // User1.Add(new User("Jo", "Black", "user@gmail.com", "password1", "43 random dr City 2131"));
         }
     }
 }

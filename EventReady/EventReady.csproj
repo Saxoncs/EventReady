@@ -79,6 +79,7 @@
     <Content Include="Application Layer\EventDetails.aspx" />
     <Content Include="Application Layer\Events.aspx" />
     <Content Include="Application Layer\ForgotPassword.aspx" />
+    <Content Include="Application Layer\forgotpasswordtest.aspx.aspx" />
     <Content Include="Application Layer\GuestList.aspx" />
     <Content Include="Application Layer\Guide.aspx" />
     <Content Include="Application Layer\atesttesttesttesttesttestest.aspx" />
