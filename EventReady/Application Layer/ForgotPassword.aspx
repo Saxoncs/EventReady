@@ -10,10 +10,12 @@
     <link href="../Content/stylesheet.css" rel="stylesheet" />
     <script src="../Scripts/jquery-3.3.1.min.js"></script>
     <script src="../Scripts/bootstrap.bundle.min.js"></script>
+
+
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
+        <div style="background-image: url('../Image/header-bg.jpg');"> 
             <h3>Remember Password</h3>
             <!-- Information about password assistance -->
             <div>
