@@ -32,51 +32,25 @@
 
     <div class="wrapper" style="background-image: url('../Image/header-bg.jpg'); background-size: 100% auto; position: relative; background-repeat: no-repeat;">
         <header class="header">
+            <% User user = (User)Session["user"]; %>
             <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="header-top">
-                            <div class="row">
-                                <div class="col-md-3 col-sm-12 col-xs-12">
-                                    <div>
-                                        <img src="../Image/er.jpg" alt="Image/er.jpg" style="width:80px;height:80px;" />
-
-                                    </div>
-                                    <% User user = (User)Session["user"]; %>
-                                </div>
-                                <div class="col-md-9 col-sm-12 col-xs-12">
-                                    <div class="menu">
-                                        <ul class="nav navbar-nav">
-                                            <li class="active"><a href="#">HOME</a></li>
-                                            <li><a href="#">ABOUT</a></li>
-                                            <li><a href="CreateEvent.aspx?user=<%=user.Email%>">Create Event</a></li>
-                                            <li><a href="Events.aspx?user=<%=user.Email %>">EVENTS</a></li>
-                                            <li><a href="guide.html">GUIDE</a></li>
-                                            <li><a href="LoginVer2.aspx?log=<%="Logout" %>">LOG OUT</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <div class="row">
                     <div class="col-md-12">
                         <div class="header-carousal owl-carousel owl-theme">
                             <div class="item">
                                 <h4>Here you can</h4>
                                 <h2>Create an Event</h2>
-                                <button>CREATE</button>
+                                <%if (Session["user"] != null)
+                                    {%>
+                                <a href="CreateEvent.aspx?user=<%=user.Email%>">Create Event</a>
+                                <%} else if (Session["user"] == null) { %>
+                                <a href="LoginVer2.aspx">Create Event</a>
+                                <%} %>
                             </div>
                             <div class="item">
-                                <h4>Here you can</h4>
-                                <h2>Create a Sample Budget</h2>
-                                <button>CREATE</button>
-                            </div>
-                            <div class="item">
-                                <h4>Not Sure What To Do</h4>
+                                <h4>See the steps in creating an event</h4>
                                 <h2>View Guide</h2>
-                                <button>View</button>
+                                <a href="Guide.aspx">View Guide</a>
                             </div>
                         </div>
                     </div>

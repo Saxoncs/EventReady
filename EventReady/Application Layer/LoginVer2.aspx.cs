@@ -13,6 +13,8 @@ namespace EventReady.Application_Layer
         protected string log;
         protected void Page_Load(object sender, EventArgs e)
         {
+           
+
             log = Request.QueryString["log"];
 
             if (log=="Logout")

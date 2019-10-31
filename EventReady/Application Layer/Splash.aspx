@@ -55,7 +55,7 @@
 				</div>
 
 				<div>
-					<a>Welcome to Event Ready. At Event Ready we provide services for blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah</a>
+					<a>Plan an event end-to-end with an all-in-one space to track important details such as dates, event venues, registrations and guests, simplify the planning process and more</a>
 				</div>
 
 				<br/>

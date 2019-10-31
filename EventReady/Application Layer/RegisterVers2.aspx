@@ -83,7 +83,7 @@
                 <asp:CompareValidator 
                                    ID="comparePasswords" Display="Dynamic" Operator="Equal" runat="server"
                                    ValidationGroup="Validate" ControlToValidate="txtbxPw" class="input100"
-                                   ControlToCompare="txtbxPwConfirm" ErrorMessage="Emails do not match." SetFocusOnError="true" style="color:red;">
+                                   ControlToCompare="txtbxPwConfirm" ErrorMessage="Passwords do not match." SetFocusOnError="true" style="color:red;">
                             </asp:CompareValidator>
                 <div class="wrap-input100 validate-input m-b-25" data-validate = "Confirm password">
 					<asp:textbox class="input100" textmode="Password" id="txtbxPwConfirm" placeholder="Confirm Password" runat="server" />

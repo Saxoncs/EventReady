@@ -146,7 +146,7 @@
     <Content Include="Style\Content\bootstrap.css" />
     <Content Include="Style\Content\bootstrap.min.css" />
     <Content Include="Style\Content\Site.css" />
-    <Content Include="Style\StyleSheet.css" />
+    <Content Include="Style\StyleSheetStyle.css" />
     <Content Include="Web.config" />
     <Content Include="Style\StyleTemplate\magnific-popup.css" />
     <Content Include="Style\Content\bootstrap-grid.css.map" />
@@ -335,7 +335,6 @@
     <Compile Include="Business Layer\EventBL.cs" />
     <Compile Include="Business Layer\GlobalData.cs" />
     <Compile Include="Business Layer\GuestTest.cs" />
-    <Compile Include="Business Layer\RsvpBL.cs" />
     <Compile Include="Business Layer\User.cs" />
     <Compile Include="Data Access Layer\EmailDataAccess.cs" />
     <Compile Include="Data Access Layer\EventDataAccess.cs" />

@@ -19,8 +19,9 @@ namespace EventReady.Application_Layer
         static int i = 0;
         static int p = 0;
         static int j = 0;
-        int count = 2;
+        int count = 0;
         int z = 0;
+        string testthis;
         //Date: 23/mar/14
         //Author: Win
         //URL: https://stackoverflow.com/questions/22591756/get-values-from-dynamically-added-textboxes-asp-net-c-sharp
@@ -31,8 +32,13 @@ namespace EventReady.Application_Layer
             get;
             set;
         }
+        private List<String> guestListString
+        {
+            get;
+            set;
+        }
         //protected
-            private List<string> TextBoxIdCollection
+        private List<string> TextBoxIdCollection
         {
             get
             {
@@ -43,6 +49,12 @@ namespace EventReady.Application_Layer
         }
         void Page_Load(object sender, EventArgs e)
         {
+            User session = (User)Session["user"];
+
+            if (session == null)
+            {
+                Response.Redirect("LoginVer2.aspx");
+            }
 
             foreach (string textboxId in TextBoxIdCollection)
             {
@@ -65,7 +77,7 @@ namespace EventReady.Application_Layer
                 for (int i = 1; i <= total; i++)
                 {
                     var textbox = new TextBox { ID = "TextBox" + i };
-                    textbox.Text = textbox.ID;
+                    
                     collection.Add(textbox.ID);
                     PlaceHolder1.Controls.Add(textbox);
                     
@@ -157,9 +169,11 @@ namespace EventReady.Application_Layer
 
         private string PopulateBody()
         {
+            guestListString = new List<String>();
             string body = string.Empty;
-           
-            using (StreamReader reader = new StreamReader(Server.MapPath("../Application Layer/EmailTemplate.html")))
+            
+
+                    using (StreamReader reader = new StreamReader(Server.MapPath("../Application Layer/EmailTemplate.html")))
             {
                 body = reader.ReadToEnd();
             }
@@ -200,7 +214,7 @@ namespace EventReady.Application_Layer
             //Adding an image to the email
 
             //view.LinkedResources.Add(img);
-
+            
             //body = body.Replace("{ribbonImgPlaceHolder}", img.ContentId);
             return body;
             
@@ -215,6 +229,7 @@ namespace EventReady.Application_Layer
             {
                 if (ctr is TextBox)
                 {
+                    
 
 
 
@@ -243,6 +258,8 @@ namespace EventReady.Application_Layer
                     msg.To.Add(new MailAddress(((TextBox)ctr).Text));
                     msg.Subject = "EventReady - Invitation";
                     //If html does not exist return non-html email
+                    body = body.Replace("{guestEmail}", ((TextBox)ctr).Text);
+                    string testthis = ((TextBox)ctr).Text;
                     msg.Body = body;
                     msg.IsBodyHtml = true;
 
@@ -264,12 +281,13 @@ namespace EventReady.Application_Layer
                     try
                     {
 
-                        //GlobalData.
-                            guestListTemp.Add(tempEmail);
-
-                        //GlobalData.guestList.Add(tempEmail);
+                      
+                        guestListTemp.Add(tempEmail);
+                        count++;
+                       
                         client.Send(msg);
-                        //GlobalData.guestList.Add(GlobalData.guestList[GlobalData.guestList.IndexOf(((TextBox)ctr).Text)]);
+                       //Changes the email value back to guestEmail so it can redo for the next loop
+                        body = body.Replace(((TextBox)ctr).Text, "{guestEmail}");
                         
 
                     }
@@ -323,6 +341,7 @@ namespace EventReady.Application_Layer
                 
 
             }
+            count = 0;
             Response.Redirect("Home.aspx");
         }
     }

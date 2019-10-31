@@ -12,14 +12,71 @@ namespace EventReady.Application_Layer
     {
         protected string user;
         protected string value;
+        protected string check;
+        protected EventBL eventbl;
         protected void Page_Load(object sender, EventArgs e)
         {
+            User session = (User)Session["user"];
+
+            if (session == null)
+            {
+                Response.Redirect("LoginVer2.aspx");
+            }
             user = Request.QueryString["user"];
             value = Request.QueryString["value"];
+            check = Request.QueryString["check"];
             valDateCheck.ValueToCompare = DateTime.Now.ToShortDateString();
             valDateCheckEdit.ValueToCompare = DateTime.Now.ToShortDateString();
             if (!IsPostBack)
             {
+                if (check != null)
+                {
+                    eventbl = (EventBL)Session["event"];
+                    txtbxEventName.Text = eventbl.EventName;
+                    txtbxDescription.Text = eventbl.Description;
+                    txtbxFirstName.Text = eventbl.FirstName;
+                    txtbxLastName.Text = eventbl.LastName;
+                    txtbxDate.Text = eventbl.EventDate;
+                    txtbxAddress.Text = eventbl.EventAddress;
+                    txtbxConPhone.Text = eventbl.ContactPhone;
+                    txtbxConEmail.Text = eventbl.ContactEmail;
+                }
+                Session.Remove("event");
+                Session.Remove("eventEdit");
+                /*if (back != null)
+                {
+                    if (Session["event"] != null)
+                    {
+                        //list = (List<String>)Session["event"];
+                        eventbl = (EventBL)Session["event"];
+
+
+                        txtbxEventName.Text = eventbl.EventName;
+                        txtbxFirstName.Text = eventbl.FirstName;
+                        txtbxLastName.Text = eventbl.LastName;
+                        txtbxDate.Text = eventbl.EventDate;
+                        txtbxAddress.Text = eventbl.EventAddress;
+                        txtbxConPhone.Text = eventbl.ContactPhone;
+                        txtbxConEmail.Text = eventbl.ContactEmail;
+                        txtbxDescription.Text = eventbl.Description;
+
+
+                    }
+                    else if (Session["eventEdit"] != null)
+                    {
+                        eventbl = (EventBL)Session["eventEdit"];
+
+
+                        txtbxEventNameEdit.Text = eventbl.EventName;
+                        txtbxFNEdit.Text = eventbl.FirstName;
+                        txtbxLNEdit.Text = eventbl.LastName;
+                        txtbxDateEdit.Text = eventbl.EventDate;
+                        txtbxAddressEdit.Text = eventbl.EventAddress;
+                        txtbxConNumEdit.Text = eventbl.ContactPhone;
+                        txtbxEmailEdit.Text = eventbl.ContactEmail;
+                        txtbxDescriptionEdit.Text = eventbl.Description;
+                    }
+                }*/
                 if (value != null)
                 {
                     foreach (EventBL f in GlobalData.Events)
@@ -37,6 +94,8 @@ namespace EventReady.Application_Layer
                         }
                     }
                 }
+                
+                
             }
         }
 

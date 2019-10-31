@@ -1,0 +1,232 @@
+﻿/*CSS for ther master page*/
+#header {
+    color: #247BA0;
+    text-align: center;
+    font-size: 20px;
+}
+
+#nav {
+    background-color: #5d6366;
+    padding: 5px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li a {
+    color: #F1FAEE;
+    font-size: 30px;
+    column-width: 5%;
+}
+
+li {
+    display: inline;
+    padding-left: 2px;
+    column-width: 20px;
+}
+
+a {
+    text-decoration: none;
+    margin-left: 20px
+}
+
+li a:hover {
+    background-color: #F3FFBD;
+    color: #FF1654;
+   
+}
+
+#side {
+    text-align: center;
+    float: right;
+    width: 15%;
+    padding-bottom: 79%;
+    background-color: #F1FAEE;
+}
+
+#article {
+    background-color: #EEF5DB;
+    padding: 10px;
+    padding-bottom: 75%;
+}
+
+#footer {
+    background-color: #5d6366;
+    text-align: center;
+    padding-bottom: 5%;
+    font-size: 20px;
+}
+
+#con {
+    border: double;
+    border-color: burlywood;
+}
+
+/*CSS for the lists*/
+/*body {
+    background-image: url("eventreadybackground.jpg");
+    color: white;
+}*/
+
+.center {
+    text-align: center;
+}
+
+.heading {
+    text-align: center;
+}
+
+.errorMessage {
+    color: red;
+}
+
+#itemlist {
+    padding: 30px;
+}
+
+.itemlist {
+    position: relative;
+    background-color: #FFF;
+    min-height: 680px;
+    padding: 15px
+}
+
+    .itemlist header {
+        padding: 10px 0;
+        margin-bottom: 20px;
+        border-bottom: 1px solid #3989c6
+    }
+
+    .itemlist .company-details {
+        text-align: right
+    }
+
+        .itemlist .company-details .name {
+            margin-top: 0;
+            margin-bottom: 0
+        }
+
+    .itemlist .contacts {
+        margin-bottom: 20px
+    }
+
+    .itemlist .itemlist-to {
+        text-align: left
+    }
+
+        .itemlist .itemlist-to .to {
+            margin-top: 0;
+            margin-bottom: 0
+        }
+
+    .itemlist .itemlist-details {
+        text-align: right
+    }
+
+        .itemlist .itemlist-details .itemlist-id {
+            margin-top: 0;
+            color: #3989c6
+        }
+
+    .itemlist table {
+        width: 100%;
+        border-collapse: collapse;
+        border-spacing: 0;
+        margin-bottom: 20px
+    }
+
+        .itemlist table td, .itemlist table th {
+            padding: 15px;
+            background: #eee;
+            border-bottom: 1px solid #fff
+        }
+
+        .itemlist table th {
+            white-space: nowrap;
+            font-weight: 400;
+            font-size: 16px
+        }
+
+        .itemlist table td h3 {
+            margin: 0;
+            font-weight: 400;
+            color: #3989c6;
+            font-size: 1.2em
+        }
+
+        .itemlist table .qty, .itemlist table .total, .itemlist table .unit {
+            text-align: right;
+            font-size: 1.2em
+        }
+
+        .itemlist table .no {
+            color: #fff;
+            font-size: 1.6em;
+            background: #3989c6
+        }
+
+        .itemlist table .unit {
+            background: #ddd
+        }
+
+        .itemlist table .total {
+            background: #3989c6;
+            color: #fff
+        }
+
+        .itemlist table tbody tr:last-child td {
+            border: none
+        }
+
+        .itemlist table tfoot td {
+            background: 0 0;
+            border-bottom: none;
+            white-space: nowrap;
+            text-align: right;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            border-top: 1px solid #aaa
+        }
+
+        .itemlist table tfoot tr:first-child td {
+            border-top: none
+        }
+
+        .itemlist table tfoot tr:last-child td {
+            color: #3989c6;
+            font-size: 1.4em;
+            border-top: 1px solid #3989c6
+        }
+
+        .itemlist table tfoot tr td:first-child {
+            border: none
+        }
+
+    .itemlist footer {
+        width: 100%;
+        text-align: center;
+        color: #777;
+        border-top: 1px solid #aaa;
+        padding: 8px 0
+    }
+
+@media print {
+    .itemlist {
+        font-size: 11px !important;
+        overflow: hidden !important
+    }
+
+        .itemlist footer {
+            position: absolute;
+            bottom: 10px;
+            page-break-after: always
+        }
+
+        .itemlist > div:last-child {
+            page-break-before: always
+        }
+}
+
+.text-list-colour {
+    color: black

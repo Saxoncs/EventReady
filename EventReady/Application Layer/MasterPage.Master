@@ -4,8 +4,8 @@
 <!-- https://www.c-sharpcorner.com/article/how-to-create-master-page-in-asp-net/ -->
 <html xmlns="http://www.w3.org/1999/xhtml">  
 <head runat="server">  
-    <title>c# corner</title>  
-    <link href="../Style/StyleSheet.css" rel="stylesheet" type="text/css" media="screen" runat="server"/>  
+    <title></title>  
+    <link href="../Style/StyleSheetStyle.css" rel="stylesheet" type="text/css" media="screen" runat="server"/>  
     <asp:ContentPlaceHolder ID="head" runat="server">  
     </asp:ContentPlaceHolder>  
 </head>  
@@ -14,11 +14,19 @@
 
 
 <nav id="nav">  
+    <% User user = (User)Session["user"]; %>
+    
     <ul>  
-        <li><a href="home.aspx">Home</a></li>  
-        <li><a href="#">About</a></li>  
-        <li><a href="#">Article</a></li>  
-        <li><a href="#">Contact</a></li>  
+        
+        <li><a href="Home.aspx">Home</a></li>    
+        <li><a href="Guide.aspx">Guide</a></li>  
+        <%if (Session["user"] != null)
+            {%>
+        <li><a href="Events.aspx?user=<%=user.Email%>">Events</a></li>
+        <li><a href="LoginVer2.aspx?log=<%="Logout" %>">Logout</a></li>
+        <%} if (Session["user"] == null){ %>
+        <li><a href="LoginVer2.aspx">Sign In</a></li>
+        <%} %>
     </ul>  
 </nav>  
  

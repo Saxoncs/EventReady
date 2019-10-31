@@ -14,6 +14,12 @@ namespace EventReady.Application_Layer
         //protected List<String> list; 
         protected void Page_Load(object sender, EventArgs e)
         {
+            User session = (User)Session["user"];
+
+            if (session == null)
+            {
+                Response.Redirect("LoginVer2.aspx");
+            }
             if (Session["event"] != null )
             {
                 //list = (List<String>)Session["event"];
@@ -78,5 +84,7 @@ namespace EventReady.Application_Layer
             //Session.Remove("event");
             Response.Redirect("InviteVers2.aspx");
         }
+
+       
     }
 }
