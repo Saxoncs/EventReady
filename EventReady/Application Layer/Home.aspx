@@ -52,6 +52,11 @@
                                 <h2>View Guide</h2>
                                 <a href="Guide.aspx">View Guide</a>
                             </div>
+                            <div class="item">
+                                <h4>Calender to display your events</h4>
+                                <h2>View Calender</h2>
+                                <a href="Calendar.aspx">View Calender</a>
+                            </div>
                         </div>
                     </div>
                 </div>
