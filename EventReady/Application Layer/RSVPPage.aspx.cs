@@ -12,7 +12,7 @@ namespace EventReady.Application_Layer
 {
     public partial class RSVPPage : System.Web.UI.Page
     {
-        //User layer guest doesn't need an active component as all guests here are going to be active
+        //User layer guest doesn't need an active component as all guests here are going to be active -Saxon
         protected class GuestUL
         {
             public string name { get; set; }
@@ -29,11 +29,13 @@ namespace EventReady.Application_Layer
         protected string selectedEvent;
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Gets the selected event from Event.aspx
+            //Gets the selected event from Event.aspx -Saxon
             selectedEvent = Request.QueryString["selectedEvent"];
             
-            //Function for converting data guests to native guests
+
+            //Convert data access guests to native guests - Saxon
             List<Guest> guestList = email.GetActiveGuests(selectedEvent);
+
             displayedGuestList = new List<GuestUL>();
 
             foreach (Guest guest in guestList)
@@ -46,11 +48,6 @@ namespace EventReady.Application_Layer
 
                 displayedGuestList.Add(displayedGuest);
             }
-
-            
-
-            
-
 
         }
 

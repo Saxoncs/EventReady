@@ -33,58 +33,40 @@
                     </thead>
                     <tbody>
                         <%int countID = 0; %>
-                        <%foreach (EventBL e in GlobalData.Events)
+                        <%foreach (EventUL e in displayedEventList)
                             { 
-                                  %>
-                            <%if (user.Equals(e.UserEmail))
-                                { countID++; %>
+                             countID++; %>
                         <!-- Adds the event name to the page -->
                     <tr>
                             <td class="no"><%= countID %></td>
                             <td class="text-left">
-                                <p class="text-list-colour"><%=e.EventName %></p>
+                                <p class="text-list-colour"><%=e.name %></p>
                                 
                             </td>
                             
                                 
                            <!-- Adds event description -->
                             <td class="text-left">
-                                <p class="text-list-colour"> <%=e.Description %></p>
+                                <p class="text-list-colour"> <%=e.description %></p>
                                 
                             </td>
  
                             
                             <!-- Adds event duration modifier -->
                             <td class="text-left">
-                                <p class ="text-list-colour"><%=e.FirstName %></p>
+                                <p class ="text-list-colour"><%=e.daysDelayed %></p>
                                 
                             </td>
 
                             <td class="text-left">
-                                <p class ="text-list-colour"><%=e.LastName %></p>
+                                <p class ="text-list-colour"><%=e.start %></p>
                                 
                             </td>
 
                             <td class="text-left">
-                                <p class ="text-list-colour"><%=e.EventDate %></p>
+                                <p class ="text-list-colour"><%=e.deadline %></p>
                                 
-                            </td>
-
-                            <td class="text-left">
-                                <p class ="text-list-colour"><%=e.EventAddress %></p>
-                                
-                            </td>
-
-                            <td class="text-left">
-                                <p class ="text-list-colour"><%=e.ContactPhone %></p>
-                                
-                            </td>
-
-                            <td class="text-left">
-                                <p class ="text-list-colour"><%=e.ContactEmail %></p>
-                                
-                            </td>
-                            
+                            </td>                     
 
                             <td class="text-left">
                                 
@@ -95,17 +77,16 @@
                             </td>
 
                             <td class="text-left">
-                                    <input type="button" class="btn btn-success" value="EDIT" onclick="window.location.href = 'CreateEvent.aspx?value=<%=GlobalData.Events.IndexOf(e)%>'; return false"/>
+                                    <input type="button" class="btn btn-success" value="EDIT" onclick="window.location.href = 'CreateEvent.aspx?value=<%=displayedEventList.IndexOf(e)%>'; return false"/>
                             </td>
                         
                             <td class="text-left">
                                    <% User user = (User)Session["user"]; %>
-                                <input type="button" class="btn btn-danger" value="REMOVE" onclick="window.location.href = 'Events.aspx?mode=toggleDelete&event=<%=GlobalData.Events.IndexOf(e)%>'; return false"/>
+                                <input type="button" class="btn btn-danger" value="REMOVE" onclick="window.location.href = 'Events.aspx?mode=toggleDelete&event=<%=displayedEventList.IndexOf(e)%>'; return false"/>
                                 <!-- GlobalData.Events.IndexOf(e) --> 
                             </td>
                         </tr>
-                        <% }
-                            }%>
+                        <% } %>
                         </tbody>
                      </table>
             </div>

@@ -141,8 +141,6 @@ namespace EventReady.Data_Access_Layer
         }
 
 
-
-
         // returns the connection string being used in the web config file. - Saxon
         private static string GetConnectionString()
         {
