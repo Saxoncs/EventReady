@@ -14,9 +14,9 @@
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <%if (value == null)
+    <%if (eventToEdit == null)
         {%>
-    <p>THIS MEANS THAT THE VALUE IS NULL</p>
+    <p>THIS MEANS THAT THE THERE IS NO EVENT TO EDIT</p>
     <asp:Label runat="server" ID ="lblHeader">Please fill out empty fields to start creating an event</asp:Label> <br />
     <asp:Label runat="server" ID="lblEventName">Event Name</asp:Label><br />
     <asp:requiredfieldvalidator display="Dynamic" runat="server" ID="ValEventName" ControlToValidate="txtbxEventName" ErrorMessage="Event name field cannot be empty" style="color:red"></asp:requiredfieldvalidator>
@@ -54,9 +54,9 @@
     <asp:TextBox runat="server" ID="txtbxDescription" TextMode="MultiLine"></asp:TextBox><br />
 
     <%} %>
-    <% else if (value != null )
+    <% else if (eventToEdit != null )
         {%>
-    <p>THIS MEANS THAT THE VALUE IS NOT NULL</p>
+    <p>THIS MEANS THAT THERE IS AN EVENT TO EDIT</p>
 
     <asp:Label runat="server" ID ="lblHeaderEdit">Please fill out empty fields to start creating an event</asp:Label> <br />
     <asp:Label runat="server" ID="lblEventNameEdit">Event Name</asp:Label><br />

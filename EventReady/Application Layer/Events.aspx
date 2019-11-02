@@ -77,11 +77,12 @@
                             </td>
 
                             <td class="text-left">
-                                    <input type="button" class="btn btn-success" value="EDIT" onclick="window.location.href = 'CreateEvent.aspx?value=<%=displayedEventList.IndexOf(e)%>'; return false"/>
+                                 <% User user = (User)Session["user"]; %>
+                                    <input type="button" class="btn btn-success" value="EDIT" onclick="window.location.href = 'CreateEvent.aspx?eventToEdit=<%= e.eventId %>&user=<% =user.UserId %>'; return false"/>
                             </td>
                         
+                            <!-- this button still hasn't been formatted for the database and will need to be changed -->
                             <td class="text-left">
-                                   <% User user = (User)Session["user"]; %>
                                 <input type="button" class="btn btn-danger" value="REMOVE" onclick="window.location.href = 'Events.aspx?mode=toggleDelete&event=<%=displayedEventList.IndexOf(e)%>'; return false"/>
                                 <!-- GlobalData.Events.IndexOf(e) --> 
                             </td>

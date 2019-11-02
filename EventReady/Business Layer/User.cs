@@ -7,17 +7,19 @@ namespace EventReady.Business_Layer
 {
     public class User
     {
-        public User(string firstName, string lastName, string email, string password)
+        public User(string firstName, string lastName, string email, string password, string userId)
         {
             FirstName = firstName;
             LastName = lastName;
             Email = email;
             Password = password;
+            UserId = userId;
         }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
+        public string UserId { get; set; }
     }
 
 

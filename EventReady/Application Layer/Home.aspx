@@ -48,8 +48,8 @@
                                         <ul class="nav navbar-nav">
                                             <li class="active"><a href="#">HOME</a></li>
                                             <li><a href="#">ABOUT</a></li>
-                                            <li><a href="CreateEvent.aspx?user=<%=user.Email%>">Create Event</a></li>
-                                            <li><a href="Events.aspx?user=<%=user.Email %>">EVENTS</a></li>
+                                            <li><a href="CreateEvent.aspx?user=<%=user.UserId%>">Create Event</a></li>
+                                            <li><a href="Events.aspx?user=<%=user.UserId%>">EVENTS</a></li>
                                             <li><a href="guide.html">GUIDE</a></li>
                                             <li><a href="LoginVer2.aspx?log=<%="Logout" %>">LOG OUT</a></li>
                                         </ul>

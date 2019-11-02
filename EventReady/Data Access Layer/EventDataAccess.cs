@@ -49,37 +49,46 @@ namespace EventReady.Data_Access_Layer
         public static List<Event> GetEvents(string userId)
         {
             List<Event> eventList = new List<Event>();
-            string sql = "SELECT eventId, name, description, daysDelayed, start, deadline, active FROM Event WHERE userId = @userId ORDER BY Name";
+            string sql = "SELECT eventId, name, description, daysDelayed, start, deadline, active, userId FROM Event WHERE userId = @userId ORDER BY deadline";
 
-            using (SqlConnection con = new SqlConnection(GetConnectionString()))
-            {
-                using (SqlCommand cmd = new SqlCommand(sql, con))
-                {
-                    con.Open();
-                    SqlDataReader dr = cmd.ExecuteReader();
-                    //need to name an individual event singleEvent to prevent errors -Saxon
-                    Event singleEvent;
-
-                    //I need to look up how to change values into not strings... it's possible that you just store the values as strings for now then change them later but that seems odd -Saxon
-                    while (dr.Read())
-                    {
-
-                        singleEvent = new Event();
-                        singleEvent.eventId = dr["eventId"].ToString();
-                        singleEvent.name = dr["name"].ToString();
-                        singleEvent.description = dr["description"].ToString();
-                        singleEvent.userId = dr["userId"].ToString();
-                        singleEvent.daysDelayed = dr.GetInt32(dr.GetOrdinal("daysDelayed"));
-                        singleEvent.start = dr.GetDateTime(dr.GetOrdinal("start"));
-                        singleEvent.deadline = dr.GetDateTime(dr.GetOrdinal("deadline"));
-                        singleEvent.active = dr.GetBoolean(dr.GetOrdinal("active"));
-                        eventList.Add(singleEvent);
-
-                    }
-                    dr.Close();
-                }
-            }
-            return eventList;
+            // try to read a connection from database 
+            //try
+            //{
+	            using (SqlConnection con = new SqlConnection(GetConnectionString()))
+	            {
+	                using (SqlCommand cmd = new SqlCommand(sql, con))
+	                {
+                        cmd.Parameters.AddWithValue("userId", userId);
+	                    con.Open();
+	                    SqlDataReader dr = cmd.ExecuteReader();
+	                    //need to name an individual event singleEvent to prevent errors -Saxon
+	                    Event singleEvent;
+	
+	                    //I need to look up how to change values into not strings... it's possible that you just store the values as strings for now then change them later but that seems odd -Saxon
+	                    while (dr.Read())
+	                    {
+	
+	                        singleEvent = new Event();
+	                        singleEvent.eventId = dr["eventId"].ToString();
+	                        singleEvent.name = dr["name"].ToString();
+	                        singleEvent.description = dr["description"].ToString();
+                            singleEvent.daysDelayed = dr.GetInt16(dr.GetOrdinal("daysDelayed"));
+                            singleEvent.start = dr.GetDateTime(dr.GetOrdinal("start"));
+                            singleEvent.deadline = dr.GetDateTime(dr.GetOrdinal("deadline"));
+                            singleEvent.active = dr.GetBoolean(dr.GetOrdinal("active"));
+                            singleEvent.userId = dr["userId"].ToString();
+	                        eventList.Add(singleEvent);
+	
+	                    }
+	                    dr.Close();
+	                }
+	            }
+	            return eventList;
+            //}
+            //catch
+            //{
+            //    throw new Exception("Unable to access Event table in the database");
+            //}
         }
 
         //Function for taking the Steps associated with a specified event and returning a strongly typed list of Step classes - Saxon

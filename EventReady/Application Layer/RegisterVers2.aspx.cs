@@ -19,7 +19,7 @@ namespace EventReady.Application_Layer
         {
             if(IsValid)
             {
-               GlobalData.userMap.Add(txtbxEmail.Text, new User(txtbxFirstName.Text, txtbxLastName.Text, txtbxEmail.Text, txtbxPw.Text));
+               GlobalData.userMap.Add(txtbxEmail.Text, new User(txtbxFirstName.Text, txtbxLastName.Text, txtbxEmail.Text, txtbxPw.Text, "3282914"));
                 Response.Redirect("LoginVer2.aspx");
             }
         }

@@ -17,7 +17,7 @@ namespace EventReady.Application_Layer
         protected int eventDelete;
 
 
-        //User layer Event doesn't need an active component as all events here are going to be active - Saxon
+        //User layer Event doesn't need an active component as all events here are going to be active, there are multiple versions of these on different pages ideally this would be in the business logic but not time to sort it out - Saxon
         protected class EventUL
         {
             public string eventId { get; set; }
