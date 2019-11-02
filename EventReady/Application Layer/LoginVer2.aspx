@@ -91,7 +91,7 @@
 					</a>
 				</div>
                 <div class="text-center">
-					<asp:HyperLink id="forgotPasswordLink" NavigateUrl="ForgotPassword.aspx" Text="Forgot your password?" runat="server"></asp:HyperLink>
+					<asp:HyperLink id="forgotPasswordLink" NavigateUrl="forgotpasswordtest.aspx" Text="Forgot your password?" runat="server"></asp:HyperLink>
 				</div>
 			</form>
 

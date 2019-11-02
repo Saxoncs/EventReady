@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Application Layer/MasterPage.Master" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="EventReady.Application_Layer.Home" %>
+
 <%@ Import Namespace="EventReady.Business_Layer"%>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="https://fonts.googleapis.com/css?family=Dancing+Script:400,700|Open+Sans:400,600,700,800" rel="stylesheet">
@@ -31,6 +32,7 @@
 
     <div class="wrapper" style="background-image: url('../Image/header-bg.jpg'); background-size: 100% auto; position: relative; background-repeat: no-repeat;">
         <header class="header">
+            <% User user = (User)Session["user"]; %>
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
@@ -39,9 +41,7 @@
                                 <div class="col-md-3 col-sm-12 col-xs-12">
                                     <div>
                                         <img src="../Image/er.jpg" alt="Image/er.jpg" style="width:80px;height:80px;" />
-
                                     </div>
-                                    <% User user = (User)Session["user"]; %>
                                 </div>
                                 <div class="col-md-9 col-sm-12 col-xs-12">
                                     <div class="menu">
@@ -65,17 +65,22 @@
                             <div class="item">
                                 <h4>Here you can</h4>
                                 <h2>Create an Event</h2>
-                                <button>CREATE</button>
+                                <%if (Session["user"] != null)
+                                    {%>
+                                <a href="CreateEvent.aspx?user=<%=user.Email%>">Create Event</a>
+                                <%} else if (Session["user"] == null) { %>
+                                <a href="LoginVer2.aspx">Create Event</a>
+                                <%} %>
                             </div>
                             <div class="item">
-                                <h4>Here you can</h4>
-                                <h2>Create a Sample Budget</h2>
-                                <button>CREATE</button>
-                            </div>
-                            <div class="item">
-                                <h4>Not Sure What To Do</h4>
+                                <h4>See the steps in creating an event</h4>
                                 <h2>View Guide</h2>
-                                <button>View</button>
+                                <a href="Guide.aspx">View Guide</a>
+                            </div>
+                            <div class="item">
+                                <h4>Calender to display your events</h4>
+                                <h2>View Calender</h2>
+                                <a href="Calendar.aspx">View Calender</a>
                             </div>
                         </div>
                     </div>

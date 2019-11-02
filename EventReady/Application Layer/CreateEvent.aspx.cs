@@ -34,6 +34,12 @@ namespace EventReady.Application_Layer
         protected string eventToEdit;
         protected void Page_Load(object sender, EventArgs e)
         {
+            User session = (User)Session["user"];
+
+            if (session == null)
+            {
+                Response.Redirect("LoginVer2.aspx");
+            }
             user = Request.QueryString["user"];
             eventToEdit = Request.QueryString["eventToEdit"];
             valDateCheck.ValueToCompare = DateTime.Now.ToShortDateString();
@@ -59,6 +65,8 @@ namespace EventReady.Application_Layer
                         }
                     }
                 }
+                
+                
             }
         }
 

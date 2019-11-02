@@ -11,7 +11,20 @@ namespace EventReady.Application_Layer
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //DateTime d = calEvents.SelectedDate;
 
+            //fd
+            //DateTime testthis = Convert.ToDateTime("05/29/2015");
+
+        }
+        public void calEvent_DayRender(object o, DayRenderEventArgs e)
+
+        {
+            DateTime date = Convert.ToDateTime("05/29/2015");
+            /*if (e.Day.Date == Convert.ToDateTime())
+            {
+
+            }*/
         }
     }
 }

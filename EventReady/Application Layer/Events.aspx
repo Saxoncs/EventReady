@@ -3,10 +3,10 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="../Content/bootstrap.min.css" rel="stylesheet" />
     <link href="../Content/Site.css" rel="stylesheet" />
-    <link href="../Style/StyleSheet.css" rel="stylesheet" />
+    <link href="../Style/StyleSheetStyle.css" rel="stylesheet" />
     <script src="../Scripts/jquery-3.3.1.min.js"></script>
     <script src="../Scripts/bootstrap.bundle.min.js"></script>
-    <script src="Scripts/bootstrap.min.js"></script>
+    <script src="../Scripts/bootstrap.min.js"></script>
 </asp:Content>
 
 <asp:Content ID="ViewContent2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">

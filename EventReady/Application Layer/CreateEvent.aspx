@@ -2,24 +2,13 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 
-
-
-
-
-
-
-
-
-
-
-
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <%if (eventToEdit == null)
         {%>
     <p>THIS MEANS THAT THE THERE IS NO EVENT TO EDIT</p>
     <asp:Label runat="server" ID ="lblHeader">Please fill out empty fields to start creating an event</asp:Label> <br />
     <asp:Label runat="server" ID="lblEventName">Event Name</asp:Label><br />
-    <asp:requiredfieldvalidator display="Dynamic" runat="server" ID="ValEventName" ControlToValidate="txtbxEventName" ErrorMessage="Event name field cannot be empty" style="color:red"></asp:requiredfieldvalidator>
+    <asp:requiredfieldvalidator display="Dynamic" ID="ValEventName" ControlToValidate="txtbxEventName" ErrorMessage="Event name field cannot be empty" style="color:red" runat="server"></asp:requiredfieldvalidator>
     <asp:TextBox runat="server" ID="txtbxEventName"></asp:TextBox> <br />
     
     <asp:Label runat="server" ID ="lblNames">Name of person inviting people to the event</asp:Label> <br/>
@@ -57,7 +46,6 @@
     <% else if (eventToEdit != null )
         {%>
     <p>THIS MEANS THAT THERE IS AN EVENT TO EDIT</p>
-
     <asp:Label runat="server" ID ="lblHeaderEdit">Please fill out empty fields to start creating an event</asp:Label> <br />
     <asp:Label runat="server" ID="lblEventNameEdit">Event Name</asp:Label><br />
     <asp:requiredfieldvalidator display="Dynamic" runat="server" ID="ValENEdit" ControlToValidate="txtbxEventNameEdit" ErrorMessage="Event name field cannot be empty" style="color:red"></asp:requiredfieldvalidator>
@@ -97,4 +85,5 @@
     <%} %>
     
     <asp:Button runat="server" id="btnContinue" OnClick="btnContinue_Click"/>
+        </form>
 </asp:Content>

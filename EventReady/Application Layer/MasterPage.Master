@@ -1,19 +1,47 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="EventReady.Application_Layer.MasterPage1" %>
+<%@ Import Namespace="EventReady" %>
+<%@ Import Namespace="EventReady.Business_Layer" %>
+<!-- https://www.c-sharpcorner.com/article/how-to-create-master-page-in-asp-net/ -->
+<html xmlns="http://www.w3.org/1999/xhtml">  
+<head runat="server">  
+    <title></title>  
+    <link href="../Style/StyleSheetStyle.css" rel="stylesheet" type="text/css" media="screen" runat="server"/>  
+    <asp:ContentPlaceHolder ID="head" runat="server">  
+    </asp:ContentPlaceHolder>  
+</head>  
+<body>  
 
-<!DOCTYPE html>
 
-<html>
-<head runat="server">
-    <title></title>
-    <asp:ContentPlaceHolder ID="head" runat="server">
-    </asp:ContentPlaceHolder>
-</head>
-<body>
-    <form id="form1" runat="server">
-        <div>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
-        </div>
-    </form>
-</body>
+
+<nav id="nav">  
+    <% User user = (User)Session["user"]; %>
+    
+    <ul>  
+        
+        <li><a href="Home.aspx">Home</a></li>    
+        <li><a href="Guide.aspx">Guide</a></li>  
+        <%if (Session["user"] != null)
+            {%>
+        <li><a href="Events.aspx?user=<%=user.Email%>">Events</a></li>
+        <li><a href="LoginVer2.aspx?log=<%="Logout" %>">Logout</a></li>
+        <%} if (Session["user"] == null){ %>
+        <li><a href="LoginVer2.aspx">Sign In</a></li>
+        <%} %>
+    </ul>  
+</nav>  
+ 
+  
+  
+    <div id="con">  
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">  
+          
+        </asp:ContentPlaceHolder>  
+    </div>  
+  
+  
+<footer id="footer">  
+    © 2019 Copyright: Event Ready
+</footer>  
+
+</body>  
 </html>

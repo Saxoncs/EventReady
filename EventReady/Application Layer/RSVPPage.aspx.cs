@@ -5,8 +5,10 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using EventReady.Business_Layer;
+
 using static EventReady.Business_Layer.EmailBL;
 using static EventReady.Data_Access_Layer.EmailDataAccess;
+
 
 namespace EventReady.Application_Layer
 {
@@ -48,6 +50,20 @@ namespace EventReady.Application_Layer
 
                 displayedGuestList.Add(displayedGuest);
             }
+
+
+            // More session expiration redirects?
+            //User session = (User)Session["user"];
+
+            //if (session == null)
+            //{
+            //    Response.Redirect("LoginVer2.aspx");
+            //}
+            //guestList = Request.QueryString["guestList"];
+
+
+            //0000001 needs to be replaced with the event number of whichever event is clicked
+            //List<Guest> guestList = email.GetActiveGuests("0000001");
 
         }
 

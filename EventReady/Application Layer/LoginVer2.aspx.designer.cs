@@ -7,13 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace EventReady.Application_Layer
-{
-
-
-    public partial class LoginVer2
-    {
-
+namespace EventReady.Application_Layer {
+    
+    
+    public partial class LoginVer2 {
+        
         /// <summary>
         /// form1 control.
         /// </summary>
@@ -22,41 +20,59 @@ namespace EventReady.Application_Layer
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-
+        
         /// <summary>
-        /// txtForgottenEmail control.
+        /// ValEmailEmpty control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtForgottenEmail;
-
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ValEmailEmpty;
+        
         /// <summary>
-        /// valForgottenPassword control.
+        /// ValEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator valForgottenPassword;
-
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator ValEmail;
+        
         /// <summary>
-        /// lblEmailMessage control.
+        /// txtbxEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEmailMessage;
-
+        protected global::System.Web.UI.WebControls.TextBox txtbxEmail;
+        
         /// <summary>
-        /// lblEmailMessage control.
+        /// ValPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        //protected global::System.Web.UI.WebControls.Label lblEmailMessage;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ValPassword;
+        
+        /// <summary>
+        /// txtbxPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtbxPassword;
+        
+        /// <summary>
+        /// forgotPasswordLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink forgotPasswordLink;
     }
 }

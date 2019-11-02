@@ -21,10 +21,9 @@
             <div>
                  <div>
                     <label> Enter the email you are registered with </label>
-                    <!-- Check to see if field is empty -->
                  </div>
             </div>
-            <!-- Create textbox that takes up whole row for postage name -->
+            
             <div>
                     
                     <div>
@@ -37,7 +36,7 @@
 
             <!-- Submission button -->
             <asp:Button runat="server" OnClick="btnContinue_Click" class="btn btnSubmit btn-block" Text="Continue"/>
-            <asp:label runat="server" ID="lblEmailMessage" Visible="false" style="color:red;"> This email is not registered at Bobblehead </asp:label>
+            <asp:label runat="server" ID="lblEmailMessage" Visible="false" style="color:red;"> This email is not registered at EventReady </asp:label>
         </div>
     </form>
 </body>

@@ -21,30 +21,7 @@
     <div class="wrapper" style="background-image: url('../Image/header-bg.jpg'); background-size: 100% auto; position: relative; background-repeat: no-repeat;">
         <header class="header">
             <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="header-top">
-                            <div class="row">
-                                <div class="col-md-3 col-sm-12 col-xs-12">
-                                    <div>
-                                        <img src="../Image/er.jpg" alt="er.jpg" style="width:80px;height:80px;">
-                                    </div>
-                                </div>
-                                <div class="col-md-9 col-sm-12 col-xs-12">
-                                    <div class="menu">
-                                        <ul class="nav navbar-nav">
-                                            <li class="active"><a href="home.html">HOME</a></li>
-                                            <li><a href="#">ABOUT</a></li>
-                                            <li><a href="#">EVENTS</a></li>
-                                            <li><a href="#">GUIDE</a></li>
-                                            <li><a href="#">LOG OUT</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+               
                 <div class="row">
                     <div class="col-md-12">
                         <div class="header-carousal owl-carousel owl-theme">
