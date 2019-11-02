@@ -14,7 +14,7 @@ namespace EventReady.Application_Layer
             //DateTime d = calEvents.SelectedDate;
 
             //fd
-            DateTime testthis = Convert.ToDateTime("05/29/2015");
+            //DateTime testthis = Convert.ToDateTime("05/29/2015");
 
         }
         public void calEvent_DayRender(object o, DayRenderEventArgs e)
