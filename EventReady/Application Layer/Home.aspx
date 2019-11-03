@@ -32,7 +32,7 @@
 
     <div class="wrapper" style="background-image: url('../Image/header-bg.jpg'); background-size: 100% auto; position: relative; background-repeat: no-repeat;">
         <header class="header">
-            <% User user = (User)Session["user"]; %>
+            <% UserBL user = (UserBL)Session["user"]; %>
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">

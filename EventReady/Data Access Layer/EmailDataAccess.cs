@@ -17,17 +17,17 @@ namespace EventReady.Data_Access_Layer
     {
 
         // Reads Guest data from the database in regards to specified user (just add the user's Id as an argument) may be superseded by following function - Saxon
-        [DataObjectMethod(DataObjectMethodType.Select)]
-        public static IEnumerable GetAllGuests(string eventId)
-        {
-            SqlConnection con = new SqlConnection(GetConnectionString());
-            string sql = "SELECT name, email FROM Guest WHERE eventId = @eventId ";
-            SqlCommand cmd = new SqlCommand(sql, con);
-            cmd.Parameters.AddWithValue("eventId", eventId);
-            con.Open();
-            SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
-            return dr;
-        }
+        //[DataObjectMethod(DataObjectMethodType.Select)]
+        //public static IEnumerable GetAllGuests(string eventId)
+        //{
+        //    SqlConnection con = new SqlConnection(GetConnectionString());
+        //    string sql = "SELECT name, email FROM Guest WHERE eventId = @eventId ";
+        //    SqlCommand cmd = new SqlCommand(sql, con);
+        //    cmd.Parameters.AddWithValue("eventId", eventId);
+        //    con.Open();
+        //    SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+        //    return dr;
+        //}
 
         //Returns the guest list for the specified event as a strongly typed list, I removed the user from the picture here as a guest is already associated with a user through the event so eventId makes more sense - Saxon
         [DataObjectMethod(DataObjectMethodType.Select)]
@@ -96,7 +96,7 @@ namespace EventReady.Data_Access_Layer
             }
         }
 
-        //function takes a guest class from the business layer and adds it to the database - Saxon
+        //function takes a guest class from the business layer and adds it to the database, slightly out of date - Saxon
         [DataObjectMethod(DataObjectMethodType.Insert)]
         public static int AddGuest(string eventId, Guest guest)
 
@@ -120,25 +120,25 @@ namespace EventReady.Data_Access_Layer
         }
 
 
-        //Delete a guest row in the database by inserting a guest class from the business layer - Saxon
-        [DataObjectMethod(DataObjectMethodType.Delete)]
-        public static int DeleteGuest(string eventId, Guest guest)
-        {
+        //Delete a guest row in the database by inserting a guest class from the business layer, we won't be using this instead we will expect that database admin handle proper deletions and instead simply set 'deleted' guests to 'inactive' - Saxon
+        //[DataObjectMethod(DataObjectMethodType.Delete)]
+        //public static int DeleteGuest(string eventId, Guest guest)
+        //{
 
-            string sql = "DELETE FROM Guest WHERE userId = " + eventId + " AND email = @email";
+        //    string sql = "DELETE FROM Guest WHERE userId = " + eventId + " AND email = @email";
 
-            using (SqlConnection con = new SqlConnection(GetConnectionString()))
-            {
-                using (SqlCommand cmd = new SqlCommand(sql, con))
-                {
-                    cmd.Parameters.AddWithValue("email", guest.email);
+        //    using (SqlConnection con = new SqlConnection(GetConnectionString()))
+        //    {
+        //        using (SqlCommand cmd = new SqlCommand(sql, con))
+        //        {
+        //            cmd.Parameters.AddWithValue("email", guest.email);
 
-                    con.Open();
-                    return cmd.ExecuteNonQuery();
-                }
-            }
+        //            con.Open();
+        //            return cmd.ExecuteNonQuery();
+        //        }
+        //    }
 
-        }
+        //}
 
 
         // returns the connection string being used in the web config file. - Saxon

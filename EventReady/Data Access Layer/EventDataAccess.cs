@@ -46,15 +46,16 @@ namespace EventReady.Data_Access_Layer
 
 
         //Function for taking the Events associated with a specified user and returning a strongly typed list of Event classes - Saxon
+        [DataObjectMethod(DataObjectMethodType.Select)]
         public static List<Event> GetEvents(string userId)
         {
             List<Event> eventList = new List<Event>();
             string sql = "SELECT eventId, name, description, daysDelayed, start, deadline, active, userId FROM Event WHERE userId = @userId ORDER BY deadline";
 
-            // try to read a connection from database 
-            //try
-            //{
-	            using (SqlConnection con = new SqlConnection(GetConnectionString()))
+            //try to read a connection from database
+            try
+            {
+                using (SqlConnection con = new SqlConnection(GetConnectionString()))
 	            {
 	                using (SqlCommand cmd = new SqlCommand(sql, con))
 	                {
@@ -84,14 +85,15 @@ namespace EventReady.Data_Access_Layer
 	                }
 	            }
 	            return eventList;
-            //}
-            //catch
-            //{
-            //    throw new Exception("Unable to access Event table in the database");
-            //}
+            }
+            catch
+            {
+                throw new Exception("Unable to access Event table in the database");
+            }
         }
 
         //Function for taking the Steps associated with a specified event and returning a strongly typed list of Step classes - Saxon
+        [DataObjectMethod(DataObjectMethodType.Select)]
         public static List<Step> GetSteps(string eventId)
         {
             List<Step> stepList = new List<Step>();
@@ -101,6 +103,7 @@ namespace EventReady.Data_Access_Layer
             {
                 using (SqlCommand cmd = new SqlCommand(sql, con))
                 {
+                    cmd.Parameters.AddWithValue("eventId", eventId);
                     con.Open();
                     SqlDataReader dr = cmd.ExecuteReader();
                     //need to name an individual event singleEvent to prevent errors -Saxon
@@ -128,15 +131,35 @@ namespace EventReady.Data_Access_Layer
 
         //Function for updating a specific Event - Saxon
 
-        //Function for updating a specific Step - Saxon
-
-
-        //Function for adding a Step to an Event - Saxon
-
         //Function for a adding an Event to a User - Saxon
 
 
-        // Function for removing an Event - Saxon
+        // Function for removing an Event returns true if successful and false if not - Saxon
+        [DataObjectMethod(DataObjectMethodType.Update)]
+        public static bool SetEventInactive(string eventId)
+        {
+            string sql = "UPDATE Event SET active = 'false' WHERE eventId = @eventId";
+            using (SqlConnection con = new SqlConnection(GetConnectionString()))
+            {
+                using (SqlCommand cmd = new SqlCommand(sql, con))
+                {
+                    cmd.Parameters.AddWithValue("eventId", eventId);
+
+                    try
+                    {
+                        con.Open();
+                        cmd.ExecuteNonQuery();
+                        return true;
+                    }
+                    catch
+                    {
+                        return false;
+                    }
+
+
+                }
+            }
+        }
 
         // Function for removing a Step - Saxon
 

@@ -49,7 +49,7 @@ namespace EventReady.Application_Layer
         }
         void Page_Load(object sender, EventArgs e)
         {
-            User session = (User)Session["user"];
+            UserBL session = (UserBL)Session["user"];
 
             if (session == null)
             {

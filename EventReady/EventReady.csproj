@@ -335,7 +335,7 @@
     <Compile Include="Business Layer\EventBL.cs" />
     <Compile Include="Business Layer\GlobalData.cs" />
     <Compile Include="Business Layer\GuestTest.cs" />
-    <Compile Include="Business Layer\User.cs" />
+    <Compile Include="Business Layer\UserBL.cs" />
     <Compile Include="Data Access Layer\EmailDataAccess.cs" />
     <Compile Include="Data Access Layer\EventDataAccess.cs" />
     <Compile Include="Data Access Layer\UserDataAccess.cs" />

@@ -77,7 +77,7 @@
                             </td>
 
                             <td class="text-left">
-                                 <% User user = (User)Session["user"]; %>
+                                 <% UserBL user = (UserBL)Session["user"]; %>
                                     <input type="button" class="btn btn-success" value="EDIT" onclick="window.location.href = 'CreateEvent.aspx?eventToEdit=<%= e.eventId %>&user=<% =user.UserId %>'; return false"/>
                             </td>
                         
