@@ -27,7 +27,7 @@ namespace EventReady.Business_Layer
     public UserBL GetActiveUser(string loginEmail)
         {
 
-            User user = GetUser(loginEmail);
+            Data_Access_Layer.UserDataAccess.User user = GetUser(loginEmail);
 
             string firstName = user.firstName;
             string lastName = user.lastName;
