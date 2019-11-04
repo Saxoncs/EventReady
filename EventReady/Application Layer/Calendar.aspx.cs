@@ -67,5 +67,10 @@ namespace EventReady.Application_Layer
                 }
             }
         }
+
+        protected void calEvents_SelectionChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

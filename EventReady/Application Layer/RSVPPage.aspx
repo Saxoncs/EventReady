@@ -24,14 +24,16 @@
                     </thead>
                     <tbody>
                         <%int countID = 0; %>
-                         <%foreach (EventBL e in GlobalData.Events)
+                         <%foreach (GuestUL g in displayedGuestList)
                              {
-                                 if (Convert.ToInt32(guestList) == GlobalData.Events.IndexOf(e))
-                                 {
-                                     //countID++;  %> 
-                        <!-- Adds the event name to the page -->
-                         <%for (int a = 0; a < 2; a++) { 
-                             countID++; %>
+                                 //saved the database classes as local variables -saxon
+                                 string guestName = g.name;
+                                 string guestEmail = g.email;
+                                 string guestRSVP = g.rsvp;
+
+                                 countID++;
+                                     %> 
+                        <!-- WHAT DOES TRHIS FOR STATEMENT DO!? -saxon -->
                     <tr>
                             
                        
@@ -39,24 +41,26 @@
                             <td class="no"><%= countID %></td>
                             
                             <td class="text-left">
-                                <p class="text-list-colour"> <% e.GuestList.ElementAt(a); %></p>
+                                <p class="text-list-colour"> <%= guestName %></p>
+                                
+                            </td>
+
+                            
+                            <td class="text-left">
+                                <p class="text-list-colour"> <%= guestEmail %></p>
                                 
                             </td>
                             
                                 
-                           <!-- Adds event description -->
+                           <!-- Adds rsvp status -->
                             <td class="text-left">
-                                <p class="text-list-colour"> Not Responded </p>
-                                <p class="text-list-colour"> Going </p>
-                                <p class="text-list-colour"> Not going  </p>
+                                <p class="text-list-colour"> <%= guestRSVP %> </p>
                             </td>
                                 
                             
                             
                         </tr>
-                        <% } %>
-                        <% }
-    }%>
+                         <%} %>
                         </tbody>
                      </table>
             </div>

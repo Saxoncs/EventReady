@@ -229,5 +229,9 @@ li a:hover {
 }
 
 .text-list-colour {
-    color: black
+    color: black;
+}
+.calcenter {
+    text-align: center;
+    border: 3px solid green;
 }

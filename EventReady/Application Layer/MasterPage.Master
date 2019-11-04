@@ -14,7 +14,7 @@
 
 
 <nav id="nav">  
-    <% User user = (User)Session["user"]; %>
+    <% UserBL user = (UserBL)Session["user"]; %>
     
     <ul>  
         

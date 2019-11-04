@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using EventReady.Business_Layer;
+using static EventReady.Business_Layer.EventBL;
+using static EventReady.Data_Access_Layer.EventDataAccess;
 
 namespace EventReady.Application_Layer
 {
@@ -13,23 +15,70 @@ namespace EventReady.Application_Layer
         protected string mode;
         protected string user;
         protected int eventDelete;
-        
+
+
+        //User layer Event doesn't need an active component as all events here are going to be active, there are multiple versions of these on different pages ideally this would be in the business logic but not time to sort it out - Saxon
+        protected class EventUL
+        {
+            public string eventId { get; set; }
+            public string name { get; set; }
+            public string description { get; set; }
+            public int daysDelayed { get; set; }
+            public DateTime start { get; set; }
+            public DateTime deadline { get; set; }
+            public string userId { get; set; }
+        }
+
+        protected List<EventUL> displayedEventList;
+
+        protected EventBL eventInfo = new EventBL();
+
+        protected string selectedEvent;
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            User session = (User)Session["user"];
+            
 
-            if (session == null)
-            {
-                Response.Redirect("LoginVer2.aspx");
-            }
+            //This code is here from a merge conflict and I'm not sure if it has a place, is this a redirect to login if the session expires? if so Uncomment it -Saxon
+            //User session = (User)Session["user"];
+
+            //if (session == null)
+            //{
+            //    Response.Redirect("LoginVer2.aspx");
+            //}
+
+            //This query is currently what is used to determine what user's information will be displayed on the page it might be better to use userSession I don't know at the moment -Saxon
             user = Request.QueryString["user"];
+
             //Get the mode from the other page and index of which event needs to be deleted
             mode = Request.QueryString["mode"];
+
             eventDelete = Convert.ToInt32(Request.QueryString["event"]);
             
-            //I dont think i need this
+            //I don't think i need this
             //User userSession = (User)Session["user"];
+
+            //Convert data access events to native events - Saxon
+            List<Event> eventList = eventInfo.GetActiveEvents(user);
+
+            displayedEventList = new List<EventUL>();
+
+            foreach (Event eventInfo in eventList)
+            {
+                EventUL displayedEvent = new EventUL();
+                displayedEvent.eventId = eventInfo.eventId;
+                displayedEvent.name = eventInfo.name;
+                displayedEvent.description = eventInfo.description;
+                displayedEvent.daysDelayed = eventInfo.daysDelayed;
+                displayedEvent.start = eventInfo.start;
+                displayedEvent.deadline = eventInfo.deadline;
+                displayedEvent.userId = eventInfo.userId;
+
+                displayedEventList.Add(displayedEvent);
+            }
+
 
             if (mode != null)
             {

@@ -23,6 +23,13 @@ namespace EventReady.Business_Layer
 
         public List<String> GuestList { get; set; }
 
+        //an empty constructor so that the code doesn't get upset when I instantiate one that doesn't have the temporary global data in it, this can be deleted with the rest of this code.
+        public EventBL()
+        {
+
+        }
+
+
         public EventBL(string useremail, string eventname, string description, string firstname, string lastname, string eventdate, string eventaddress, string contactphone, string contactemail, List<String> guestlist)
         {
             UserEmail = useremail;
@@ -34,7 +41,7 @@ namespace EventReady.Business_Layer
             EventAddress = eventaddress;
             ContactPhone = contactphone;
             ContactEmail = contactemail;
-            GuestList = guestlist; 
+            GuestList = guestlist;
         }
         // All this should go - Saxon
 

@@ -53,10 +53,10 @@
 
 				<div>
 			
-                    <img src="../Image/er.jpg"  style="width:80px;height:80px;"/> 
+                    <img src="../Image/er.jpg"  style="width:300px;height:300px;"/> 
 				</div>
 
-					<h1>Event Ready</h1>
+
 				</div>
 				<span class="login100-form-title p-b-37">
 					Sign In
