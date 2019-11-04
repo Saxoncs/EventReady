@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../Style/StyleTemplate/owl.theme.default.min.css">
     <link rel="stylesheet" href="../Style/StyleTemplate/magnific-popup.css">
     <link rel="stylesheet" href="../Style/StyleTemplate/style.css">
+    <link rel="stylesheet" href="../Style/StyleSheetStyle.css">
     <link rel="stylesheet" href="../Style/StyleTemplate/responsive.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -28,7 +29,7 @@
     <!-- Generated datasource for testing -->
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [userInfo]"></asp:SqlDataSource>
     <!-- end of test datasource -->
-    
+
 
     <div class="wrapper" style="background-image: url('../Image/header-bg.jpg'); background-size: 100% auto; position: relative; background-repeat: no-repeat;">
         <header class="header">
@@ -42,21 +43,24 @@
                                 <h2>Create an Event</h2>
                                 <%if (Session["user"] != null)
                                     {%>
-                                <a href="CreateEvent.aspx?user=<%=user.Email%>">Create Event</a>
+                                <input type="button" value="Create Event" onclick="window.location.href = 'CreateEvent.aspx?user=<%=user.Email%>'; return false"/>
                                 <%} else if (Session["user"] == null) { %>
-                                <a href="LoginVer2.aspx">Create Event</a>
+                                <input type="button" value="Create Event" onclick="window.location.href = 'LoginVer2.aspx'; return false"/>
                                 <%} %>
                             </div>
                             <div class="item">
                                 <h4>See the steps in creating an event</h4>
                                 <h2>View Guide</h2>
-                                <a href="Guide.aspx">View Guide</a>
+                                <input type="button" value="View Guide" onclick="window.location.href = 'Guide.aspx'; return false"/>
                             </div>
+                            <%if (Session["user"] != null)
+                                {%>
                             <div class="item">
                                 <h4>Calender to display your events</h4>
                                 <h2>View Calender</h2>
-                                <a href="Calendar.aspx">View Calender</a>
+                                <input type="button" value="View Calendar" onclick="window.location.href = 'Calendar.aspx?user=<%=user.Email%>'; return false"/>
                             </div>
+                            <%} %>
                         </div>
                     </div>
                 </div>

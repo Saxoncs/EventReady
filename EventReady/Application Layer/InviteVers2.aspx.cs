@@ -47,7 +47,9 @@ namespace EventReady.Application_Layer
             }
             set { ViewState["TextBoxIdCollection"] = value; }
         }
-        void Page_Load(object sender, EventArgs e)
+
+        
+            protected void Page_Load(object sender, EventArgs e)
         {
             User session = (User)Session["user"];
 
@@ -56,13 +58,16 @@ namespace EventReady.Application_Layer
                 Response.Redirect("LoginVer2.aspx");
             }
 
+
             foreach (string textboxId in TextBoxIdCollection)
             {
                 var textbox = new TextBox { ID = textboxId };
                 PlaceHolder1.Controls.Add(textbox);
             }
-            
+
+
         }
+       
 
         
         protected void btnAddField_Click(object sender, EventArgs e)
@@ -71,7 +76,10 @@ namespace EventReady.Application_Layer
            
             var collection = new List<string>();
             int total;
-            
+
+        
+
+
             if (Int32.TryParse(CounterTextBox.Text, out total))
             {
                 for (int i = 1; i <= total; i++)
@@ -229,59 +237,57 @@ namespace EventReady.Application_Layer
             {
                 if (ctr is TextBox)
                 {
-                    
 
 
 
 
 
 
-                    //string check = "TextBox" + p.ToString();
-                    //TextBox t = (TextBox)Page.FindControl("TextBox" + p.ToString());
-                    //TextBox tt = this.FindControl("ContentPlaceHolder1_TextBox" + p.ToString()) as TextBox;*/
-
-                    SmtpClient client = new SmtpClient();
-                    client.DeliveryMethod = SmtpDeliveryMethod.Network;
-                    client.EnableSsl = true;
-                    client.Host = "smtp.gmail.com";
-                    client.Port = 587;
-                    System.Net.NetworkCredential credentials =
-                    new System.Net.NetworkCredential("eventready281@gmail.com", "eventready123");
-                    client.UseDefaultCredentials = false;
-                    client.Credentials = credentials;
-                    //------------------------------------------------------------------------------
-
-                    
-                    //Add email content including from, to, subject and body
-                    MailMessage msg = new MailMessage();
-                    msg.From = new MailAddress("eventready281@gmail.com");
-                    msg.To.Add(new MailAddress(((TextBox)ctr).Text));
-                    msg.Subject = "EventReady - Invitation";
-                    //If html does not exist return non-html email
-                    body = body.Replace("{guestEmail}", ((TextBox)ctr).Text);
-                    string testthis = ((TextBox)ctr).Text;
-                    msg.Body = body;
-                    msg.IsBodyHtml = true;
-
-                    AlternateView view = AlternateView
-                     .CreateAlternateViewFromString(
-                         body, null, "text/html");
-                    string imgPathOne = Server.MapPath("../Image/ribbon.png");
-                    LinkedResource img = new LinkedResource(imgPathOne);
-                    img.ContentId = "ribbonImage";
-                    view.LinkedResources.Add(img);
-
-                    msg.AlternateViews.Add(view);
-
-                    
-                     string tempEmail = ((TextBox)ctr).Text;
-
-
-                    
                     try
                     {
+                        //string check = "TextBox" + p.ToString();
+                        //TextBox t = (TextBox)Page.FindControl("TextBox" + p.ToString());
+                        //TextBox tt = this.FindControl("ContentPlaceHolder1_TextBox" + p.ToString()) as TextBox;*/
 
-                      
+                        SmtpClient client = new SmtpClient();
+                        client.DeliveryMethod = SmtpDeliveryMethod.Network;
+                        client.EnableSsl = true;
+                        client.Host = "smtp.gmail.com";
+                        client.Port = 587;
+                        System.Net.NetworkCredential credentials =
+                        new System.Net.NetworkCredential("eventready281@gmail.com", "eventready123");
+                        client.UseDefaultCredentials = false;
+                        client.Credentials = credentials;
+                        //------------------------------------------------------------------------------
+
+
+                        //Add email content including from, to, subject and body
+                        MailMessage msg = new MailMessage();
+                        msg.From = new MailAddress("eventready281@gmail.com");
+                        msg.To.Add(new MailAddress(((TextBox)ctr).Text));
+                        msg.Subject = "EventReady - Invitation";
+                        //If html does not exist return non-html email
+                        body = body.Replace("{guestEmail}", ((TextBox)ctr).Text);
+                        string testthis = ((TextBox)ctr).Text;
+                        msg.Body = body;
+                        msg.IsBodyHtml = true;
+
+                        AlternateView view = AlternateView
+                         .CreateAlternateViewFromString(
+                             body, null, "text/html");
+                        string imgPathOne = Server.MapPath("../Image/ribbon.png");
+                        LinkedResource img = new LinkedResource(imgPathOne);
+                        img.ContentId = "ribbonImage";
+                        view.LinkedResources.Add(img);
+
+                        msg.AlternateViews.Add(view);
+
+
+                        string tempEmail = ((TextBox)ctr).Text;
+
+                    
+                    
+                
                         guestListTemp.Add(tempEmail);
                         count++;
                        
@@ -295,7 +301,7 @@ namespace EventReady.Application_Layer
                     catch
                     {
                         //Display error message for email failing to send 
-
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Only emails with correct structure were sent');window.location ='Home.aspx';", true);
                     }
                 }
                 }
@@ -342,7 +348,7 @@ namespace EventReady.Application_Layer
 
             }
             count = 0;
-            Response.Redirect("Home.aspx");
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Emails have been sent to the guests');window.location ='Home.aspx';", true);
         }
     }
 }

@@ -5,7 +5,7 @@
 
     
     <form id="form1" runat="server">
-        <asp:Calendar ID="calEvents" runat="server" BackColor="White" BorderColor="Black" DayNameFormat="Shortest" Font-Names="Times New Roman" Font-Size="10pt" ForeColor="Black" Height="474px" NextPrevFormat="FullMonth" TitleFormat="Month" Width="1352px">
+        <asp:Calendar ID="calEvents" OnDayRender="calEvent_DayRender" runat="server" BackColor="White" BorderColor="Black" DayNameFormat="Shortest" Font-Names="Times New Roman" Font-Size="10pt" ForeColor="Black" Height="474px" NextPrevFormat="FullMonth" TitleFormat="Month" Width="1352px">
             <DayHeaderStyle BackColor="#CCCCCC" Font-Bold="True" Font-Size="7pt" ForeColor="#333333" Height="10pt" />
             <DayStyle Width="14%" />
             <NextPrevStyle Font-Size="8pt" ForeColor="White" />

@@ -86,8 +86,11 @@ namespace EventReady.Application_Layer
                 try
                 {
                     client.Send(msg);
-                    //Send to main page with pop message about sent email
-                    //Response.Redirect("Main?forgotEmail=");
+                    //Author: Rick schott 
+                    //https://stackoverflow.com/questions/8570766/how-to-get-alert-message-before-redirect-a-page
+                    //Date: 20/12/11
+                    //Use: Redirect to a page with a message
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Email containing the password has been sent');window.location ='LoginVer2.aspx';", true);
                 }
                 catch
                 {
