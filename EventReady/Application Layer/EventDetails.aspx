@@ -14,7 +14,7 @@
     <asp:Label runat="server" ID="lblEPhone" Text=""></asp:Label> 
         <% if (Session["event"] != null)
     {
-        User user = (User)Session["user"]; %>
+        UserBL user = (UserBL)Session["user"]; %>
         <input type="button" value="Back" onclick="window.location.href = 'CreateEvent.aspx?check=value&user=<%=user.Email%>'; return false"/>
     
         <% 
