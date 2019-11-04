@@ -49,9 +49,11 @@
 				<div class="login100-form-title p-b-37" >
 
 				    <div>
-					    <img src="../Image/er.jpg"  style="width:80px;height:80px;"/>
-				    </div>
-					<h1>Welcome</h1>
+					    <img src="../Image/er.jpg"  style="width:300px;height:300px;"/>
+                    
+                    </div>
+
+		
 				</div>
 
 				<div>
