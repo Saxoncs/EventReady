@@ -3,7 +3,9 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
     <form runat="server">
+
     <%if (eventToEdit == null)
         {%>
     <p>THIS MEANS THAT THE THERE IS NO EVENT TO EDIT</p>

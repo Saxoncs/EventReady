@@ -33,7 +33,7 @@ namespace EventReady.Business_Layer
             userMap = new Dictionary<string, UserBL>();
             userMap.Add("user@gmail.com", new UserBL("Jo", "Black", "user@gmail.com", "password", "3282914"));*/
 
-            Events.Add(new EventBL("user@gmail.com", "Get together", "Big wedding", "josh", "hob", "12/02/19", "432 place dr", "0542564356", "randomemail@gmail.com", guestList));
+            Events.Add(new EventBL("user@gmail.com", "Get together", "Big wedding", "josh", "hob", "12/02/19", "432 place dr", "0542564356", "randomemail@gmail.com", guestList)); */
             // the user id here matches the userId of our main database test userId and is being used by most of the sight to display event information across the sight, this will need to be removed.
             userMap = new Dictionary<string, UserBL>();
             userMap.Add("user@gmail.com", new UserBL("Jo", "Black", "user@gmail.com", "password", "3282914"));
