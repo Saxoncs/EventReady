@@ -161,6 +161,32 @@ namespace EventReady.Data_Access_Layer
             }
         }
 
+        // Function for editing an Event returns true if successful and false if not - Saxon
+        [DataObjectMethod(DataObjectMethodType.Update)]
+        public static int UpdateUser(Event currentEvent, Event newEvent)
+        {
+            string sql = "UPDATE Event SET name = @name, start = @start, description = @description, deadline = @deadline, daysDelayed = @daysDelayed WHERE eventId = @currenteventId";
+            using (SqlConnection con = new SqlConnection(GetConnectionString()))
+            {
+                using (SqlCommand cmd = new SqlCommand(sql, con))
+                {
+                    //new values
+                    cmd.Parameters.AddWithValue("name", newEvent.name);
+                    cmd.Parameters.AddWithValue("eventId", newEvent.eventId);
+                    cmd.Parameters.AddWithValue("start", newEvent.start);
+                    cmd.Parameters.AddWithValue("description", newEvent.description);
+                    cmd.Parameters.AddWithValue("deadline", newEvent.deadline);
+                    cmd.Parameters.AddWithValue("daysDelayed", newEvent.daysDelayed);
+
+                    //original values
+                    cmd.Parameters.AddWithValue("@currenteventId", currentEvent.eventId);
+
+                    con.Open();
+                    return cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
         // Function for removing a Step - Saxon
 
         // returns the connection string being used in the web config file. - Saxon
