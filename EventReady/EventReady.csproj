@@ -88,6 +88,8 @@
     <Content Include="Application Layer\forgotpasswordtest.aspx" />
     <Content Include="Application Layer\LoginVer2.aspx" />
     <Content Include="Application Layer\Register.aspx" />
+    <Content Include="Application Layer\SessionTimeout - Copy.aspx" />
+    <Content Include="Application Layer\Error.aspx" />
     <Content Include="Application Layer\RegisterVers2.aspx" />
     <Content Include="Application Layer\RSVPPage.aspx" />
     <Content Include="Application Layer\Schedule.aspx" />
@@ -294,6 +296,20 @@
     </Compile>
     <Compile Include="Application Layer\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Application Layer\SessionTimeout - Copy.aspx.cs">
+      <DependentUpon>SessionTimeout - Copy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Application Layer\SessionTimeout - Copy.aspx.designer.cs">
+      <DependentUpon>SessionTimeout - Copy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Application Layer\Error.aspx.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Application Layer\Error.aspx.designer.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
     </Compile>
     <Compile Include="Application Layer\RegisterVers2.aspx.cs">
       <DependentUpon>RegisterVers2.aspx</DependentUpon>
