@@ -18,6 +18,7 @@ namespace EventReady.Application_Layer
         }
         private string GetForgotPasswordMessage(bool isHtml, string emailPassword)
         {
+            //Contents of email
             //Content if html is available 
             if (isHtml)
                 return "<html><head><title>Forgotten Password"
@@ -36,6 +37,7 @@ namespace EventReady.Application_Layer
         {
 
             string email = txtForgottenEmail.Text;
+            //Checks to see if the user email exists in the global data
             if (GlobalData.userMap.ContainsKey(email))
             {
 

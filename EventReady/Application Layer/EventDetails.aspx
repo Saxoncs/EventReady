@@ -12,6 +12,7 @@
     <asp:Label runat="server" ID="lblEDescription" Text=""></asp:Label> <br />
     <asp:Label runat="server" ID="lblEEmail" Text=""></asp:Label> <br />
     <asp:Label runat="server" ID="lblEPhone" Text=""></asp:Label> 
+        
         <% if (Session["event"] != null)
     {
         UserBL user = (UserBL)Session["user"]; %>

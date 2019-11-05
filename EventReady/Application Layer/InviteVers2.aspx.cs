@@ -37,7 +37,7 @@ namespace EventReady.Application_Layer
             get;
             set;
         }
-        //protected
+        //List of strings for the ids for all the textboxes created
         private List<string> TextBoxIdCollection
         {
             get
@@ -49,8 +49,9 @@ namespace EventReady.Application_Layer
         }
 
         
-            protected void Page_Load(object sender, EventArgs e)
+        protected void Page_Load(object sender, EventArgs e)
         {
+            //Session timeout
             UserBL session = (UserBL)Session["user"];
 
             if (session == null)
@@ -58,7 +59,7 @@ namespace EventReady.Application_Layer
                 Response.Redirect("SessionTimeout.aspx");
             }
 
-
+            //Needed this in page load or the textbox IDs would not be saved on page load
             foreach (string textboxId in TextBoxIdCollection)
             {
                 var textbox = new TextBox { ID = textboxId };
@@ -79,7 +80,7 @@ namespace EventReady.Application_Layer
 
         
 
-
+            //Get number of textboxes user wants then add IDs to each of those textboxes and add them to the list to be saved in page load
             if (Int32.TryParse(CounterTextBox.Text, out total))
             {
                 for (int i = 1; i <= total; i++)
@@ -174,7 +175,7 @@ namespace EventReady.Application_Layer
             }
         }*/
 
-
+        //Combine the email html template with the email and any variables that need to be added
         private string PopulateBody()
         {
             guestListString = new List<String>();
@@ -185,7 +186,7 @@ namespace EventReady.Application_Layer
             {
                 body = reader.ReadToEnd();
             }
-
+            //Adds details to the event based on edited values or creating a new event
             if (Session["eventEdit"] != null)
             {
                 eventbl = (EventBL)Session["eventEdit"];
@@ -231,18 +232,13 @@ namespace EventReady.Application_Layer
         {
             guestListTemp = new List<String>();
 
-            //for (p = 1; p <= j; p++)
-            //{ 
+            //Loop through all the texboxes created in the placeholder
             foreach (Control ctr in PlaceHolder1.Controls)
             {
+                //Check to see if the control is a textbox
                 if (ctr is TextBox)
                 {
-
-
-
-
-
-
+                    //Try catch to stop app from crashing if sending email fails
                     try
                     {
                         //string check = "TextBox" + p.ToString();
@@ -266,7 +262,7 @@ namespace EventReady.Application_Layer
                         msg.From = new MailAddress("eventready281@gmail.com");
                         msg.To.Add(new MailAddress(((TextBox)ctr).Text));
                         msg.Subject = "EventReady - Invitation";
-                        //If html does not exist return non-html email
+                        //Add the guest email for each email sent as a variable for the RSVP buttons
                         body = body.Replace("{guestEmail}", ((TextBox)ctr).Text);
                         string testthis = ((TextBox)ctr).Text;
                         msg.Body = body;
@@ -282,12 +278,12 @@ namespace EventReady.Application_Layer
 
                         msg.AlternateViews.Add(view);
 
-
+                        //Getting textbox value
                         string tempEmail = ((TextBox)ctr).Text;
 
                     
                     
-                
+                        //Adding it to a new list
                         guestListTemp.Add(tempEmail);
                         count++;
                        
@@ -301,7 +297,7 @@ namespace EventReady.Application_Layer
                     catch
                     {
                         //Display error message for email failing to send 
-                        ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Only emails with correct structure were sent');window.location ='Home.aspx';", true);
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Invitations were unable to be sent to all guests. Emails with correct addresses were sent');window.location ='Home.aspx';", true);
                     }
                 }
                 }
@@ -314,19 +310,22 @@ namespace EventReady.Application_Layer
 
             string body = this.PopulateBody();
             this.SendHtmlFormattedEmail(body);
+            //If a new event is being created
             if (Session["event"] != null)
             {
                 //list = (List<String>)Session["event"];
                 eventbl = (EventBL)Session["event"];
-               
+               //Add finalised guest list to event data
                 eventbl.GuestList = guestListTemp;
                 GlobalData.Events.Add(eventbl);
 
-                
+                //For session for next create new event
                 Session.Remove("event");
             }
+            //If an event is being edited
             else if (Session["eventEdit"] != null)
             {
+                //Edit an event based on session value given with and change required fields
                 eventbl = (EventBL)Session["eventEdit"];
                 int value = Convert.ToInt32(Session["eventValue"]);
 
@@ -341,6 +340,7 @@ namespace EventReady.Application_Layer
                 GlobalData.Events[value].Description = eventbl.Description;
                 GlobalData.Events[value].GuestList = eventbl.GuestList;
 
+                //Remove session for next edit
                 Session.Remove("eventEdit");
                 Session.Remove("eventValue");
 
@@ -348,6 +348,7 @@ namespace EventReady.Application_Layer
 
             }
             count = 0;
+            //Send User back to home page with message about emails being sent
             ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Emails have been sent to the guests');window.location ='Home.aspx';", true);
         }
     }

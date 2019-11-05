@@ -42,10 +42,12 @@
                             <div class="item">
                                 <h4>Here you can</h4>
                                 <h2>Create an Event</h2>
+                                <!-- Button will redirect to create event if user is logged in-->
                                 <%if (Session["user"] != null)
                                     {%>
                                 <input type="button" value="Create Event" onclick="window.location.href = 'CreateEvent.aspx?user=<%=user.Email%>'; return false"/>
-                                <%} else if (Session["user"] == null) { %>
+                                <%}// if a user is not logged it will redirect for the same button to the login page
+                                    else if (Session["user"] == null) { %>
                                 <input type="button" value="Create Event" onclick="window.location.href = 'LoginVer2.aspx'; return false"/>
                                 <%} %>
                             </div>
@@ -54,6 +56,7 @@
                                 <h2>View Guide</h2>
                                 <input type="button" value="View Guide" onclick="window.location.href = 'Guide.aspx'; return false"/>
                             </div>
+                            <!-- If a user is logged in it will add a calendar option to select if no user is logged in this option wont be available -->
                             <%if (Session["user"] != null)
                                 {%>
                             <div class="item">

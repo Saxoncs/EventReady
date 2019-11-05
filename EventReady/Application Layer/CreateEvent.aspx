@@ -109,7 +109,7 @@
                 </div>
     
                  <div>
-                     <asp:requiredfieldvalidator display="Dynamic" runat="server" ID="ValConEmailEmpty" ControlToValidate="txtbxConEmail" ErrorMessage="Email field cannot be empty" style="color:red" class="input100"></asp:requiredfieldvalidator>
+                        <asp:requiredfieldvalidator display="Dynamic" runat="server" ID="ValConEmailEmpty" ControlToValidate="txtbxConEmail" ErrorMessage="Email field cannot be empty" style="color:red" class="input100"></asp:requiredfieldvalidator>
                         <asp:RegularExpressionValidator Display="Dynamic" ID="ValConEmail" runat="server" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="txtbxConEmail" ErrorMessage="Invalid Email Format" style="color:red" class="input100"></asp:RegularExpressionValidator>
                     <div class="wrap-input100 validate-input m-b-25">
                         <span class="focus-input100"></span>

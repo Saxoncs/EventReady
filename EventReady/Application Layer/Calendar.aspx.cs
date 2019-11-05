@@ -48,7 +48,7 @@ namespace EventReady.Application_Layer
             user = Request.QueryString["user"];
             foreach (EventBL f in GlobalData.Events)
             {
-
+                //Matches user logged in with their events so only their events will be added
                 if (user.Equals(f.UserEmail))
                 {
                     //Author: Adlai King

@@ -52,7 +52,7 @@
                             </td>
  
                             
-                            <!-- Adds event duration modifier -->
+                            
                             <td class="text-left">
                                 <p class ="text-list-colour"><%=e.daysDelayed %></p>
                                 

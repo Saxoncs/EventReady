@@ -68,10 +68,10 @@
 
 
 
-
+            <asp:RequiredFieldValidator display="Dynamic" runat="server" ControlToValidate="txtForgottenEmail" class="input100" ErrorMessage="Email field cannot be empty" style="color:red"/>
+                    <asp:RegularExpressionValidator Display="Dynamic" ID="valForgottenPassword" class="input100" runat="server" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="txtForgottenEmail" ErrorMessage="Invalid Email Format" style="color:red"></asp:RegularExpressionValidator>
              <div>
-                 <asp:RequiredFieldValidator display="Dynamic" runat="server" ControlToValidate="txtForgottenEmail" class="label-error" ErrorMessage="Email field cannot be empty" style="color:red"/>
-                    <asp:RegularExpressionValidator Display="Dynamic" ID="valForgottenPassword" CssClass="label-error" runat="server" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="txtForgottenEmail" ErrorMessage="Invalid Email Format" style="color:red"></asp:RegularExpressionValidator>
+                 
                     <div class="wrap-input100 validate-input m-b-25">
                     <asp:TextBox ID="txtForgottenEmail" runat="server" class="input100" placeholder="Email" MaxLength="80"/>
                     <span class="focus-input100"></span>

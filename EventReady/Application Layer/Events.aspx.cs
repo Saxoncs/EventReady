@@ -79,7 +79,7 @@ namespace EventReady.Application_Layer
                 displayedEventList.Add(displayedEvent);
             }
 
-
+            //Checks to see if the delete button was clicked
             if (mode != null)
             {
                 if (mode.Equals("toggleDelete"))
