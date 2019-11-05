@@ -14,9 +14,9 @@ namespace EventReady.Application_Layer
 
         }
 
-        protected void btnSignIn_Click(object sender, EventArgs e)
+        protected void btnOk_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Home.aspx");
+            Response.Redirect("LoginVer2.aspx");
         }
     }
 }

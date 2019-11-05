@@ -22,7 +22,7 @@
     else if (Session["eventEdit"] != null)
     {
         int value = Convert.ToInt32(Session["eventValue"]);%>
-        <input type="button" value="Back" onclick="window.location.href = 'CreateEvent.aspx?value=<%=value%>'; return false"/>
+        <input type="button" value="Back" onclick="window.location.href = 'CreateEvent.aspx?eventToEdit=<%=value%>'; return false"/>
         
         <% 
     }%>

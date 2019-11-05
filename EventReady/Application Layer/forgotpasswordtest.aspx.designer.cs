@@ -7,13 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace EventReady.Application_Layer
-{
-
-
-    public partial class forgotpasswordtest
-    {
-
+namespace EventReady.Application_Layer {
+    
+    
+    public partial class forgotpasswordtest {
+        
         /// <summary>
         /// form1 control.
         /// </summary>
@@ -22,16 +20,7 @@ namespace EventReady.Application_Layer
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-
-        /// <summary>
-        /// txtForgottenEmail control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtForgottenEmail;
-
+        
         /// <summary>
         /// valForgottenPassword control.
         /// </summary>
@@ -40,7 +29,16 @@ namespace EventReady.Application_Layer
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RegularExpressionValidator valForgottenPassword;
-
+        
+        /// <summary>
+        /// txtForgottenEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtForgottenEmail;
+        
         /// <summary>
         /// lblEmailMessage control.
         /// </summary>

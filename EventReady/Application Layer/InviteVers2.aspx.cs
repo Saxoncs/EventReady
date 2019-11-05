@@ -55,7 +55,7 @@ namespace EventReady.Application_Layer
 
             if (session == null)
             {
-                Response.Redirect("LoginVer2.aspx");
+                Response.Redirect("SessionTimeout.aspx");
             }
 
 

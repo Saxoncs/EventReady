@@ -76,7 +76,7 @@
 
                 <asp:requiredfieldvalidator display="Dynamic" class="input100" runat="server" ID="ValPassword" ControlToValidate="txtbxPw" ErrorMessage="Password field cannot be empty" style="color:red"></asp:requiredfieldvalidator>
 				<div class="wrap-input100 validate-input m-b-25" data-validate = "Enter password">
-					<asp:textbox class="input100" textmode="Password" id="txtbxPw" placeholder="Password" runat="server" />
+					<asp:textbox class="input100" textmode="Password" id="txtbxPw" placeholder="Password" runat="server" minLength="8"/>
 					<span class="focus-input100"></span>
 				</div>
                 <asp:CompareValidator 

@@ -42,12 +42,12 @@ namespace EventReady.Application_Layer
             
 
             //This code is here from a merge conflict and I'm not sure if it has a place, is this a redirect to login if the session expires? if so Uncomment it -Saxon
-            //User session = (User)Session["user"];
+            UserBL session = (UserBL)Session["user"];
 
-            //if (session == null)
-            //{
-            //    Response.Redirect("LoginVer2.aspx");
-            //}
+            if (session == null)
+            {
+                Response.Redirect("SessionTimeout.aspx");
+            }
 
             //This query is currently what is used to determine what user's information will be displayed on the page it might be better to use userSession I don't know at the moment -Saxon
             user = Request.QueryString["user"];

@@ -19,7 +19,11 @@ namespace EventReady.Application_Layer
 
             if (log=="Logout")
             {
-                Session.Remove("user"); 
+                Session.Remove("user");
+                Session.Remove("event");
+                Session.Remove("eventValue");
+                Session.Remove("eventEdit");
+
             }
         }
 

@@ -106,7 +106,7 @@ namespace EventReady.Application_Layer
             }
             if (check == 0)
             {
-                lblEmailMessage.Text = "This email is not registered at Bobblehead";
+                lblEmailMessage.Text = "This email is not registered at EventReady";
                 lblEmailMessage.Visible = true;
             }
         }

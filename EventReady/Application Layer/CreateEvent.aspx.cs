@@ -32,16 +32,18 @@ namespace EventReady.Application_Layer
 
         protected string user;
         protected string eventToEdit;
+        protected string check;
         protected void Page_Load(object sender, EventArgs e)
         {
             UserBL session = (UserBL)Session["user"];
 
             if (session == null)
             {
-                Response.Redirect("LoginVer2.aspx");
+                Response.Redirect("SessionTimeout.aspx");
             }
             user = Request.QueryString["user"];
             eventToEdit = Request.QueryString["eventToEdit"];
+            check = Request.QueryString["check"];
             valDateCheck.ValueToCompare = DateTime.Now.ToShortDateString();
             valDateCheckEdit.ValueToCompare = DateTime.Now.ToShortDateString();
 
@@ -51,6 +53,24 @@ namespace EventReady.Application_Layer
 
             if (!IsPostBack)
             {
+                // If back button is clicked on event details fill the textboxes with data from session so they dont have to refill every textbox. 
+                if (check != null)
+                {
+                    eventInfo = (EventBL)Session["event"];
+                    txtbxEventName.Text = eventInfo.EventName;
+                    txtbxDescription.Text = eventInfo.Description;
+                    txtbxFirstName.Text = eventInfo.FirstName;
+                    txtbxLastName.Text = eventInfo.LastName;
+                    txtbxDate.Text = eventInfo.EventDate;
+                    txtbxAddress.Text = eventInfo.EventAddress;
+                    txtbxConPhone.Text = eventInfo.ContactPhone;
+                    txtbxConEmail.Text = eventInfo.ContactEmail;
+                    
+
+                }
+                //Remove any sessions so that the textboxes arent altered further
+                Session.Remove("event");
+                Session.Remove("eventEdit");
                 if (eventToEdit != null)
                 {
                     foreach (Event ev in eventList)
