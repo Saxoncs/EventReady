@@ -97,7 +97,7 @@ namespace EventReady.Application_Layer
 
             List<String> temp = new List<String>();
             temp.Add("");
-            //Add values to a session  in a list if it is a new event
+            //Add values to a session in a list if it is a new event
             if (eventToEdit == null)
             {
                 EventBL ev = new EventBL(user, txtbxEventName.Text, txtbxDescription.Text, txtbxFirstName.Text, txtbxLastName.Text, txtbxDate.Text, txtbxAddress.Text, txtbxConPhone.Text, txtbxConEmail.Text, temp);
