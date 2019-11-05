@@ -13,25 +13,12 @@ namespace EventReady.Application_Layer
     public partial class CreateEvent : System.Web.UI.Page
     {
 
-        //User layer Event doesn't need an active component as all events here are going to be active, there are multiple versions of these on different pages ideally this would be in the business logic but there's no time to sort it out - Saxon
-        protected class EventUL
-        {
-            public string eventId { get; set; }
-            public string name { get; set; }
-            public string description { get; set; }
-            public int daysDelayed { get; set; }
-            public DateTime start { get; set; }
-            public DateTime deadline { get; set; }
-            public string userId { get; set; }
-        }
-
-
 
         protected EventBL eventInfo = new EventBL();
 
-
         protected string user;
         protected string eventToEdit;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             UserBL session = (UserBL)Session["user"];
@@ -41,19 +28,20 @@ namespace EventReady.Application_Layer
                 Response.Redirect("LoginVer2.aspx");
             }
             user = Request.QueryString["user"];
+
             eventToEdit = Request.QueryString["eventToEdit"];
+
             valDateCheck.ValueToCompare = DateTime.Now.ToShortDateString();
+
             valDateCheckEdit.ValueToCompare = DateTime.Now.ToShortDateString();
 
-
-
-            List<Event> eventList = eventInfo.GetActiveEvents(user);
+            List<EventBL> eventList = eventInfo.GetActiveEvents(user);
 
             if (!IsPostBack)
             {
                 if (eventToEdit != null)
                 {
-                    foreach (Event ev in eventList)
+                    foreach (EventBL ev in eventList)
                     {
                         if (eventToEdit == ev.eventId)
                         {

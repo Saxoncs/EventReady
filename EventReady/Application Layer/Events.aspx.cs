@@ -5,8 +5,6 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using EventReady.Business_Layer;
-using static EventReady.Business_Layer.EventBL;
-using static EventReady.Data_Access_Layer.EventDataAccess;
 
 namespace EventReady.Application_Layer
 {
@@ -17,21 +15,12 @@ namespace EventReady.Application_Layer
         protected int eventDelete;
 
 
-        //User layer Event doesn't need an active component as all events here are going to be active, there are multiple versions of these on different pages ideally this would be in the business logic but not time to sort it out - Saxon
-        protected class EventUL
-        {
-            public string eventId { get; set; }
-            public string name { get; set; }
-            public string description { get; set; }
-            public int daysDelayed { get; set; }
-            public DateTime start { get; set; }
-            public DateTime deadline { get; set; }
-            public string userId { get; set; }
-        }
 
-        protected List<EventUL> displayedEventList;
+        //not sure why I have to do this but without an object to call the GetActiveEvents function from it just won't work.
+        EventBL eventInfo = new EventBL();
 
-        protected EventBL eventInfo = new EventBL();
+        protected List<EventBL> eventList = new List<EventBL>();
+
 
         protected string selectedEvent;
 
@@ -61,23 +50,7 @@ namespace EventReady.Application_Layer
             //User userSession = (User)Session["user"];
 
             //Convert data access events to native events - Saxon
-            List<Event> eventList = eventInfo.GetActiveEvents(user);
-
-            displayedEventList = new List<EventUL>();
-
-            foreach (Event eventInfo in eventList)
-            {
-                EventUL displayedEvent = new EventUL();
-                displayedEvent.eventId = eventInfo.eventId;
-                displayedEvent.name = eventInfo.name;
-                displayedEvent.description = eventInfo.description;
-                displayedEvent.daysDelayed = eventInfo.daysDelayed;
-                displayedEvent.start = eventInfo.start;
-                displayedEvent.deadline = eventInfo.deadline;
-                displayedEvent.userId = eventInfo.userId;
-
-                displayedEventList.Add(displayedEvent);
-            }
+            eventList = eventInfo.GetActiveEvents(user);
 
 
             if (mode != null)

@@ -33,7 +33,7 @@
                     </thead>
                     <tbody>
                         <%int countID = 0; %>
-                        <%foreach (EventUL e in displayedEventList)
+                        <%foreach (EventBL e in eventList)
                             { 
                              countID++; %>
                         <!-- Adds the event name to the page -->
@@ -83,7 +83,7 @@
                         
                             <!-- this button still hasn't been formatted for the database and will need to be changed -->
                             <td class="text-left">
-                                <input type="button" class="btn btn-danger" value="REMOVE" onclick="window.location.href = 'Events.aspx?mode=toggleDelete&event=<%=displayedEventList.IndexOf(e)%>'; return false"/>
+                                <input type="button" class="btn btn-danger" value="REMOVE" onclick="window.location.href = 'Events.aspx?mode=toggleDelete&event=<%=eventList.IndexOf(e)%>'; return false"/>
                                 <!-- GlobalData.Events.IndexOf(e) --> 
                             </td>
                         </tr>

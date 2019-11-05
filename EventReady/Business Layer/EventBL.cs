@@ -8,6 +8,15 @@ namespace EventReady.Business_Layer
 {
     public class EventBL
     {
+        //the actual information retrieved from the database
+        public string eventId { get; set; }
+        public string name { get; set; }
+        public string description { get; set; }
+        public int daysDelayed { get; set; }
+        public DateTime start { get; set; }
+        public DateTime deadline { get; set; }
+        public string userId { get; set; }
+
 
         //These should be deleted and the system rebuilt to work with the classes from the database using the "GetActiveEvents" function -Saxon
 
@@ -47,17 +56,29 @@ namespace EventReady.Business_Layer
 
 
         //Needs to get the user id from session data, should otherwise return a list of guests associated with the logged in user to be worked with by the user layer - Saxon
-        public List<Event> GetActiveEvents(string userId)
+        public List<EventBL> GetActiveEvents(string userId)
         {
 
             List<Event> eventList = GetEvents(userId);
-            List<Event> activeEvents = new List<Event>();
+            List<EventBL> activeEvents = new List<EventBL>();
 
             foreach (Event singleEvent in eventList)
             {
                 if (singleEvent.active)
                 {
-                    activeEvents.Add(singleEvent);
+                    EventBL singleEventBL = new EventBL();
+
+                    singleEventBL.name = singleEvent.name;
+                    singleEventBL.description = singleEvent.description;
+                    singleEventBL.eventId = singleEvent.eventId;
+                    singleEventBL.daysDelayed = singleEvent.daysDelayed;
+                    singleEventBL.start = singleEvent.start;
+                    singleEventBL.deadline = singleEvent.deadline;
+                    singleEventBL.userId = singleEvent.userId;
+
+
+
+                    activeEvents.Add(singleEventBL);
                 }
             }
 
