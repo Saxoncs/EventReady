@@ -163,7 +163,7 @@ namespace EventReady.Data_Access_Layer
 
         // Function for editing an Event returns true if successful and false if not - Saxon
         [DataObjectMethod(DataObjectMethodType.Update)]
-        public static int UpdateUser(Event currentEvent, Event newEvent)
+        public static int UpdateEvent(string currentEventId, Event newEvent)
         {
             string sql = "UPDATE Event SET name = @name, start = @start, description = @description, deadline = @deadline, daysDelayed = @daysDelayed WHERE eventId = @currenteventId";
             using (SqlConnection con = new SqlConnection(GetConnectionString()))
@@ -179,7 +179,7 @@ namespace EventReady.Data_Access_Layer
                     cmd.Parameters.AddWithValue("daysDelayed", newEvent.daysDelayed);
 
                     //original values
-                    cmd.Parameters.AddWithValue("@currenteventId", currentEvent.eventId);
+                    cmd.Parameters.AddWithValue("@currenteventId", currentEventId);
 
                     con.Open();
                     return cmd.ExecuteNonQuery();

@@ -28,16 +28,16 @@ namespace EventReady.Data_Access_Layer
 
         //Take the User associated with a specified userID and return a User class - Saxon
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public static User GetUser(string email)
+        public static User GetUser(string userId)
         {
             User user = new User();
-            string sql = "SELECT userId, email, firstName, lastName, password, active FROM userInfo WHERE email = @email";
+            string sql = "SELECT userId, email, firstName, lastName, password, active FROM userInfo WHERE userId = @userId";
 
             using (SqlConnection con = new SqlConnection(GetConnectionString()))
             {
                 using (SqlCommand cmd = new SqlCommand(sql, con))
                 {
-                    cmd.Parameters.AddWithValue("userId", email);
+                    cmd.Parameters.AddWithValue("userId", userId);
                     con.Open();
                     SqlDataReader dr = cmd.ExecuteReader();
                     user.userId = dr["userId"].ToString();
@@ -46,6 +46,38 @@ namespace EventReady.Data_Access_Layer
                     user.lastName = dr["lastName"].ToString();
                     user.password = dr["password"].ToString();
                     user.active = dr.GetBoolean(dr.GetOrdinal("active"));
+                    dr.Close();
+                }
+            }
+            return user;
+        }
+
+         //Take the User associated with a specified userID and return a User class - Saxon
+        [DataObjectMethod(DataObjectMethodType.Select)]
+        public static User UserLoginAttempt(string email)
+        {
+            User user = new User();
+            string sql = "SELECT userId, email, firstName, lastName, password, active FROM userInfo WHERE email = @email";
+
+            using (SqlConnection con = new SqlConnection(GetConnectionString()))
+            {
+                using (SqlCommand cmd = new SqlCommand(sql, con))
+                {
+                    
+                    cmd.Parameters.AddWithValue("email", email);
+                    con.Open();
+                    SqlDataReader dr = cmd.ExecuteReader();
+
+                    while (dr.Read())
+                    {
+                        user.userId = dr["userId"].ToString();
+                        user.email = dr["email"].ToString();
+                        user.firstName = dr["firstName"].ToString();
+                        user.lastName = dr["lastName"].ToString();
+                        user.password = dr["password"].ToString();
+                        user.active = dr.GetBoolean(dr.GetOrdinal("active"));
+                    }
+
                     dr.Close();
                 }
             }
@@ -99,7 +131,7 @@ namespace EventReady.Data_Access_Layer
                     cmd.Parameters.AddWithValue("password", user.password);
 
                     con.Open();
-                    return cmd.ExecuteNonQuery();
+                   return cmd.ExecuteNonQuery();
                 }
             }
 

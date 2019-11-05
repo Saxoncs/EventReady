@@ -22,8 +22,9 @@
         <li><a href="Guide.aspx">Guide</a></li>  
         <%if (Session["user"] != null)
             {%>
+        <!-- user.Email will need to be changed to user.UserId - Saxon -->
         <li><a href="Calendar.aspx?user=<%=user.Email %>">Calendar</a></li>
-        <li><a href="Events.aspx?user=<%=user.Email%>">Events</a></li>
+        <li><a href="Events.aspx?user=<%=user.UserId%>">Events</a></li>
         <li><a href="LoginVer2.aspx?log=<%="Logout" %>">Logout</a></li>
         <%} if (Session["user"] == null){ %>
         <li><a href="LoginVer2.aspx">Sign In</a></li>

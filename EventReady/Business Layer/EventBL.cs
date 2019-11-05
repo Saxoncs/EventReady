@@ -18,6 +18,17 @@ namespace EventReady.Business_Layer
         public string userId { get; set; }
 
 
+        public EventBL(string newEventId, string newName, string newDescription, DateTime newDeadline, string newUserId)
+        {
+            eventId = newEventId;
+            name = newName;
+            description = newDescription;
+            start = DateTime.Today;
+            deadline = newDeadline;
+            userId = newUserId;
+
+        }
+
         //These should be deleted and the system rebuilt to work with the classes from the database using the "GetActiveEvents" function -Saxon
 
         public string UserEmail { get; set; }
@@ -32,7 +43,7 @@ namespace EventReady.Business_Layer
 
         public List<String> GuestList { get; set; }
 
-        //an empty constructor so that the code doesn't get upset when I instantiate one that doesn't have the temporary global data in it, this can be deleted with the rest of this code.
+        //An empty constructor so that the code doesn't get upset when I instantiate one that doesn't have the temporary global data in it, this can be deleted with the rest of this code.
         public EventBL()
         {
 
@@ -76,16 +87,26 @@ namespace EventReady.Business_Layer
                     singleEventBL.deadline = singleEvent.deadline;
                     singleEventBL.userId = singleEvent.userId;
 
-
-
                     activeEvents.Add(singleEventBL);
                 }
             }
-
-
-
-
             return activeEvents;
         }
+
+        public void ReplaceEvent(string oldEventId)
+        {
+            Event newEvent = new Event();
+
+            newEvent.eventId = this.eventId;
+            newEvent.name = this.name;
+            newEvent.description = this.description;
+            newEvent.start = this.start;
+            newEvent.deadline = this.deadline;
+            newEvent.userId = this.userId;
+
+            UpdateEvent(oldEventId, newEvent);
+        }
+
+
     }
 }

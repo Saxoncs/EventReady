@@ -19,6 +19,10 @@ namespace EventReady.Application_Layer
         {
             if(IsValid)
             {
+                UserBL userInfo = new UserBL();
+
+                userInfo.CreateNewUser(txtbxFirstName.Text, txtbxLastName.Text, txtbxEmail.Text, txtbxPw.Text);
+
                GlobalData.userMap.Add(txtbxEmail.Text, new UserBL(txtbxFirstName.Text, txtbxLastName.Text, txtbxEmail.Text, txtbxPw.Text, "3282914"));
                 Response.Redirect("LoginVer2.aspx");
             }

@@ -10,6 +10,8 @@ namespace EventReady.Application_Layer
 {
     public partial class LoginVer2 : System.Web.UI.Page
     {
+        protected UserBL userInfo = new UserBL();
+
         protected string log;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -32,11 +34,14 @@ namespace EventReady.Application_Layer
             string email = ((TextBox)FindControl("txtbxEmail")).Text;
             string pword = ((TextBox)FindControl("txtbxPassword")).Text;
 
-            if (GlobalData.userMap.ContainsKey(email))
+            UserBL user = userInfo.GetLogingUser(email);
+
+
+            if (user != null)
             {
-                if (GlobalData.userMap[email].Password.Equals(pword))
+                if (user.Password.Equals(pword))
                 {
-                    Session.Add("user", GlobalData.userMap[email]);
+                    Session.Add("user", user);
                     Response.Redirect("Home.aspx");
                 }
                 else

@@ -45,11 +45,11 @@ namespace EventReady.Application_Layer
             mode = Request.QueryString["mode"];
 
             eventDelete = Convert.ToInt32(Request.QueryString["event"]);
-            
+
             //I don't think i need this
             //User userSession = (User)Session["user"];
 
-            //Convert data access events to native events - Saxon
+            //Convert data access events to native events once I get the user login sorted I'll come back to this and change the parameter to the user variable- Saxon
             eventList = eventInfo.GetActiveEvents(user);
 
             //Checks to see if the delete button was clicked

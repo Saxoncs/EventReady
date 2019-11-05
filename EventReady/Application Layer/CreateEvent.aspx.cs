@@ -81,9 +81,7 @@ namespace EventReady.Application_Layer
                         {
                             txtbxEventNameEdit.Text = ev.name;
                             txtbxDescriptionEdit.Text = ev.description;
-                            txtbxLNEdit.Text = ev.start.ToString();
                             txtbxDateEdit.Text = ev.deadline.ToString();
-                            txtbxAddressEdit.Text = "This needs to be implemented";
                         }
                     }
                 }
@@ -108,7 +106,9 @@ namespace EventReady.Application_Layer
             //Add values to a session in a list if it is editing an event and an event value that represents the exact event that needs to be edited
             else if (eventToEdit != null)
             {
-                EventBL ev = new EventBL(user, txtbxEventNameEdit.Text, txtbxDescriptionEdit.Text, txtbxFNEdit.Text, txtbxLNEdit.Text, txtbxDateEdit.Text, txtbxAddressEdit.Text, txtbxConNumEdit.Text, txtbxEmailEdit.Text, temp);
+                EventBL ev = new EventBL(user, txtbxEventNameEdit.Text, txtbxDescriptionEdit.Text, Convert.ToDateTime(txtbxDateEdit.Text), user);
+
+                ev.ReplaceEvent(eventToEdit);
 
                 Session.Add("eventEdit", ev);
                 Session.Add("eventValue", eventToEdit);
