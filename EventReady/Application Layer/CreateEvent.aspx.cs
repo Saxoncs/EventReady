@@ -16,20 +16,35 @@ namespace EventReady.Application_Layer
 
         protected EventBL eventInfo = new EventBL();
 
+
+        //user returns the user email of the person logged in
         protected string user;
+        //EventtoEdit will return value if edit is clicked on events page
         protected string eventToEdit;
+
+
+        //Check will return value if  back button is clicked on event details
+        protected string check;
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            //Session timeout
             UserBL session = (UserBL)Session["user"];
 
             if (session == null)
             {
-                Response.Redirect("LoginVer2.aspx");
+                Response.Redirect("SessionTimeout.aspx");
             }
+
             user = Request.QueryString["user"];
 
             eventToEdit = Request.QueryString["eventToEdit"];
+
+            check = Request.QueryString["check"];
+
+            //Validators to compare current date with selected date for event 
+            valDateCheck.ValueToCompare = DateTime.Now.ToShortDateString();
+            valDateCheckEdit.ValueToCompare = DateTime.Now.ToShortDateString();
 
             valDateCheck.ValueToCompare = DateTime.Now.ToShortDateString();
 
@@ -39,6 +54,25 @@ namespace EventReady.Application_Layer
 
             if (!IsPostBack)
             {
+                // If back button is clicked on event details fill the textboxes with data from session so they dont have to refill every textbox. 
+                if (check != null)
+                {
+                    eventInfo = (EventBL)Session["event"];
+                    txtbxEventName.Text = eventInfo.EventName;
+                    txtbxDescription.Text = eventInfo.Description;
+                    txtbxFirstName.Text = eventInfo.FirstName;
+                    txtbxLastName.Text = eventInfo.LastName;
+                    txtbxDate.Text = eventInfo.EventDate;
+                    txtbxAddress.Text = eventInfo.EventAddress;
+                    txtbxConPhone.Text = eventInfo.ContactPhone;
+                    txtbxConEmail.Text = eventInfo.ContactEmail;
+                    
+
+                }
+                //Remove any sessions so that the textboxes arent altered further from previous create event
+                Session.Remove("event");
+                Session.Remove("eventEdit");
+                //Add values to textbox if edit button was clicked
                 if (eventToEdit != null)
                 {
                     foreach (EventBL ev in eventList)
@@ -63,6 +97,7 @@ namespace EventReady.Application_Layer
 
             List<String> temp = new List<String>();
             temp.Add("");
+            //Add values to a session  in a list if it is a new event
             if (eventToEdit == null)
             {
                 EventBL ev = new EventBL(user, txtbxEventName.Text, txtbxDescription.Text, txtbxFirstName.Text, txtbxLastName.Text, txtbxDate.Text, txtbxAddress.Text, txtbxConPhone.Text, txtbxConEmail.Text, temp);
@@ -70,6 +105,7 @@ namespace EventReady.Application_Layer
                 //Session.Add("event", ev);
                 Response.Redirect("EventDetails.aspx");
             }
+            //Add values to a session in a list if it is editing an event and an event value that represents the exact event that needs to be edited
             else if (eventToEdit != null)
             {
                 EventBL ev = new EventBL(user, txtbxEventNameEdit.Text, txtbxDescriptionEdit.Text, txtbxFNEdit.Text, txtbxLNEdit.Text, txtbxDateEdit.Text, txtbxAddressEdit.Text, txtbxConNumEdit.Text, txtbxEmailEdit.Text, temp);

@@ -12,6 +12,7 @@
     <asp:Label runat="server" ID="lblEDescription" Text=""></asp:Label> <br />
     <asp:Label runat="server" ID="lblEEmail" Text=""></asp:Label> <br />
     <asp:Label runat="server" ID="lblEPhone" Text=""></asp:Label> 
+        
         <% if (Session["event"] != null)
     {
         UserBL user = (UserBL)Session["user"]; %>
@@ -22,7 +23,7 @@
     else if (Session["eventEdit"] != null)
     {
         int value = Convert.ToInt32(Session["eventValue"]);%>
-        <input type="button" value="Back" onclick="window.location.href = 'CreateEvent.aspx?value=<%=value%>'; return false"/>
+        <input type="button" value="Back" onclick="window.location.href = 'CreateEvent.aspx?eventToEdit=<%=value%>'; return false"/>
         
         <% 
     }%>

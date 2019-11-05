@@ -48,17 +48,19 @@
 		<div class="wrap-login100 p-l-55 p-r-55 p-t-80 p-b-30">
 			<form class="login100-form validate-form" runat="server">
 				<div class="login100-form-title p-b-37" >
-
+                    <span class="login100-form-title p-b-37">
+					An Error has occurred
+				    </span>
+                <div><a>This page does not exist on our website :(</a>
+				</div>
 				
 
 				</div>
-				<span class="login100-form-title p-b-37">
-					this page does not exist on our website :(
-				</span>
+				
 
              
 			    <div class="container-login100-form-btn">
-                    <asp:Button runat="server" class="login100-form-btn" ID="backtohome" OnClick="btnSignIn_Click" Text="Back to Home Page" />
+                    <asp:Button runat="server" class="login100-form-btn" ID="backtohome" OnClick="btnOk_Click" Text="Back to Home Page" />
 				</div>
 
 				

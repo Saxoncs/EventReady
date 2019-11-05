@@ -68,14 +68,15 @@
 
 
 
-
+            <asp:RequiredFieldValidator display="Dynamic" runat="server" ControlToValidate="txtForgottenEmail" class="input100" ErrorMessage="Email field cannot be empty" style="color:red"/>
+                    <asp:RegularExpressionValidator Display="Dynamic" ID="valForgottenPassword" class="input100" runat="server" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="txtForgottenEmail" ErrorMessage="Invalid Email Format" style="color:red"></asp:RegularExpressionValidator>
              <div>
+                 
                     <div class="wrap-input100 validate-input m-b-25">
                     <asp:TextBox ID="txtForgottenEmail" runat="server" class="input100" placeholder="Email" MaxLength="80"/>
                     <span class="focus-input100"></span>
                     <!-- Check to see if field is empty -->
-                    <asp:RequiredFieldValidator display="Dynamic" runat="server" ControlToValidate="txtForgottenEmail" class="label-error" ErrorMessage="Email field cannot be empty" style="color:red"/>
-                    <asp:RegularExpressionValidator Display="Dynamic" ID="valForgottenPassword" CssClass="label-error" runat="server" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="txtForgottenEmail" ErrorMessage="Invalid Email Format" style="color:red"></asp:RegularExpressionValidator>
+                    
                     </div>
             </div>
 
@@ -83,12 +84,18 @@
 
 
 
-				<div class="text-center">
-					<asp:Button runat="server" OnClick="btnContinue_Click" class="btn btnSubmit btn-block" Text="Continue"/>
-                    <asp:label runat="server" ID="lblEmailMessage" Visible="false" style="color:red;"> This email is not registered at EventReady </asp:label>
-                    
-                    				
+				<div  class="container-login100-form-btn">
+					<asp:Button runat="server" OnClick="btnContinue_Click" class="login100-form-btn" Text="Continue"/>
+                   			
                 </div>
+                <div class="text-center">
+                    <asp:label runat="server" ID="lblEmailMessage" Visible="false" style="color:red;"> This email is not registered at EventReady </asp:label>	
+                </div>
+                <div class="text-center">
+					<a href="LoginVer2.aspx" class="txt2 hov1">
+						Back to Login
+					</a>
+				</div>
 
 
             

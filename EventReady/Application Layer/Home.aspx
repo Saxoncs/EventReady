@@ -35,41 +35,19 @@
         <header class="header">
             <% UserBL user = (UserBL)Session["user"]; %>
             <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="header-top">
-                            <div class="row">
-                                <div class="col-md-3 col-sm-12 col-xs-12">
-                                    <div>
-                                        <img src="../Image/er.jpg" alt="Image/er.jpg" style="width:80px;height:80px;" />
-                                    </div>
-                                </div>
-                                <div class="col-md-9 col-sm-12 col-xs-12">
-                                    <div class="menu">
-                                        <ul class="nav navbar-nav">
-                                            <li class="active"><a href="#">HOME</a></li>
-                                            <li><a href="#">ABOUT</a></li>
-                                            <li><a href="CreateEvent.aspx?user=<%=user.UserId%>">Create Event</a></li>
-                                            <li><a href="Events.aspx?user=<%=user.UserId%>">EVENTS</a></li>
-                                            <li><a href="guide.html">GUIDE</a></li>
-                                            <li><a href="LoginVer2.aspx?log=<%="Logout" %>">LOG OUT</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
                 <div class="row">
                     <div class="col-md-12">
                         <div class="header-carousal owl-carousel owl-theme">
                             <div class="item">
                                 <h4>Here you can</h4>
                                 <h2>Create an Event</h2>
+                                <!-- Button will redirect to create event if user is logged in-->
                                 <%if (Session["user"] != null)
                                     {%>
                                 <input type="button" value="Create Event" onclick="window.location.href = 'CreateEvent.aspx?user=<%=user.Email%>'; return false"/>
-                                <%} else if (Session["user"] == null) { %>
+                                <%}// if a user is not logged it will redirect for the same button to the login page
+                                    else if (Session["user"] == null) { %>
                                 <input type="button" value="Create Event" onclick="window.location.href = 'LoginVer2.aspx'; return false"/>
                                 <%} %>
                             </div>
@@ -78,6 +56,7 @@
                                 <h2>View Guide</h2>
                                 <input type="button" value="View Guide" onclick="window.location.href = 'Guide.aspx'; return false"/>
                             </div>
+                            <!-- If a user is logged in it will add a calendar option to select if no user is logged in this option wont be available -->
                             <%if (Session["user"] != null)
                                 {%>
                             <div class="item">

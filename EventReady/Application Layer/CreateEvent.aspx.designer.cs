@@ -13,24 +13,6 @@ namespace EventReady.Application_Layer {
     public partial class CreateEvent {
         
         /// <summary>
-        /// lblHeader control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblHeader;
-        
-        /// <summary>
-        /// lblEventName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEventName;
-        
-        /// <summary>
         /// ValEventName control.
         /// </summary>
         /// <remarks>
@@ -47,15 +29,6 @@ namespace EventReady.Application_Layer {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtbxEventName;
-        
-        /// <summary>
-        /// lblNames control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNames;
         
         /// <summary>
         /// ValFirstName control.
@@ -193,15 +166,6 @@ namespace EventReady.Application_Layer {
         protected global::System.Web.UI.WebControls.TextBox txtbxConEmail;
         
         /// <summary>
-        /// lblDescription control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDescription;
-        
-        /// <summary>
         /// txtbxDescription control.
         /// </summary>
         /// <remarks>
@@ -209,24 +173,6 @@ namespace EventReady.Application_Layer {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtbxDescription;
-        
-        /// <summary>
-        /// lblHeaderEdit control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblHeaderEdit;
-        
-        /// <summary>
-        /// lblEventNameEdit control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEventNameEdit;
         
         /// <summary>
         /// ValENEdit control.
@@ -245,15 +191,6 @@ namespace EventReady.Application_Layer {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtbxEventNameEdit;
-        
-        /// <summary>
-        /// lblNamesEdit control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNamesEdit;
         
         /// <summary>
         /// ValFirstNameEdit control.
@@ -389,15 +326,6 @@ namespace EventReady.Application_Layer {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtbxEmailEdit;
-        
-        /// <summary>
-        /// lblDescriptionEdit control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDescriptionEdit;
         
         /// <summary>
         /// txtbxDescriptionEdit control.
