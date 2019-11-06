@@ -1,5 +1,5 @@
 .wrapper header.header {
-    background-image: url('../Image/backgroundImage.jpg');
+    background-image: url('~/Image/backgroundImage.jpg');
     background-repeat: no-repeat;
     background-size: 100% auto;
     height: 950px;

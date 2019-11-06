@@ -89,7 +89,8 @@ namespace EventReady.Application_Layer
                 for (int i = 1; i <= total; i++)
                 {
                     var textbox = new TextBox { ID = "TextBox" + i };
-                    
+                    textbox.Text = "Email here";
+                    textbox.CssClass = "input100";
                     collection.Add(textbox.ID);
                     PlaceHolder1.Controls.Add(textbox);
                     

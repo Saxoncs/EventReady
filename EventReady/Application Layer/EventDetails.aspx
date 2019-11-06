@@ -50,7 +50,19 @@
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="container-login100" style="background-image: url('../Image/header-bg.jpg');">
+    <div class="container-login100" style="width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    z-index: 1;">
 		<div class="wrap-login100 p-l-55 p-r-55 p-t-80 p-b-30">
 			<form class="login100-form validate-form" runat="server">
 				<div class="login100-form-title p-b-37" >
@@ -83,7 +95,7 @@
 
         <% if (Session["event"] != null)
     {
-        User user = (User)Session["user"]; %>
+        UserBL user = (UserBL)Session["user"]; %>
                     <div class="container-login100-form-btn">
         
                     <input type="button" class="login100-form-btn" value="Back" onclick="window.location.href = 'CreateEvent.aspx?check=value&user=<%=user.Email%>'; return false"/>

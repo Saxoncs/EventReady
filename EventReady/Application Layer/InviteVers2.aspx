@@ -1,5 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Application Layer/MasterPage.Master" AutoEventWireup="true" CodeBehind="EventDetails.aspx.cs" Inherits="EventReady.Application_Layer.EventDetails" %>
-<%@ Import Namespace="EventReady.Business_Layer" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Application Layer/MasterPage.Master" AutoEventWireup="true" CodeBehind="InviteVers2.aspx.cs" Inherits="EventReady.Application_Layer.InviteVers2" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
 <!--===============================================================================================-->
@@ -37,7 +36,6 @@
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>
-    <script src="../Style/StyleSheetStyle.css"></script>
 </asp:Content>
 
 
@@ -47,73 +45,57 @@
 
 
 
-
-
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="container-login100" style="background-image: url('../Image/header-bg.jpg');">
+  <div style="style="width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    z-index: 1;">
 		<div class="wrap-login100 p-l-55 p-r-55 p-t-80 p-b-30">
 			<form class="login100-form validate-form" runat="server">
 				<div class="login100-form-title p-b-37" >
-                
-					
-    
-      <h2>Confirmed Details:</h2> <br/>
-      
-      
-      
-    
-    <asp:Label runat="server" class="detail" ID="lblEName" Text=""></asp:Label>
-    <asp:Label runat="server" class="detail" ID="lblFName" Text=""></asp:Label> <br />
-    <asp:Label runat="server" class="detail" ID="lblLName" Text=""></asp:Label> <br />
-    <asp:Label runat="server" class="detail" ID="lblEDate" Text=""></asp:Label> <br />
-    <asp:Label runat="server" class="detail" ID="lblEAddress" Text=""></asp:Label> <br />
-    <asp:Label runat="server" class="detail" ID="lblEDescription" Text=""></asp:Label> <br />
-    <asp:Label runat="server" class="detail" ID="lblEEmail" Text=""></asp:Label> <br />
-    <asp:Label runat="server" class="detail" ID="lblEPhone" Text=""></asp:Label> <br/>
+
+
+
+
+    <label>Invite Guests to your invite using an email</label>
+
+	<div class="wrap-input100 validate-input m-b-25">
+	<asp:textbox class="input100" runat="server" ID="CounterTextBox" AutoPostBack="true" />
+	<span class="focus-input100"></span>
+	</div>
+
 
     
-    <div class="container-login100-form-btn">
-    <asp:Button runat="server" class="login100-form-btn"  ID="Button1" Text="Confirm" OnClick="btnConfirm_Click"/> 
-    </div><br/>
-				   
 
-
-
-
-
-        <% if (Session["event"] != null)
-    {
-        User user = (User)Session["user"]; %>
-                    <div class="container-login100-form-btn">
-        
-                    <input type="button" class="login100-form-btn" value="Back" onclick="window.location.href = 'CreateEvent.aspx?check=value&user=<%=user.Email%>'; return false"/>
-                    
-                    </div>
-        <% 
-    }
-    else if (Session["eventEdit"] != null)
-    {
-        int value = Convert.ToInt32(Session["eventValue"]);%>
-                    <div class="container-login100-form-btn">
-        <input type="button" class="login100-form-btn" value="Back" onclick="window.location.href = 'CreateEvent.aspx?value=<%=value%>'; return false"/>
+    
+   <div class="container-login100-form-btn">
+    <asp:button runat="server" class="login100-form-btn" Text="Add Field" ID="btnAddField" OnClick="btnAddField_Click"/> 
         </div>
-        <% 
-    }%>
+<br/>
 
-                  
-    
-   
+        <div class="container-login100-form-btn">
+    <asp:button runat="server" class="login100-form-btn" Text="Confirm Guest List" ID="btnConfirmGuests" OnClick="btnConfirmGuests_Click"/> 
+     </div>
+
+<br/>
+
+<div class="wrap-input100 validate-input m-b-20">
+    <asp:PlaceHolder ID="PlaceHolder1" runat="server" > </asp:PlaceHolder>
+    <span class="focus-input100"></span>
+ </div>
 
     
                     
-
-
-
-
-
-                      
-                    
-				</div>
+			
 
 				
 
@@ -122,8 +104,9 @@
 
 		</div>
 	</div>
+    
 
-   
+
 
 </asp:Content>
 
