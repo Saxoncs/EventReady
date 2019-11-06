@@ -1,5 +1,5 @@
 ﻿/*CSS for ther master page*/
-#header {
+/*#header {
     color: #247BA0;
     text-align: center;
     font-size: 20px;
@@ -62,13 +62,13 @@ li a:hover {
     border: double;
     border-color: burlywood;
 }
+*/
 
 /*CSS for the lists*/
 /*body {
     background-image: url("eventreadybackground.jpg");
     color: white;
 }*/
-
 .center {
     text-align: center;
 }
@@ -76,6 +76,7 @@ li a:hover {
 .heading {
     text-align: center;
 }
+
 
 .errorMessage {
     color: red;
@@ -86,7 +87,7 @@ li a:hover {
 }
 
 .itemlist {
-    position: relative;
+    position:relative;
     background-color: #FFF;
     min-height: 680px;
     padding: 15px
@@ -228,10 +229,74 @@ li a:hover {
         }
 }
 
-.text-list-colour {
-    color: black;
+
+
+
+/*Master PAGE tEST
+    /* MASTER PAGE */
+
+/* Background Image */
+.bodyMaster {
+    background-image: url("../Image/backgroundImage.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: scroll;
+    background-size: cover;
+    color: white;
+    border: 1px white;
 }
-.calcenter {
-    text-align: center;
-    border: 3px solid green;
+
+.logo {
+    height: 70px;
+    width: 70px;
+}
+
+/* Header Nav - Menu Bar */
+.header {
+    background-color: #ffffff;
+    padding: 20px 10px;
+    height: 100px;
+    margin-top: 0;
+}
+
+    /* Header Nav - Logo Link */
+    .header a.logo {
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    /* Header Nav - Menu Links */
+    .header a {
+        float: left;
+        color: black;
+        text-align: center;
+        padding: 45px;
+        text-decoration: none;
+        font-size: 30px;
+        font-family: Tahoma;
+        line-height: 4px;
+        border-radius: 4px;
+        opacity: 1;
+        transition: 0.3s;
+    }
+
+        /* Header Nav - Hover Link */
+        .header a.hover {
+            background-color: #ddd;
+            color: black;
+            opacity: 0.6;
+        }
+
+        /* Header Nav - Active Link */
+        .header a.active {
+            background-color: dodgerblue;
+            color: white;
+        }
+
+/* Header Nav - Float links to right */
+.header-right {
+    float: right;
+}
+.header-left {
+    float: left;
 }

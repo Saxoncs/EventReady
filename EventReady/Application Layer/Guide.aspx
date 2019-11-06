@@ -18,7 +18,8 @@
     <script src="../js/active.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="wrapper" style="background-image: url('../Image/header-bg.jpg'); background-size: 100% auto; position: relative; background-repeat: no-repeat;">
+    <!--background-image: url('../Image/header-bg.jpg');-->
+    <div class="wrapper" style=" background-image: url('../Image/backgroundImage.jpg'); background-size: 100% auto; position: relative; background-repeat: no-repeat;">
         <header class="header">
             <div class="container">
                

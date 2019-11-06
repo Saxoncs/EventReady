@@ -15,7 +15,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div style="background-image: url('../Image/header-bg.jpg');"> 
+        <div> <!--style="background-image: url('../Image/.jpg');"--> 
             <h3>Remember Password</h3>
             <!-- Information about password assistance -->
             <div>

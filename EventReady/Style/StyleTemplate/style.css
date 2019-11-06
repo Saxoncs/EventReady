@@ -1,9 +1,9 @@
 .wrapper header.header {
-  background-image: url("../Image/header-bg.jpg");
-  background-repeat: no-repeat;
-  background-size: 100% auto;
-  height: 950px;
-  position: relative;
+    background-image: url('../Image/backgroundImage.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    height: 950px;
+    position: relative;
 }
 
 .wrapper header.header > img {

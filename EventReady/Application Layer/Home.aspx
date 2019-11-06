@@ -30,8 +30,8 @@
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [userInfo]"></asp:SqlDataSource>
     <!-- end of test datasource -->
 
-
-    <div class="wrapper" style="background-image: url('../Image/header-bg.jpg'); background-size: 100% auto; position: relative; background-repeat: no-repeat;">
+    <!--background-image: url('../Image/header-bg.jpg');-->
+    <div class="wrapper" style="background-size: 100% auto; position: relative; background-repeat: no-repeat; background-image: url('../Image/backgroundImage.jpg');">
         <header class="header">
             <% UserBL user = (UserBL)Session["user"]; %>
             <div class="container">

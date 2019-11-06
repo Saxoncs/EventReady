@@ -103,7 +103,8 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
-    <Content Include="Image\eventreadybackground.jpg" />
+    <Content Include="Image\backgroundImage.jpg" />
+    <Content Include="Image\logo.png" />
     <Content Include="Image\ribbon.PNG" />
     <Content Include="Image\strip4.jpg" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -167,10 +168,8 @@
     <Content Include="Style\StyleTemplate\style.css" />
     <Content Include="Style\StyleTemplate\font-awesome.min.css" />
     <None Include="Style\Image\.DS_Store" />
-    <Content Include="Style\Image\header-bg.jpg" />
     <None Include="Image\.DS_Store" />
     <Content Include="Image\er.jpg" />
-    <Content Include="Image\header-bg.jpg" />
     <Content Include="js\jquery.magnific-popup.min.js" />
     <Content Include="js\isotope.pkgd.js" />
     <Content Include="js\masonry.js" />

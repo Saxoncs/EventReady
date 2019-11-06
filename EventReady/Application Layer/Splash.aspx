@@ -43,7 +43,7 @@
 	<script src="js/main.js"></script>
 </head>
 <body>
-    <div class="container-login100" style="background-image: url('../Image/header-bg.jpg');">
+    <div class="container-login100" style="background-image: url('../Image/backgroundImage.jpg');">
 		<div class="wrap-login100 p-l-55 p-r-55 p-t-80 p-b-30">
 			<form class="login100-form validate-form" runat="server">
 				<div class="login100-form-title p-b-37" >
@@ -56,8 +56,8 @@
 		
 				</div>
 
-				<div>>
-					<a>Plan an event end-to-end with an all-in-one space to track important details such as dates, event venues, registrations and guests, simplify the planning process and more</a>
+				<div>
+					<p>Plan an event end-to-end with an all-in-one space to track important details such as dates, event venues, registrations and guests, simplify the planning process and more</p>
 				</div>
 
 				<br/>
