@@ -15,6 +15,7 @@ namespace EventReady.Application_Layer
     {
         //List<String> guestListTemp;
         protected EventBL eventbl;
+        protected String eventID; 
         //protected List<String> list;
         TextBox tb;
         static int i = 0;
@@ -68,6 +69,7 @@ namespace EventReady.Application_Layer
             }
 
 
+
         }
        
 
@@ -94,89 +96,10 @@ namespace EventReady.Application_Layer
                 }
                 TextBoxIdCollection = collection;
             }
-            
-             
-            /*i++;
-          
-            for (j = 1; j <= i; j++)
-            {
-                
-                tb = new TextBox();
-                tb.Text = "TextBox" + j.ToString();
-                tb.ID = "TextBox" + j.ToString();
-                PlaceHolder1.Controls.Add(tb);
-                //PlaceHolder1.Controls.Add(new TextBox());
-                collection.Add(tb.ID); 
-
-               
-
-            }
-            TextBoxIdCollection = collection; */
-
-
-            /*int index = pnlTextBoxes.Controls.OfType<TextBox>().ToList().Count + 1;
-            TextBox txt = new TextBox();
-            txt.ID = "TextBox" + index;
-            pnlTextBoxes.Controls.Add(txt);
-            Literal lt = new Literal();
-            lt.Text = "<br />";
-            pnlTextBoxes.Controls.Add(lt);*/
-            //this.CreateTextBox("TextBox" + index);
-
-            //IterateThroughChildren(this);
-            /*pnlTextBoxes.Controls.Clear();
-            int index = pnlTextBoxes.Controls.OfType<TextBox>().ToList().Count + 1;
-            this.CreateTextBox("txtDynamic" + index);*/
-
-            // z = Convert.ToInt32(HowManyToGenerateTextBox.Text);
-            //Panel1.Controls.Clear();
-
-
-
-            /* for (int i = 0; i < z; i++)
-             {
-                 TextBox s = new TextBox();
-                 s.ID = "tb" + i.ToString();
-                 Session[s.ID] = s;
-                 Panel1.Controls.Add(s);
-             }*/
-
         }
 
 
-       /* private void CreateTextBox(string id)
-        {
-
-            TextBox txt = new TextBox();
-            txt.ID = id;
-            pnlTextBoxes.Controls.Add(txt);
-
-            Literal lt = new Literal();
-            lt.Text = "<br />";
-            pnlTextBoxes.Controls.Add(lt);
-
-        }*/
-        /*void IterateThroughChildren(Control parent)
-        {
-            
-            foreach (Control c in parent.Controls)
-            {
-                if (c.GetType().ToString().Equals("System.Web.UI.WebControls.TextBox")
-                      && c.ID == null)
-                {
-                    ((TextBox)c).Text = "TextBox" + count.ToString();
-                    ((TextBox)c).ID = "TextBox"+count.ToString();
-                    count++;
-                }
-
-                if (c.Controls.Count > 0)
-                {
-                    IterateThroughChildren(c);
-                }
-            }
-        }*/
-
-        //Combine the email html template with the email and any variables that need to be added
+    
         private string PopulateBody()
         {
             guestListString = new List<String>();
@@ -188,44 +111,33 @@ namespace EventReady.Application_Layer
                 body = reader.ReadToEnd();
             }
             //Adds details to the event based on edited values or creating a new event
-            if (Session["eventEdit"] != null)
-            {
-                eventbl = (EventBL)Session["eventEdit"];
+            //if (Session["eventEdit"] != null)
+            //{
+                //eventbl = (EventBL)Session["eventEdit"];
 
                 body = body.Replace("{EventName}", eventbl.EventName);
                 body = body.Replace("{Date}", eventbl.EventDate);
-                body = body.Replace("{Phone}", eventbl.ContactPhone);
-                body = body.Replace("{Email}", eventbl.ContactEmail);
-                body = body.Replace("{Address}", eventbl.EventAddress);
-                body = body.Replace("{FirstName}", eventbl.FirstName);
-                body = body.Replace("{LastName}", eventbl.LastName);
+                //body = body.Replace("{Phone}", eventbl.ContactPhone);
+                //body = body.Replace("{Email}", eventbl.ContactEmail);
+                //body = body.Replace("{Address}", eventbl.EventAddress);
+                //body = body.Replace("{FirstName}", eventbl.FirstName);
+                //body = body.Replace("{LastName}", eventbl.LastName);
 
-            }
-            else if (Session["event"] != null)
-            {
-                eventbl = (EventBL)Session["event"];
+            //}
+            //else if (Session["event"] != null)
+            //{
+               // eventbl = (EventBL)Session["event"];
 
-                body = body.Replace("{EventName}", eventbl.EventName);
-                body = body.Replace("{Date}", eventbl.EventDate);
-                body = body.Replace("{Phone}", eventbl.ContactPhone);
-                body = body.Replace("{Email}", eventbl.ContactEmail);
-                body = body.Replace("{Address}", eventbl.EventAddress);
-                body = body.Replace("{FirstName}", eventbl.FirstName);
-                body = body.Replace("{LastName}", eventbl.LastName);
+                //body = body.Replace("{EventName}", eventbl.EventName);
+                //body = body.Replace("{Date}", eventbl.EventDate);
+                //body = body.Replace("{Phone}", eventbl.ContactPhone);
+                //body = body.Replace("{Email}", eventbl.ContactEmail);
+                //body = body.Replace("{Address}", eventbl.EventAddress);
+                //body = body.Replace("{FirstName}", eventbl.FirstName);
+                //body = body.Replace("{LastName}", eventbl.LastName);
 
-            }
-            /*body = body.Replace("{EventName}", eventbl.EventName);
-            body = body.Replace("{Date}", eventbl.EventDate);
-            body = body.Replace("{Phone}", eventbl.ContactPhone);
-            body = body.Replace("{Email}", eventbl.ContactEmail);
-            body = body.Replace("{Address}", eventbl.EventAddress);
-            body = body.Replace("{FirstName}", eventbl.FirstName);
-            body = body.Replace("{LastName}", eventbl.LastName);*/
-            //Adding an image to the email
-
-            //view.LinkedResources.Add(img);
-            
-            //body = body.Replace("{ribbonImgPlaceHolder}", img.ContentId);
+            //}
+           
             return body;
             
         }
@@ -264,7 +176,9 @@ namespace EventReady.Application_Layer
                         msg.To.Add(new MailAddress(((TextBox)ctr).Text));
                         msg.Subject = "EventReady - Invitation";
                         //Add the guest email for each email sent as a variable for the RSVP buttons
+
                         body = body.Replace("{guestEmail}", ((TextBox)ctr).Text);
+
                         string testthis = ((TextBox)ctr).Text;
                         msg.Body = body;
                         msg.IsBodyHtml = true;
@@ -291,6 +205,15 @@ namespace EventReady.Application_Layer
                         client.Send(msg);
                        //Changes the email value back to guestEmail so it can redo for the next loop
                         body = body.Replace(((TextBox)ctr).Text, "{guestEmail}");
+
+
+                        EmailBL emailInfo = new EmailBL();
+
+                        eventID = Request.QueryString["eventValue"];
+                        //needs eventId
+                        
+                        emailInfo.AddToGuestList(((TextBox)ctr).Text, eventID);
+                        
                         
 
                     }
@@ -312,7 +235,7 @@ namespace EventReady.Application_Layer
             string body = this.PopulateBody();
             this.SendHtmlFormattedEmail(body);
             //If a new event is being created
-            if (Session["event"] != null)
+           /* if (Session["event"] != null)
             {
                 //list = (List<String>)Session["event"];
                 eventbl = (EventBL)Session["event"];
@@ -347,7 +270,7 @@ namespace EventReady.Application_Layer
 
                 
 
-            }
+            }*/
             count = 0;
             //Send User back to home page with message about emails being sent
             ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Emails have been sent to the guests');window.location ='Home.aspx';", true);

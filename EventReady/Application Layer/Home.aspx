@@ -63,7 +63,7 @@
                                 <h4>Calender to display your events</h4>
                                 <h2>View Calender</h2>
                                 <!-- user.Email will need to be changed to user.userId -Saxon -->
-                                <input type="button" value="View Calendar" onclick="window.location.href = 'Calendar.aspx?user=<%=user.Email%>'; return false"/>
+                                <input type="button" value="View Calendar" onclick="window.location.href = 'Calendar.aspx?user=<%=user.UserId%>'; return false"/>
                             </div>
                             <%} %>
                         </div>

@@ -15,7 +15,7 @@
 
                            <div class="calcenter" >
 <!-- Create a calendar with a different theme using the design view -->
-<asp:Calendar ID="calEvents" runat="server" BackColor="White" BorderColor="Black" DayNameFormat="Shortest" Font-Names="Times New Roman" Font-Size="10pt" ForeColor="Black" Height="410px" NextPrevFormat="FullMonth" TitleFormat="Month" Width="656px" OnSelectionChanged="calEvents_SelectionChanged" style="margin-right: 0px">
+<asp:Calendar ID="calEvents" runat="server" BackColor="White" BorderColor="Black" DayNameFormat="Shortest" Font-Names="Times New Roman" Font-Size="10pt" ForeColor="Black" Height="410px" NextPrevFormat="FullMonth" TitleFormat="Month" Width="656px" OnSelectionChanged="calEvents_SelectionChanged" style="margin-right: 0px" OnDayRender="calEvent_DayRender">
 
             <DayHeaderStyle BackColor="#CCCCCC" Font-Bold="True" Font-Size="7pt" ForeColor="#333333" Height="10pt" />
             <DayStyle Width="14%" />

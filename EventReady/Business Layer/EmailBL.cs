@@ -10,17 +10,24 @@ namespace EventReady.Business_Layer
     {
 
         //Needs to get the user id and event id from session data, should otherwise return a list of guests associated with the logged in user and selected event to be worked with by the user layer this will work for the RSVP page - Saxon
-        public List<Guest> GetActiveGuests(string eventId)
+        public List<GuestBL> GetActiveGuests(string eventId)
         {
 
             List<Guest> guestList = GetGuests(eventId);
-            List<Guest> activeGuests = new List<Guest>();
+            List<GuestBL> activeGuests = new List<GuestBL>();
 
             foreach (Guest guest in guestList)
             {
                 if (guest.active)
                 {
-                    activeGuests.Add(guest);
+                    GuestBL newGuest = new GuestBL();
+
+                    newGuest.email = guest.email;
+                    newGuest.name = guest.name;
+                    newGuest.eventId = guest.eventId;
+                    newGuest.rsvp = guest.rsvp;
+
+                    activeGuests.Add(newGuest);
                 }
             }
 
@@ -30,16 +37,25 @@ namespace EventReady.Business_Layer
 
         public class GuestBL
         {
-            string email { get; set; }
-            string name { get; set; }
-            string eventId { get; set; }
-            string rsvp { get; set; }
-            bool active { get; set; }
+            public string email { get; set; }
+            public string name { get; set; }
+            public string eventId { get; set; }
+            public string rsvp { get; set; }
+            public bool active { get; set; }
 
         }
 
 
-        
+        public void AddToGuestList(string email, string eventId)
+        {
+            Guest guest = new Guest();
+            guest.email = email;
+            guest.eventId = eventId;
+
+            AddGuest(guest);
+
+
+        }
         
 
       

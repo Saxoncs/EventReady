@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Net.Mail;
 using EventReady.Business_Layer;
+using static EventReady.Business_Layer.EventBL;
 
 namespace EventReady.Application_Layer
 {
@@ -38,7 +39,14 @@ namespace EventReady.Application_Layer
 
             string email = txtForgottenEmail.Text;
             //Checks to see if the user email exists in the global data
-            if (GlobalData.userMap.ContainsKey(email))
+
+            UserBL userInfo = new UserBL();
+            UserBL user = userInfo.GetLogingUser(email);
+
+
+
+
+            if (user.Email != null)
             {
 
                 lblEmailMessage.Visible = false;
@@ -68,10 +76,10 @@ namespace EventReady.Application_Layer
                 msg.To.Add(new MailAddress(txtForgottenEmail.Text));
                 msg.Subject = "Event Ready - Account Password Retrieval";
                 //If html does not exist return non-html email
-                msg.Body = GetForgotPasswordMessage(false, GlobalData.userMap[email].Password);
+                msg.Body = GetForgotPasswordMessage(false, user.Password);
 
                 //create an alternate HTML view that includes images and formatting 
-                string html = GetForgotPasswordMessage(true, GlobalData.userMap[email].Password);
+                string html = GetForgotPasswordMessage(true, user.Password);
                 AlternateView view = AlternateView
                     .CreateAlternateViewFromString(
                         html, null, "text/html");
@@ -101,12 +109,13 @@ namespace EventReady.Application_Layer
                     lblEmailMessage.Visible = true;
                 }
 
-                check = 1;
+                //check = 1;
 
 
 
             }
-            if (check == 0)
+            //if (check == 0)
+            else
             {
                 lblEmailMessage.Text = "This email is not registered at EventReady";
                 lblEmailMessage.Visible = true;

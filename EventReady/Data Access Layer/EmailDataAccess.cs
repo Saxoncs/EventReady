@@ -98,10 +98,10 @@ namespace EventReady.Data_Access_Layer
 
         //function takes a guest class from the business layer and adds it to the database, slightly out of date - Saxon
         [DataObjectMethod(DataObjectMethodType.Insert)]
-        public static int AddGuest(string eventId, Guest guest)
+        public static int AddGuest(Guest guest)
 
         {
-            string sql = "INSERT INTO Guest VALUES (@email, @name, " + eventId + ")";
+            string sql = "INSERT INTO Guest VALUES (@email, @name, @eventId, 'Not Responded', true)";
 
             using (SqlConnection con = new SqlConnection(GetConnectionString()))
             {
@@ -109,6 +109,7 @@ namespace EventReady.Data_Access_Layer
                 {
                     cmd.Parameters.AddWithValue("name", guest.name);
                     cmd.Parameters.AddWithValue("email", guest.email);
+                    cmd.Parameters.AddWithValue("eventId", guest.eventId);
 
                     con.Open();
 

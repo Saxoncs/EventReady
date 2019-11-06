@@ -36,11 +36,11 @@ namespace EventReady.Application_Layer
             
 
             //Convert data access guests to native guests - Saxon
-            List<Guest> guestList = email.GetActiveGuests(selectedEvent);
+            List<GuestBL> guestList = email.GetActiveGuests(selectedEvent);
 
             displayedGuestList = new List<GuestUL>();
 
-            foreach (Guest guest in guestList)
+            foreach (GuestBL guest in guestList)
             {
                 GuestUL displayedGuest = new GuestUL();
                 displayedGuest.name = guest.name;
