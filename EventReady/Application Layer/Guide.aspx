@@ -1,6 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Application Layer/MasterPage.Master" AutoEventWireup="true" CodeBehind="Guide.aspx.cs" Inherits="EventReady.Application_Layer.Guide" %>
+
+<%@ Import Namespace="EventReady.Business_Layer"%>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-       <link href="https://fonts.googleapis.com/css?family=Dancing+Script:400,700|Open+Sans:400,600,700,800" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script:400,700|Open+Sans:400,600,700,800" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800,900" rel="stylesheet">
     <link rel="stylesheet" href="../Content/bootstrap.css">
     <link rel="stylesheet" href="../Style/StyleTemplate/font-awesome.min.css">
@@ -8,7 +10,11 @@
     <link rel="stylesheet" href="../Style/StyleTemplate/owl.theme.default.min.css">
     <link rel="stylesheet" href="../Style/StyleTemplate/magnific-popup.css">
     <link rel="stylesheet" href="../Style/StyleTemplate/style.css">
+    <link rel="stylesheet" href="../Style/StyleSheetStyle.css">
     <link rel="stylesheet" href="../Style/StyleTemplate/responsive.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round" rel="stylesheet">
     <script src="../js/jquery-3.1.1.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/owl.carousel.min.js"></script>
@@ -16,12 +22,19 @@
     <script src="../js/masonry.js"></script>
     <script src="../js/jquery.magnific-popup.min.js"></script>
     <script src="../js/active.js"></script>
+   
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
+    <!-- Generated datasource for testing -->
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [userInfo]"></asp:SqlDataSource>
+    <!-- end of test datasource -->
+
+
     <div class="wrapper" style="background-image: url('../Image/header-bg.jpg'); background-size: 100% auto; position: relative; background-repeat: no-repeat;">
         <header class="header">
+            <% User user = (User)Session["user"]; %>
             <div class="container">
-               
                 <div class="row">
                     <div class="col-md-12">
                         <div class="header-carousal owl-carousel owl-theme">
@@ -42,7 +55,7 @@
                                 <p>Choose the best location suited for your event, taking into account what the weather will be like, <br/> the amount of people attending, whether technology is needed (powerpoints, Wi-Fi), <br/> is there a choice of local vendors in the area, does the location have the required infrastructure for <br/>the event or will you have to opt to provide your own.</p>
                             </div>
                             <div class="item">
-                                <h4>5. Choosing a theme/</h4>
+                                <h4>5. Choosing a theme</h4>
                                 <p>Decide on your event's theme taking into account the target audience and people that will be attending, <br/> and the location. The theme will set the tone for the whole event. Once the theme is in place, <br/> it'll make planning decisions alot easier. It'll also drive the visual <br/> and creative design of your event and significantly aid in attracting attendees. <br/> When deciding on your theme, make sure it aligns with your event goals, audience, and venue.</p>
                             </div>
                             <div class="item">
@@ -97,10 +110,13 @@
                                 <h4>18. Confirm the on-day bump-in times of all the vendors</h4>
                                 <p>This includes the caterers, audio equipment, decorations, speakers.</p>
                             </div>
-                        </div>
+                             </div>
                     </div>
                 </div>
             </div>
         </header>
         </div>
+
+   
+
 </asp:Content>

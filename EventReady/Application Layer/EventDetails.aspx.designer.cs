@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace EventReady.Application_Layer {
-    
-    
-    public partial class EventDetails {
-        
+namespace EventReady.Application_Layer
+{
+
+
+    public partial class EventDetails
+    {
+
         /// <summary>
         /// lblEName control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace EventReady.Application_Layer {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblEName;
-        
+
         /// <summary>
         /// lblFName control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace EventReady.Application_Layer {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblFName;
-        
+
         /// <summary>
         /// lblLName control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace EventReady.Application_Layer {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblLName;
-        
+
         /// <summary>
         /// lblEDate control.
         /// </summary>
@@ -47,7 +49,7 @@ namespace EventReady.Application_Layer {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblEDate;
-        
+
         /// <summary>
         /// lblEAddress control.
         /// </summary>
@@ -56,7 +58,7 @@ namespace EventReady.Application_Layer {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblEAddress;
-        
+
         /// <summary>
         /// lblEDescription control.
         /// </summary>
@@ -65,7 +67,7 @@ namespace EventReady.Application_Layer {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblEDescription;
-        
+
         /// <summary>
         /// lblEEmail control.
         /// </summary>
@@ -74,7 +76,7 @@ namespace EventReady.Application_Layer {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblEEmail;
-        
+
         /// <summary>
         /// lblEPhone control.
         /// </summary>
@@ -83,14 +85,14 @@ namespace EventReady.Application_Layer {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblEPhone;
-        
+
         /// <summary>
-        /// btnConfirm control.
+        /// Button1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnConfirm;
+        protected global::System.Web.UI.WebControls.Button Button1;
     }
 }
