@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using EventReady.Business_Layer;
+using static EventReady.Business_Layer.EventBL;
 
 namespace EventReady.Application_Layer
 {
@@ -13,7 +14,7 @@ namespace EventReady.Application_Layer
         protected string mode;
         protected string user;
         protected int eventDelete;
-
+        protected string eventToDelete;
 
 
         //not sure why I have to do this but without an object to call the GetActiveEvents function from it just won't work.
@@ -44,7 +45,10 @@ namespace EventReady.Application_Layer
             //Get the mode from the other page and index of which event needs to be deleted
             mode = Request.QueryString["mode"];
 
-            eventDelete = Convert.ToInt32(Request.QueryString["event"]);
+            //this should be deleted eventually
+            eventDelete = Convert.ToInt32(Request.QueryString["eventToDelete"]);
+
+            eventToDelete = Request.QueryString["eventToDelete"];
 
             //I don't think i need this
             //User userSession = (User)Session["user"];
@@ -57,9 +61,14 @@ namespace EventReady.Application_Layer
             {
                 if (mode.Equals("toggleDelete"))
                 {
-                    //Delete an event
-                    GlobalData.Events.RemoveAt(eventDelete);
-                    Response.Redirect("Home.aspx?remove=true");
+
+                    eventInfo.DeactivateEvent(eventToDelete);
+
+
+
+                    //Delete an event in global data, needs to be removed
+                    // GlobalData.Events.RemoveAt(eventDelete);
+                    // Response.Redirect("Home.aspx?remove=true");
                     
                   
                 }

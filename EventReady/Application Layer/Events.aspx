@@ -68,7 +68,7 @@
                         
                             <!-- this button still hasn't been formatted for the database and will need to be changed -->
                             <td class="text-left">
-                                <input type="button" class="btn btn-danger" value="REMOVE" onclick="window.location.href = 'Events.aspx?mode=toggleDelete&event=<%=eventList.IndexOf(e)%>'; return false"/>
+                                <input type="button" class="btn btn-danger" value="REMOVE" onclick="window.location.href = 'Events.aspx?mode=toggleDelete&eventToDelete=<%= e.eventId %>&user=<% =user.UserId %>'; return false"/>
                                 <!-- GlobalData.Events.IndexOf(e) --> 
                             </td>
                         </tr>

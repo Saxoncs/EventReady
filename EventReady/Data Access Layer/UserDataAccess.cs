@@ -113,18 +113,17 @@ namespace EventReady.Data_Access_Layer
         }
 
 
-        //Take a User class from the business layer and add it to the database - Saxon
+        //Take a User class from the business layer and add it to the database, there is no need to worry about adding id's as they are identity fields in the database - Saxon
         [DataObjectMethod(DataObjectMethodType.Insert)]
         public static int AddUser(User user)
 
         {
-            string sql = "INSERT INTO userInfo VALUES (@userId, @firstName, @lastName, @email, @password, 'true')";
+            string sql = "INSERT INTO userInfo VALUES (@firstName, @lastName, @email, @password, 'true')";
 
             using (SqlConnection con = new SqlConnection(GetConnectionString()))
             {
                 using (SqlCommand cmd = new SqlCommand(sql, con))
                 {
-                    cmd.Parameters.AddWithValue("userId", user.userId);
                     cmd.Parameters.AddWithValue("firstName", user.firstName);
                     cmd.Parameters.AddWithValue("lastName", user.lastName);
                     cmd.Parameters.AddWithValue("email", user.email);

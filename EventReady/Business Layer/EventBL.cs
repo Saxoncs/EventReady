@@ -108,5 +108,29 @@ namespace EventReady.Business_Layer
         }
 
 
+
+        public void AddNewEvent(EventBL eventInfo)
+        {
+            Event ev = new Event();
+
+            ev.name = eventInfo.name;
+            ev.description = eventInfo.description;
+            ev.start = eventInfo.start;
+            ev.deadline = eventInfo.deadline;
+            ev.userId = eventInfo.userId;
+
+            AddEvent(ev);
+
+        }
+
+
+
+        public void DeactivateEvent(string eventId)
+        {
+            SetEventInactive(eventId);
+        }
+
+
+
     }
 }

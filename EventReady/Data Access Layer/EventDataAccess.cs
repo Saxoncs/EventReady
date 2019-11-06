@@ -187,6 +187,29 @@ namespace EventReady.Data_Access_Layer
             }
         }
 
+        //Take an Event class from the business layer and add it to the database, there is no need to worry about adding id's as they are identity fields in the database - Saxon
+        [DataObjectMethod(DataObjectMethodType.Insert)]
+        public static int AddEvent(Event eventInfo)
+        {
+            string sql = "INSERT INTO Event VALUES (@name, @description, 0, @start, @deadline, @userId, 'true')";
+
+            using (SqlConnection con = new SqlConnection(GetConnectionString()))
+            {
+                using (SqlCommand cmd = new SqlCommand(sql, con))
+                {
+                    cmd.Parameters.AddWithValue("name", eventInfo.name);
+                    cmd.Parameters.AddWithValue("description", eventInfo.description);
+                    cmd.Parameters.AddWithValue("start", eventInfo.start);
+                    cmd.Parameters.AddWithValue("deadline", eventInfo.deadline);
+                    cmd.Parameters.AddWithValue("userId", eventInfo.userId);
+                    con.Open();
+                    return cmd.ExecuteNonQuery();
+                }
+            }
+
+        }
+
+
         // Function for removing a Step - Saxon
 
         // returns the connection string being used in the web config file. - Saxon

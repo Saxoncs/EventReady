@@ -6,15 +6,20 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Net.Mail;
 using EventReady.Business_Layer;
+using static EventReady.Business_Layer.UserBL;
 
 namespace EventReady.Application_Layer
 {
     public partial class ForgotPassword : System.Web.UI.Page
     {
+
+        UserBL userInfo;
+
         int check = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
             check = 0;
+            userInfo = new UserBL();
         }
         private string GetForgotPasswordMessage(bool isHtml, string emailPassword)
         {
@@ -23,19 +28,24 @@ namespace EventReady.Application_Layer
                 return "<html><head><title>Forgotten Password"
                         + " </title></head>"
                         + "<body><img src=cid:logoImage>" + "<br />"
-                        + "<h3> Thanks for contacting us to retreive your password.</h3>"
+                        + "<h3> Thanks for contacting us to retrieve your password.</h3>"
                         + "<p>The password linked to the account "
                         + txtForgottenEmail.Text + " is: <strong>" + emailPassword + "</strong>.</p></body></html>";
             //PLain text if html is not
             else
-                return "Thanks for contacting us to retreive your password. \r\n"
+                return "Thanks for contacting us to retrieve your password. \r\n"
                         + "The password linked to the account "
                         + txtForgottenEmail.Text + "is: " + emailPassword + ".";
         }
         protected void btnContinue_Click(object sender, EventArgs e)
         {
 
-            string email = txtForgottenEmail.Text; 
+
+            string email = txtForgottenEmail.Text;
+
+            //This will be used to connect email to the database
+            UserBL user = userInfo.GetLogingUser(email);
+
             if (GlobalData.userMap.ContainsKey(email))
             {
                 
@@ -103,7 +113,7 @@ namespace EventReady.Application_Layer
             }
             if (check == 0)
             {
-                lblEmailMessage.Text = "This email is not registered at Bobblehead";
+                lblEmailMessage.Text = "This email is not registered at Event Ready";
                 lblEmailMessage.Visible = true;
             }
         }

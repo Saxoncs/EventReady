@@ -6,7 +6,6 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using EventReady.Business_Layer;
 using static EventReady.Business_Layer.EventBL;
-using static EventReady.Data_Access_Layer.EventDataAccess;
 
 namespace EventReady.Application_Layer
 {
@@ -15,7 +14,6 @@ namespace EventReady.Application_Layer
 
 
         protected EventBL eventInfo = new EventBL();
-
 
         //user returns the user email of the person logged in
         protected string user;
@@ -98,7 +96,10 @@ namespace EventReady.Application_Layer
             //Add values to a session in a list if it is a new event
             if (eventToEdit == null)
             {
-                EventBL ev = new EventBL(user, txtbxEventName.Text, txtbxDescription.Text, txtbxFirstName.Text, txtbxLastName.Text, txtbxDate.Text, txtbxAddress.Text, txtbxConPhone.Text, txtbxConEmail.Text, temp);
+                EventBL ev = new EventBL(null, txtbxEventName.Text, txtbxDescription.Text, Convert.ToDateTime(txtbxDate.Text), user);
+
+                ev.AddNewEvent(ev);
+
                 Session.Add("event", ev);
                 //Session.Add("event", ev);
                 Response.Redirect("EventDetails.aspx");
@@ -106,7 +107,7 @@ namespace EventReady.Application_Layer
             //Add values to a session in a list if it is editing an event and an event value that represents the exact event that needs to be edited
             else if (eventToEdit != null)
             {
-                EventBL ev = new EventBL(user, txtbxEventNameEdit.Text, txtbxDescriptionEdit.Text, Convert.ToDateTime(txtbxDateEdit.Text), user);
+                EventBL ev = new EventBL(eventToEdit, txtbxEventNameEdit.Text, txtbxDescriptionEdit.Text, Convert.ToDateTime(txtbxDateEdit.Text), user);
 
                 ev.ReplaceEvent(eventToEdit);
 

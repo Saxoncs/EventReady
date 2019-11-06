@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Net.Mail;
 using System.IO;
 using EventReady.Business_Layer;
+using static EventReady.Business_Layer.EmailBL;
 
 namespace EventReady.Application_Layer
 {
