@@ -93,6 +93,29 @@ namespace EventReady.Business_Layer
             return activeEvents;
         }
 
+
+
+        public EventBL GetActiveEvent(string eventId)
+        {
+
+            Event singleEvent = GetEvent(eventId);
+            EventBL singleEventBL = new EventBL();
+
+            singleEventBL.name = singleEvent.name;
+            singleEventBL.description = singleEvent.description;
+            singleEventBL.eventId = singleEvent.eventId;
+            singleEventBL.daysDelayed = singleEvent.daysDelayed;
+            singleEventBL.start = singleEvent.start;
+            singleEventBL.deadline = singleEvent.deadline;
+            singleEventBL.userId = singleEvent.userId;
+
+
+            return singleEventBL;
+            
+        }
+
+
+
         public void ReplaceEvent(string oldEventId)
         {
             Event newEvent = new Event();

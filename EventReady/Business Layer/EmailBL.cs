@@ -49,6 +49,7 @@ namespace EventReady.Business_Layer
         public void AddToGuestList(string email, string eventId)
         {
             Guest guest = new Guest();
+            guest.name = "";
             guest.email = email;
             guest.eventId = eventId;
 
