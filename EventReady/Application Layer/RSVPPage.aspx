@@ -65,7 +65,7 @@
                      </table>
 
                                 <input type="button" class="btn btn-danger" value="ADD GUESTS" onclick="window.location.href = 'InviteVers2.aspx?eventId=<%= selectedEvent %>'; return false"/>
-                                <!-- GlobalData.Events.IndexOf(e) --> 
+
                       
             </div>
         </div>

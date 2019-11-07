@@ -13,6 +13,24 @@ namespace EventReady.Application_Layer {
     public partial class InviteVers2 {
         
         /// <summary>
+        /// valRequiredField control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valRequiredField;
+        
+        /// <summary>
+        /// valRegExpressionField control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator valRegExpressionField;
+        
+        /// <summary>
         /// CounterTextBox control.
         /// </summary>
         /// <remarks>

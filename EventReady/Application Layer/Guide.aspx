@@ -40,6 +40,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="header-carousal owl-carousel owl-theme">
+                            <!-- Steps of the guide -->
                             <div class="item">
                                 <h4>1. Define your event's <br/> goals and objectives</h4>
                                 <p>This includes looking into and establishing the event's purpose, <br/> the desired amount of people wanting to attend the  event, <br/>whether or not profit will be made from the event and how much of it will be made, <br/>whether tickets will be available to purchase and how much they'll cost, <br/> and where the event will take place,  <br/>including considering how patrons will travel to the venue in order to decide <br/> on a central event location for the target audience.</p>

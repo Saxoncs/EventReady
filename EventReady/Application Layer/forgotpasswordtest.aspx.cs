@@ -38,14 +38,12 @@ namespace EventReady.Application_Layer
         {
 
             string email = txtForgottenEmail.Text;
-            //Checks to see if the user email exists in the global data
-
             UserBL userInfo = new UserBL();
             UserBL user = userInfo.GetLogingUser(email);
 
 
 
-
+            //Check to see if the email entered exists in the database
             if (user.Email != null)
             {
 
@@ -108,13 +106,7 @@ namespace EventReady.Application_Layer
                     lblEmailMessage.Text = "Error sending email";
                     lblEmailMessage.Visible = true;
                 }
-
-                //check = 1;
-
-
-
             }
-            //if (check == 0)
             else
             {
                 lblEmailMessage.Text = "This email is not registered at EventReady";

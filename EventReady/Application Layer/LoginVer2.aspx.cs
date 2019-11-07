@@ -16,7 +16,7 @@ namespace EventReady.Application_Layer
         protected void Page_Load(object sender, EventArgs e)
         {
            
-
+            //Clear all sessions
             log = Request.QueryString["log"];
 
             if (log=="Logout")
@@ -25,7 +25,7 @@ namespace EventReady.Application_Layer
                 Session.Remove("event");
                 Session.Remove("eventValue");
                 Session.Remove("eventEdit");
-
+                Session.Clear();
             }
         }
 
@@ -36,9 +36,10 @@ namespace EventReady.Application_Layer
 
             UserBL user = userInfo.GetLogingUser(email);
 
-
-            if (user != null)
+            //Check to see if user exists
+            if (user.Email != null)
             {
+                //Check to see if the password is correct
                 if (user.Password.Equals(pword))
                 {
                     Session.Add("user", user);
@@ -46,12 +47,14 @@ namespace EventReady.Application_Layer
                 }
                 else
                 {
-                    //((Label)FindControl("errorMessage")).Visible = true;
+                    lblErrorMessage.Text = "The email or password is incorrect";
+                    lblErrorMessage.Visible = true;
                 }
             }
             else
             {
-                //((Label)FindControl("errorMessage")).Visible = true;
+                lblErrorMessage.Text = "The email or password is incorrect";
+                lblErrorMessage.Visible = true;
             }
         }
     }

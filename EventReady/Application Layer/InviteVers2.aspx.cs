@@ -13,16 +13,14 @@ namespace EventReady.Application_Layer
 {
     public partial class InviteVers2 : System.Web.UI.Page
     {
-        //List<String> guestListTemp;
+
         protected EventBL eventbl;
         protected String eventID;
-        //protected List<String> list;
         TextBox tb;
         static int i = 0;
         static int p = 0;
         static int j = 0;
         int count = 0;
-        int z = 0;
         string testthis;
         //Date: 23/mar/14
         //Author: Win
@@ -108,7 +106,7 @@ namespace EventReady.Application_Layer
             {
                 for (int i = 1; i <= total; i++)
                 {
-                    // Adding validators to every textbox created
+                    // Adding validators to every textbox created and placing each textbox in the placeholder
                     var textbox = new TextBox { ID = "TextBox" + i };
                     textbox.Text = "Email here";
                     textbox.CssClass = "input100";
@@ -148,37 +146,14 @@ namespace EventReady.Application_Layer
             {
                 body = reader.ReadToEnd();
             }
-            //Adds details to the event based on edited values or creating a new event
-            //if (Session["eventEdit"] != null)
-            //{
 
-            // eventbl = (EventBL)Session["selectedEvent"];
                 eventbl = new EventBL();
                 eventID = Request.QueryString["eventId"];
                 eventbl = eventbl.GetActiveEvent(eventID);
-
+                //Replace certain values in the email template with given variables
                 body = body.Replace("{EventName}", eventbl.name);
                 body = body.Replace("{Date}", eventbl.deadline.ToString());
-                //body = body.Replace("{Phone}", eventbl.ContactPhone);
-                //body = body.Replace("{Email}", eventbl.ContactEmail);
-                //body = body.Replace("{Address}", eventbl.EventAddress);
-                //body = body.Replace("{FirstName}", eventbl.FirstName);
-                //body = body.Replace("{LastName}", eventbl.LastName);
 
-            //}
-            //else if (Session["event"] != null)
-            //{
-               // eventbl = (EventBL)Session["event"];
-
-                //body = body.Replace("{EventName}", eventbl.EventName);
-                //body = body.Replace("{Date}", eventbl.EventDate);
-                //body = body.Replace("{Phone}", eventbl.ContactPhone);
-                //body = body.Replace("{Email}", eventbl.ContactEmail);
-                //body = body.Replace("{Address}", eventbl.EventAddress);
-                //body = body.Replace("{FirstName}", eventbl.FirstName);
-                //body = body.Replace("{LastName}", eventbl.LastName);
-
-            //}
            
             return body;
             
@@ -196,9 +171,6 @@ namespace EventReady.Application_Layer
                     //Try catch to stop app from crashing if sending email fails
                     try
                     {
-                        //string check = "TextBox" + p.ToString();
-                        //TextBox t = (TextBox)Page.FindControl("TextBox" + p.ToString());
-                        //TextBox tt = this.FindControl("ContentPlaceHolder1_TextBox" + p.ToString()) as TextBox;*/
 
                         SmtpClient client = new SmtpClient();
                         client.DeliveryMethod = SmtpDeliveryMethod.Network;
@@ -209,7 +181,6 @@ namespace EventReady.Application_Layer
                         new System.Net.NetworkCredential("eventready281@gmail.com", "eventready123");
                         client.UseDefaultCredentials = false;
                         client.Credentials = credentials;
-                        //------------------------------------------------------------------------------
 
 
                         //Add email content including from, to, subject and body
@@ -218,7 +189,6 @@ namespace EventReady.Application_Layer
                         msg.To.Add(new MailAddress(((TextBox)ctr).Text));
                         msg.Subject = "EventReady - Invitation";
                         //Add the guest email for each email sent as a variable for the RSVP buttons
-
                         body = body.Replace("{guestEmail}", ((TextBox)ctr).Text);
 
                         string testthis = ((TextBox)ctr).Text;
@@ -276,43 +246,6 @@ namespace EventReady.Application_Layer
 
             string body = this.PopulateBody();
             this.SendHtmlFormattedEmail(body);
-            //If a new event is being created
-           /* if (Session["event"] != null)
-            {
-                //list = (List<String>)Session["event"];
-                eventbl = (EventBL)Session["event"];
-               //Add finalised guest list to event data
-                eventbl.GuestList = guestListTemp;
-                GlobalData.Events.Add(eventbl);
-
-                //For session for next create new event
-                Session.Remove("event");
-            }
-            //If an event is being edited
-            else if (Session["eventEdit"] != null)
-            {
-                //Edit an event based on session value given with and change required fields
-                eventbl = (EventBL)Session["eventEdit"];
-                int value = Convert.ToInt32(Session["eventValue"]);
-
-                eventbl.GuestList = guestListTemp;
-                GlobalData.Events[value].EventName = eventbl.EventName;
-                GlobalData.Events[value].FirstName = eventbl.FirstName;
-                GlobalData.Events[value].LastName = eventbl.LastName;
-                GlobalData.Events[value].EventDate = eventbl.EventDate;
-                GlobalData.Events[value].EventAddress = eventbl.EventAddress;
-                GlobalData.Events[value].ContactEmail = eventbl.ContactEmail;
-                GlobalData.Events[value].ContactPhone = eventbl.ContactPhone;
-                GlobalData.Events[value].Description = eventbl.Description;
-                GlobalData.Events[value].GuestList = eventbl.GuestList;
-
-                //Remove session for next edit
-                Session.Remove("eventEdit");
-                Session.Remove("eventValue");
-
-                
-
-            }*/
             count = 0;
             //Send User back to home page with message about emails being sent
             ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Emails have been sent to the guests');window.location ='Home.aspx';", true);

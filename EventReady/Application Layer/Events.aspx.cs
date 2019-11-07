@@ -58,16 +58,7 @@ namespace EventReady.Application_Layer
             {
                 if (mode.Equals("toggleDelete"))
                 {
-
                     eventInfo.DeactivateEvent(eventToDelete);
-
-
-
-                    //Delete an event in global data, needs to be removed
-                    // GlobalData.Events.RemoveAt(eventDelete);
-                    // Response.Redirect("Home.aspx?remove=true");
-
-
                 }
             }
 

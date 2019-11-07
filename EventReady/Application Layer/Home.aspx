@@ -29,9 +29,6 @@
     <!-- Generated datasource for testing -->
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [userInfo]"></asp:SqlDataSource>
     <!-- end of test datasource -->
-
-    <!--background-image: url('../Image/header-bg.jpg');-->
-
     <div class="wrapper">
         <header class="header" style="background-image: url('../Image/backgroundImage.jpg'); background-repeat: no-repeat;
     background-size: 100% ;
@@ -65,7 +62,7 @@
                             <div class="item">
                                 <h4>Calender to display your events</h4>
                                 <h2>View Calender</h2>
-                                <!-- user.Email will need to be changed to user.userId -Saxon -->
+                                <!-- Redirects to calendar page with user id -->
                                 <input type="button" value="View Calendar" onclick="window.location.href = 'Calendar.aspx?user=<%=user.UserId%>'; return false" class="myButton"/>
                             
                             </div>

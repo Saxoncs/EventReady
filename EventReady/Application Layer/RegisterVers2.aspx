@@ -57,38 +57,46 @@
 				<span class="login100-form-title p-b-37">
 					Register
 				</span>
-
+                <!-- Validators for Email -->
                 <asp:requiredfieldvalidator display="Dynamic" class="input100" runat="server" ID="ValEmail" ControlToValidate="txtbxEmail" ErrorMessage="Email field cannot be empty" style="color:red"></asp:requiredfieldvalidator>
                 <asp:RegularExpressionValidator Display="Dynamic" class="input100" ID="ValEmailCheck" runat="server" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="txtbxEmail" ErrorMessage="Invalid Email Format" style="color:red"></asp:RegularExpressionValidator>
+                <!-- Email -->
                 <div class="wrap-input100 validate-input m-b-20" data-validate="Enter email">
 					<asp:textbox class="input100" type="text" id="txtbxEmail" placeholder="Email" runat="server" MaxLength="30" />
 					<span class="focus-input100"></span>
 				</div>
+                 <!-- Validators for Confirm Email -->
+                <!-- Checks to see that both emails match -->
                 <asp:CompareValidator 
                                    ID="compareEmails" Display="Dynamic" Operator="Equal" runat="server"
                                    ValidationGroup="Validate" ControlToValidate="txtbxEmail" class="input100"
                                    ControlToCompare="txtbxEmailConfirm" ErrorMessage="Emails do not match." SetFocusOnError="true" style="color:red;">
                             </asp:CompareValidator>
+                <!-- Confirm Email -->
                 <div class="wrap-input100 validate-input m-b-20" data-validate="Enter email">
 					<asp:textbox class="input100" type="text" id="txtbxEmailConfirm" placeholder="Confirm Email" runat="server" MaxLength="30"/>
 					<span class="focus-input100"></span>
 				</div>
-
+                <!-- Validator for Password -->
                 <asp:requiredfieldvalidator display="Dynamic" class="input100" runat="server" ID="ValPassword" ControlToValidate="txtbxPw" ErrorMessage="Password field cannot be empty" style="color:red"></asp:requiredfieldvalidator>
-				<div class="wrap-input100 validate-input m-b-25" data-validate = "Enter password">
+				<!-- Password textbox -->
+                <div class="wrap-input100 validate-input m-b-25" data-validate = "Enter password">
 					<asp:textbox class="input100" textmode="Password" id="txtbxPw" placeholder="Password" runat="server" minLength="8" MaxLength="30"/>
 					<span class="focus-input100"></span>
 				</div>
+                <!-- Validator to compare passwords entered -->
                 <asp:CompareValidator 
                                    ID="comparePasswords" Display="Dynamic" Operator="Equal" runat="server"
                                    ValidationGroup="Validate" ControlToValidate="txtbxPw" class="input100"
                                    ControlToCompare="txtbxPwConfirm" ErrorMessage="Passwords do not match." SetFocusOnError="true" style="color:red;">
                             </asp:CompareValidator>
+                <!-- Password Confirm -->
                 <div class="wrap-input100 validate-input m-b-25" data-validate = "Confirm password">
 					<asp:textbox class="input100" textmode="Password" id="txtbxPwConfirm" placeholder="Confirm Password" runat="server" MaxLength="30"/>
 					<span class="focus-input100"></span>
 				</div>
-
+                <!-- Validators for first name and last name -->
+                <!-- Textboxes for both first and last name -->
                 <asp:requiredfieldvalidator display="Dynamic" class="input100" runat="server" ID="ValFirstName" ControlToValidate="txtbxFirstName" ErrorMessage="Firstname field cannot be empty" style="color:red"></asp:requiredfieldvalidator>
 				<div class="wrap-input100 validate-input m-b-20" data-validate="Enter First Name">
 					<asp:textbox class="input100" type="text" id="txtbxFirstName" placeholder="First Name" runat="server" MaxLength="10"/>
@@ -102,10 +110,13 @@
 				</div>
 
 				
-
+                <!-- Login and back button -->
 				<div class="container-login100-form-btn">
 					<asp:Button class="login100-form-btn"  Text="Register" runat="server" ID="btnRegister" OnClick="btnRegister_Click"/>
 				</div>
+                <div class="text-center">
+                    <asp:label runat="server" ID="lblErrorMessage" Visible="false" style="color:red;"> This account already exists </asp:label>	
+                </div>
                 <div class="text-center">
 					<a href="LoginVer2.aspx" class="txt2 hov1">
 						Back to Login

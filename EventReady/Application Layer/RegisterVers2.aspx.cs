@@ -17,14 +17,26 @@ namespace EventReady.Application_Layer
 
         protected void btnRegister_Click(object sender, EventArgs e)
         {
+            //Creating a new user if all the validators are correct
             if(IsValid)
             {
                 UserBL userInfo = new UserBL();
 
-                userInfo.CreateNewUser(txtbxFirstName.Text, txtbxLastName.Text, txtbxEmail.Text, txtbxPw.Text);
+                string email = ((TextBox)FindControl("txtbxEmail")).Text;
+                UserBL user = userInfo.GetLogingUser(email);
 
-               GlobalData.userMap.Add(txtbxEmail.Text, new UserBL(txtbxFirstName.Text, txtbxLastName.Text, txtbxEmail.Text, txtbxPw.Text, "3282914"));
-                Response.Redirect("LoginVer2.aspx");
+                //Checks if the user already exists that duplicate accounts with the same email wont be created or crash
+                if (user.Email == null)
+                {
+                    userInfo.CreateNewUser(txtbxFirstName.Text, txtbxLastName.Text, txtbxEmail.Text, txtbxPw.Text);
+                    Response.Redirect("LoginVer2.aspx");
+                }
+                else
+                {
+                    lblErrorMessage.Text = "This account already exists";
+                    lblErrorMessage.Visible = true;
+                }
+               //GlobalData.userMap.Add(txtbxEmail.Text, new UserBL(txtbxFirstName.Text, txtbxLastName.Text, txtbxEmail.Text, txtbxPw.Text, "3282914"));
             }
         }
     }

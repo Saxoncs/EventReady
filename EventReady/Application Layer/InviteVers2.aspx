@@ -67,30 +67,30 @@
 
     <label>Invite Guests to your invite using an email</label>
 
+    <!-- Validators to make sure value is not empty and is a number -->
+    <asp:RequiredFieldValidator ID="valRequiredField" runat="server" ErrorMessage="*Textbox cannot be empty" ControlToValidate="CounterTextBox" ForeColor="Red" CssClass="input100" Display="Dynamic"></asp:RequiredFieldValidator>
+    <asp:RegularExpressionValidator ID="valRegExpressionField" runat="server" ControlToValidate="CounterTextBox" ErrorMessage="Please Enter Only Numbers" ForeColor="Red" ValidationExpression="^\d+$" CssClass="input100" Display="Dynamic"></asp:RegularExpressionValidator>
 	<div class="wrap-input100 validate-input m-b-25">
-	<asp:textbox class="input100" runat="server" ID="CounterTextBox" AutoPostBack="true" />
-	<span class="focus-input100"></span>
+        <!-- Textbox to enter more textboxes -->
+	    <asp:textbox class="input100" runat="server" ID="CounterTextBox" AutoPostBack="true" />
+	    <span class="focus-input100"></span>
 	</div>
-
-
-    
-
-    
-   <div class="container-login100-form-btn">
-    <asp:button runat="server" class="login100-form-btn" Text="Add Field" ID="btnAddField" OnClick="btnAddField_Click"/> 
-        </div>
+    <!-- Button to add those textboxes -->
+    <div class="container-login100-form-btn">
+        <asp:button runat="server" class="login100-form-btn" Text="Add Field" ID="btnAddField" OnClick="btnAddField_Click"/> 
+    </div>
 <br/>
-
-        <div class="container-login100-form-btn">
-    <asp:button runat="server" class="login100-form-btn" Text="Confirm Guest List" ID="btnConfirmGuests" OnClick="btnConfirmGuests_Click"/> 
-     </div>
+    <!-- Button to confirm guests -->
+    <div class="container-login100-form-btn">
+        <asp:button runat="server" class="login100-form-btn" Text="Confirm Guest List" ID="btnConfirmGuests" OnClick="btnConfirmGuests_Click"/> 
+    </div>
 
 <br/>
-
-<div class="wrap-input100 validate-input m-b-20">
-    <asp:PlaceHolder ID="PlaceHolder1" runat="server" > </asp:PlaceHolder>
-    <span class="focus-input100"></span>
- </div>
+     <!-- A placeholder where all the textboxes added will be created -->
+    <div class="wrap-input100 validate-input m-b-20">
+        <asp:PlaceHolder ID="PlaceHolder1" runat="server" > </asp:PlaceHolder>
+        <span class="focus-input100"></span>
+    </div>
 
     
                     

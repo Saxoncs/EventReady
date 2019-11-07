@@ -21,27 +21,19 @@ namespace EventReady.Application_Layer
         protected string selectedEvent;
         protected void Page_Load(object sender, EventArgs e)
         {
+            //Session timeout
+            UserBL session = (UserBL)Session["user"];
+
+            if (session == null)
+            {
+                Response.Redirect("LoginVer2.aspx");
+            }
             //Gets the selected event from Event.aspx -Saxon
             selectedEvent = Request.QueryString["selectedEvent"];
             
 
             //Convert data access guests to native guests - Saxon
             guestList = email.GetActiveGuests(selectedEvent);
-
-
-
-            // More session expiration redirects?
-            //User session = (User)Session["user"];
-
-            //if (session == null)
-            //{
-            //    Response.Redirect("LoginVer2.aspx");
-            //}
-            //guestList = Request.QueryString["guestList"];
-
-
-            //0000001 needs to be replaced with the event number of whichever event is clicked
-            //List<Guest> guestList = email.GetActiveGuests("0000001");
 
         }
 

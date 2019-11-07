@@ -13,24 +13,22 @@
     </asp:ContentPlaceHolder>  
 </head>  
 <body class="bodyMaster">  
-
-
-
- 
     <div class="header">  
     <% UserBL user = (UserBL)Session["user"]; %>
     <div class="header-left">
-        <!--<img src="../Style/Image/EventReadyLogo.png" class="logo">-->
         <img src="../Image/logo.png" class="logo">
     </div>
     <div class="header-right">
+        <!-- Always display home button -->
         <a class="active" style="float:left" href="Home.aspx">Home</a>
+        <!-- If a user is logged in show all other features -->
         <%if (Session["user"] != null)
         {%>
         <a href="Guide.aspx">Guide</a>
         <a href="Calendar.aspx?user=<%=user.UserId %>">Calendar</a>
         <a href="Events.aspx?user=<%=user.UserId%>">Events</a>
         <a href="LoginVer2.aspx?log=<%="Logout" %>">Log Out</a>
+        <!-- If no user is logged in have log in button appear -->
         <%} if (Session["user"] == null)
           { %>
         <a href="LoginVer2.aspx">Log In</a>

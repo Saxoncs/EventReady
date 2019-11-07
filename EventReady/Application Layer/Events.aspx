@@ -31,6 +31,7 @@
                     </thead>
                     <tbody>
                         <%int countID = 0; %>
+                        <!-- Loop through all events -->
                         <%foreach (EventBL e in eventList)
                             { 
                              countID++; %>
@@ -45,34 +46,30 @@
                                 
                            <!-- Adds event description -->
                             <td class="text-left">
-                                <p class="text-list-colour"> <%=e.description %></p>
-                                
+                                <p class="text-list-colour"> <%=e.description %></p> 
                             </td>
  
                             
-                            
+                            <!-- Event Date -->
                             <td class="text-left">
                                 <p class ="text-list-colour"><%=e.deadline %></p>
-                                
                             </td>              
-
-                            <td class="text-left">
-                                
-                                    <!-- pressing the RSVP button currently hard codes the selected event to be event 0000001 -->
-                                    <a href="RSVPPage.aspx?selectedEvent=<% =e.eventId %>"> RSVP List</a>
                             
-         
+                            <!-- RSVP Page link -->
+                            <td class="text-left">
+                                    <a href="RSVPPage.aspx?selectedEvent=<% =e.eventId %>"> RSVP List</a>
                             </td>
 
+                            <!--Edit event button -->
                             <td class="text-left">
                                  <% UserBL user = (UserBL)Session["user"]; %>
                                     <input type="button" class="btn btn-success" value="EDIT" onclick="window.location.href = 'CreateEvent.aspx?eventToEdit=<%= e.eventId %>&user=<% =user.UserId %>'; return false"/>
                             </td>
                         
                             <!-- this button still hasn't been formatted for the database and will need to be changed -->
+                        <!-- Delete BUtton -->
                             <td class="text-left">
                                 <input type="button" class="btn btn-danger" value="REMOVE" onclick="window.location.href = 'Events.aspx?mode=toggleDelete&eventToDelete=<%= e.eventId %>&user=<% =user.UserId %>'; return false"/>
-                                <!-- GlobalData.Events.IndexOf(e) --> 
                             </td>
                         </tr>
                         <% } %>

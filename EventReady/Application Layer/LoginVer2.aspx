@@ -61,30 +61,30 @@
 				<span class="login100-form-title p-b-37">
 					Sign In
 				</span>
-          
+            <!-- Validators for EMail -->
                 <asp:requiredfieldvalidator display="Dynamic" class="input100" runat="server" ID="ValEmailEmpty" ControlToValidate="txtbxEmail" ErrorMessage="Email field cannot be empty" style="color:red"></asp:requiredfieldvalidator>
                 <asp:RegularExpressionValidator Display="Dynamic" ID="ValEmail" class="input100" runat="server" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="txtbxEmail" ErrorMessage="Invalid Email Format" style="color:red"></asp:RegularExpressionValidator>
 				<div class="wrap-input100 validate-input m-b-20" data-validate="Enter username or email">
-                  
 					<asp:Textbox class="input100" runat="server" placeholder="Email" ID="txtbxEmail" MaxLength="30"/>
-                    
 					<span class="focus-input100"></span>
 				</div>
-                
+                <!-- Validators for Password -->
                 <asp:requiredfieldvalidator display="Dynamic" class="input100" runat="server" ID="ValPassword" ControlToValidate="txtbxPassword" ErrorMessage="Password field cannot be empty" style="color:red"></asp:requiredfieldvalidator>
 				<div class="wrap-input100 validate-input m-b-25" data-validate = "Enter password">
 					<asp:Textbox class="input100" runat="server" placeholder="Password" ID="txtbxPassword" type="password" MaxLength="30"/>
-                    
 					<span class="focus-input100"></span>
 				</div>
 
 
-
+            <!-- Sign in button -->
 				<div class="container-login100-form-btn">
 					<asp:button class="login100-form-btn" runat="server" Text="Sign In" OnClick="btnLogin_Click"/>
-						
 				</div>
+                <div class="text-center">
+                    <asp:label runat="server" ID="lblErrorMessage" Visible="false" style="color:red;"> This email is not registered at EventReady </asp:label>	
+                </div>
 <br/>
+        <!-- Register and forgot password buttons -->
 				<div class="text-center">
 					<a href="RegisterVers2.aspx" class="txt2 hov1">
 						Sign Up

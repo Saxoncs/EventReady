@@ -43,7 +43,7 @@
 	<script src="js/main.js"></script>
 </head>
 <body>
-   
+    <!-- Error Page display -->
         <div class="container-login100" style="background-image: url('../Image/backgroundImage.jpg');">
 		<div class="wrap-login100 p-l-55 p-r-55 p-t-80 p-b-30">
 			<form class="login100-form validate-form" runat="server">
@@ -51,28 +51,16 @@
                     <span class="login100-form-title p-b-37">
 					An Error has occurred
 				    </span>
-                <div><a>This page does not exist on our website :(</a>
+                    <div><a>This page does not exist on our website :(</a>
+				    </div>
 				</div>
-				
-
-				</div>
-				
-
-             
 			    <div class="container-login100-form-btn">
                     <asp:Button runat="server" class="login100-form-btn" ID="backtohome" OnClick="btnOk_Click" Text="Back to Home Page" />
 				</div>
-
-				
-
 			</form>
-
 
 		</div>
 	</div>
-
-
-
 	<div id="dropDownSelect1"></div>
   
 </body>
