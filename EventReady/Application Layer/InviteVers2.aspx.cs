@@ -55,6 +55,7 @@ namespace EventReady.Application_Layer
         {
             //Session timeout
             UserBL session = (UserBL)Session["user"];
+            
 
             if (session == null)
             {
@@ -118,7 +119,8 @@ namespace EventReady.Application_Layer
             //Adds details to the event based on edited values or creating a new event
             //if (Session["eventEdit"] != null)
             //{
-                //eventbl = (EventBL)Session["eventEdit"];
+
+                eventbl = (EventBL)Session["selectedEvent"];
 
                 body = body.Replace("{EventName}", eventbl.EventName);
                 body = body.Replace("{Date}", eventbl.EventDate);

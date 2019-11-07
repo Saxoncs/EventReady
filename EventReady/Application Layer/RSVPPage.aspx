@@ -25,7 +25,7 @@
                     </thead>
                     <tbody>
                         <%int countID = 0; %>
-                         <%foreach (GuestUL g in displayedGuestList)
+                         <%foreach (EmailBL.GuestBL g in guestList)
                              {
                                  //saved the database classes as local variables -saxon
                                  string guestName = g.name;
@@ -34,7 +34,6 @@
 
                                  countID++;
                                      %> 
-                        <!-- WHAT DOES TRHIS FOR STATEMENT DO!? -saxon -->
                     <tr>
                             
                        

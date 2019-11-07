@@ -59,7 +59,7 @@
                             <td class="text-left">
                                 
                                     <!-- pressing the RSVP button currently hard codes the selected event to be event 0000001 -->
-                                    <a href="RSVPPage.aspx?selectedEvent=0000001"> RSVP List</a>
+                                    <a href="RSVPPage.aspx?selectedEvent=<% =e.eventId %>"> RSVP List</a>
                             
          
                             </td>
