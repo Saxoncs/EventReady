@@ -102,7 +102,7 @@ namespace EventReady.Application_Layer
 
                 Session.Add("event", ev);
                 //Session.Add("event", ev);
-                Response.Redirect("EventDetails.aspx");
+                Response.Redirect("events.aspx?user=" + user);
             }
             //Add values to a session in a list if it is editing an event and an event value that represents the exact event that needs to be edited
             else if (eventToEdit != null)
@@ -114,7 +114,7 @@ namespace EventReady.Application_Layer
                 Session.Add("eventEdit", ev);
                 Session.Add("eventValue", eventToEdit);
                 //Session.Add("event", ev);
-                Response.Redirect("EventDetails.aspx");
+                Response.Redirect("events.aspx?user="+ user);
             }
 
         //    temp2 = new List<String>(user, txtbxEventName.Text, txtbxDescription.Text, txtbxFirstName.Text, txtbxLastName.Text, txtbxDate.Text, txtbxAddress.Text, txtbxConPhone.Text, txtbxConEmail.Text, temp);
