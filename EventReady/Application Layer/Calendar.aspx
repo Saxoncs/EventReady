@@ -44,7 +44,6 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div style="width: 100%;
     min-height: 100vh;
-
     display: flex;
     flex-wrap: wrap;
     justify-content: center;

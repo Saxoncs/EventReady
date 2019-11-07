@@ -1,75 +1,4 @@
-﻿/*CSS for ther master page*/
-/*#header {
-    color: #247BA0;
-    text-align: center;
-    font-size: 20px;
-}
-
-#nav {
-    background-color: #5d6366;
-    padding: 5px;
-}
-
-ul {
-    list-style-type: none;
-}
-
-li a {
-    color: #F1FAEE;
-    font-size: 30px;
-    column-width: 5%;
-}
-
-li {
-    display: inline;
-    padding-left: 2px;
-    column-width: 20px;
-}
-
-a {
-    text-decoration: none;
-    margin-left: 20px
-}
-
-li a:hover {
-    background-color: #F3FFBD;
-    color: #FF1654;
-   
-}
-
-#side {
-    text-align: center;
-    float: right;
-    width: 15%;
-    padding-bottom: 79%;
-    background-color: #F1FAEE;
-}
-
-#article {
-    background-color: #EEF5DB;
-    padding: 10px;
-    padding-bottom: 75%;
-}
-
-#footer {
-    background-color: #5d6366;
-    text-align: center;
-    padding-bottom: 5%;
-    font-size: 20px;
-}
-
-#con {
-    border: double;
-    border-color: burlywood;
-}
-*/
-
-/*CSS for the lists*/
-/*body {
-    background-image: url("eventreadybackground.jpg");
-    color: white;
-}*/
-.center {
+﻿.center {
     text-align: center;
 }
 
@@ -88,9 +17,10 @@ li a:hover {
 
 .itemlist {
     position:relative;
-    background-color: #FFF;
+    
     min-height: 680px;
-    padding: 15px
+    padding: 15px;
+    margin-top: 70px;
 }
 
     .itemlist header {
@@ -228,17 +158,16 @@ li a:hover {
             page-break-before: always
         }
 }
-
-
-
-
+.text-list-colour
+{
+    color:black;
+}
 /*Master PAGE tEST
     /* MASTER PAGE */
-
 /* Background Image */
 .bodyMaster {
     background-image: url("../Image/backgroundImage.jpg");
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     background-position: center;
     background-attachment: scroll;
     background-size: cover;
@@ -299,4 +228,52 @@ li a:hover {
 }
 .header-left {
     float: left;
+}
+
+
+/*Home Page button css
+  https://www.bestcssbuttongenerator.com/#/21
+    */
+.myButton {
+    -moz-box-shadow: inset 0px 1px 0px 0px #efdcfb;
+    -webkit-box-shadow: inset 0px 1px 0px 0px #efdcfb;
+    box-shadow: inset 0px 1px 0px 0px #efdcfb;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #dfbdfa), color-stop(1, #bc80ea));
+    background: -moz-linear-gradient(top, #dfbdfa 5%, #bc80ea 100%);
+    background: -webkit-linear-gradient(top, #dfbdfa 5%, #bc80ea 100%);
+    background: -o-linear-gradient(top, #dfbdfa 5%, #bc80ea 100%);
+    background: -ms-linear-gradient(top, #dfbdfa 5%, #bc80ea 100%);
+    background: linear-gradient(to bottom, #dfbdfa 5%, #bc80ea 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfbdfa', endColorstr='#bc80ea',GradientType=0);
+    background-color: #dfbdfa;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    border: 1px solid #c584f3;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 6px 24px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #9752cc;
+    &:hover
+
+{
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #bc80ea), color-stop(1, #dfbdfa));
+    background: -moz-linear-gradient(top, #bc80ea 5%, #dfbdfa 100%);
+    background: -webkit-linear-gradient(top, #bc80ea 5%, #dfbdfa 100%);
+    background: -o-linear-gradient(top, #bc80ea 5%, #dfbdfa 100%);
+    background: -ms-linear-gradient(top, #bc80ea 5%, #dfbdfa 100%);
+    background: linear-gradient(to bottom, #bc80ea 5%, #dfbdfa 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#bc80ea', endColorstr='#dfbdfa',GradientType=0);
+    background-color: #bc80ea;
+}
+
+&:active {
+    position: relative;
+    top: 1px;
+}
 }

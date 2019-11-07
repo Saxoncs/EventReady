@@ -1,5 +1,5 @@
 .wrapper header.header {
-    background-image: url('~/Image/backgroundImage.jpg');
+    background-image: url('../Style/Image/backgroundImage.jpg');
     background-repeat: no-repeat;
     background-size: 100% auto;
     height: 950px;
@@ -101,7 +101,7 @@
 }
 
 .wrapper header.header .header-carousal .item h4 {
-    color: #696969;
+    color: #ffffff;
     font-size: 24px;
     font-weight: 800;
     font-family: 'Raleway', sans-serif;
@@ -109,7 +109,7 @@
 }
 
 .wrapper header.header .header-carousal .item h2 {
-    color: #696969;
+    color: #ffffff;
     font-family: "Raleway", sans-serif;
     font-size: 40px;
     font-weight: 800;
@@ -117,7 +117,7 @@
 }
 
 .wrapper header.header .header-carousal .item p {
-    color: #696969;
+    color: #ffffff;
     font-family: "Open Sans", sans-serif;
     font-size: 17px;
     font-weight: 400;

@@ -65,6 +65,9 @@ namespace EventReady.Application_Layer
             foreach (string textboxId in TextBoxIdCollection)
             {
                 var textbox = new TextBox { ID = textboxId };
+                textbox.Text = "Email here";
+                textbox.CssClass = "input100";
+                textbox.MaxLength = 30;
                 PlaceHolder1.Controls.Add(textbox);
             }
 
@@ -91,6 +94,7 @@ namespace EventReady.Application_Layer
                     var textbox = new TextBox { ID = "TextBox" + i };
                     textbox.Text = "Email here";
                     textbox.CssClass = "input100";
+                    textbox.MaxLength = 30;
                     collection.Add(textbox.ID);
                     PlaceHolder1.Controls.Add(textbox);
                     

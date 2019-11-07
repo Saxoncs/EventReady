@@ -17,6 +17,7 @@
                         <tr>
                             <!-- The names of all the headings in the table -->
                             <th class="text-list-colour"><strong>ID #</strong></th>
+                            <th class="text-left, text-list-colour"><strong>GUEST NAME</strong></th>
                             <th class="text-left, text-list-colour"><strong>GUEST EMAIL</strong></th>
                             <th class="text-left, text-list-colour"><strong>STATUS</strong></th>
                            

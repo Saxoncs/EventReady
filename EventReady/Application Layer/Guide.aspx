@@ -31,8 +31,10 @@
     <!-- end of test datasource -->
 
 
-<div class="wrapper" style=" background-image: url('../Image/backgroundImage.jpg'); background-size: 100% auto; position: relative; background-repeat: no-repeat;">
-        <header class="header">
+<div class="wrapper">
+        <header class="header" style="background-image: url('../Image/backgroundImage.jpg'); background-repeat: no-repeat;
+    background-size: 100% ;
+    height: 950px;">
             <% UserBL user = (UserBL)Session["user"]; %>
             <div class="container">
                 <div class="row">

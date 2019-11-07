@@ -58,12 +58,12 @@ namespace EventReady.Application_Layer
                     eventInfo = (EventBL)Session["event"];
                     txtbxEventName.Text = eventInfo.EventName;
                     txtbxDescription.Text = eventInfo.Description;
-                    txtbxFirstName.Text = eventInfo.FirstName;
+                    /*txtbxFirstName.Text = eventInfo.FirstName;
                     txtbxLastName.Text = eventInfo.LastName;
                     txtbxDate.Text = eventInfo.EventDate;
                     txtbxAddress.Text = eventInfo.EventAddress;
                     txtbxConPhone.Text = eventInfo.ContactPhone;
-                    txtbxConEmail.Text = eventInfo.ContactEmail;
+                    txtbxConEmail.Text = eventInfo.ContactEmail;*/
                     
 
                 }

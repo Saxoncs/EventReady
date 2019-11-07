@@ -31,8 +31,11 @@
     <!-- end of test datasource -->
 
     <!--background-image: url('../Image/header-bg.jpg');-->
-    <div class="wrapper" style="background-size: 100% auto; position: relative; background-repeat: no-repeat; background-image: url('../Image/backgroundImage.jpg');">
-        <header class="header">
+
+    <div class="wrapper">
+        <header class="header" style="background-image: url('../Image/backgroundImage.jpg'); background-repeat: no-repeat;
+    background-size: 100% ;
+    height: 950px;">
             <% UserBL user = (UserBL)Session["user"]; %>
             <div class="container">
                 
@@ -45,16 +48,16 @@
                                 <!-- Button will redirect to create event if user is logged in-->
                                 <%if (Session["user"] != null)
                                     {%>
-                                <input type="button" value="Create Event" onclick="window.location.href = 'CreateEvent.aspx?user=<%=user.UserId%>'; return false"/>
+                                <input type="button" value="Create Event" onclick="window.location.href = 'CreateEvent.aspx?user=<%=user.UserId%>'; return false" class="myButton"/>
                                 <%}// if a user is not logged it will redirect for the same button to the login page
                                     else if (Session["user"] == null) { %>
-                                <input type="button" value="Create Event" onclick="window.location.href = 'LoginVer2.aspx'; return false"/>
+                                <input type="button" value="Create Event" onclick="window.location.href = 'LoginVer2.aspx'; return false" class="myButton"/>
                                 <%} %>
                             </div>
                             <div class="item">
                                 <h4>See the steps in creating an event</h4>
                                 <h2>View Guide</h2>
-                                <input type="button" value="View Guide" onclick="window.location.href = 'Guide.aspx'; return false"/>
+                                <input type="button" value="View Guide" onclick="window.location.href = 'Guide.aspx'; return false" class="myButton"/>
                             </div>
                             <!-- If a user is logged in it will add a calendar option to select if no user is logged in this option wont be available -->
                             <%if (Session["user"] != null)
@@ -63,7 +66,8 @@
                                 <h4>Calender to display your events</h4>
                                 <h2>View Calender</h2>
                                 <!-- user.Email will need to be changed to user.userId -Saxon -->
-                                <input type="button" value="View Calendar" onclick="window.location.href = 'Calendar.aspx?user=<%=user.UserId%>'; return false"/>
+                                <input type="button" value="View Calendar" onclick="window.location.href = 'Calendar.aspx?user=<%=user.UserId%>'; return false" class="myButton"/>
+                            
                             </div>
                             <%} %>
                         </div>

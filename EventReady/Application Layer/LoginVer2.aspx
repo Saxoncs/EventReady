@@ -66,14 +66,14 @@
                 <asp:RegularExpressionValidator Display="Dynamic" ID="ValEmail" class="input100" runat="server" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="txtbxEmail" ErrorMessage="Invalid Email Format" style="color:red"></asp:RegularExpressionValidator>
 				<div class="wrap-input100 validate-input m-b-20" data-validate="Enter username or email">
                   
-					<asp:Textbox class="input100" runat="server" placeholder="Email" ID="txtbxEmail"/>
+					<asp:Textbox class="input100" runat="server" placeholder="Email" ID="txtbxEmail" MaxLength="30"/>
                     
 					<span class="focus-input100"></span>
 				</div>
                 
                 <asp:requiredfieldvalidator display="Dynamic" class="input100" runat="server" ID="ValPassword" ControlToValidate="txtbxPassword" ErrorMessage="Password field cannot be empty" style="color:red"></asp:requiredfieldvalidator>
 				<div class="wrap-input100 validate-input m-b-25" data-validate = "Enter password">
-					<asp:Textbox class="input100" runat="server" placeholder="Password" ID="txtbxPassword" type="password"/>
+					<asp:Textbox class="input100" runat="server" placeholder="Password" ID="txtbxPassword" type="password" MaxLength="30"/>
                     
 					<span class="focus-input100"></span>
 				</div>

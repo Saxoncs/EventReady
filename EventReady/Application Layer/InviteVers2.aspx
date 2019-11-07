@@ -46,9 +46,8 @@
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-  <div style="style="width: 100%;
+  <div style="width: 100%;
     min-height: 100vh;
-
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -58,7 +57,7 @@
     background-size: cover;
     background-position: center;
     position: relative;
-    z-index: 1;">
+    z-index: 1;"">
 		<div class="wrap-login100 p-l-55 p-r-55 p-t-80 p-b-30">
 			<form class="login100-form validate-form" runat="server">
 				<div class="login100-form-title p-b-37" >
@@ -97,7 +96,7 @@
                     
 			
 
-				
+				</div>
 
 			</form>
 

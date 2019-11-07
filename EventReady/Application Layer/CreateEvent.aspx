@@ -73,25 +73,9 @@
                     <asp:requiredfieldvalidator display="Dynamic" ID="ValEventName" ControlToValidate="txtbxEventName" ErrorMessage="Event name field cannot be empty" style="color:red" runat="server" class="input100"></asp:requiredfieldvalidator>
                     <div class="wrap-input100 validate-input m-b-25">
                         <span class="focus-input100"></span>
-                        <asp:TextBox runat="server" ID="txtbxEventName" class="input100" placeholder="Event Name"></asp:TextBox> 
+                        <asp:TextBox runat="server" ID="txtbxEventName" class="input100" placeholder="Event Name" MaxLength="30"></asp:TextBox> 
                     </div>
                 </div>
-                <div>
-                    <asp:requiredfieldvalidator display="Dynamic" runat="server" ID="ValFirstName" ControlToValidate="txtbxFirstName" ErrorMessage="Firstname field cannot be empty" style="color:red" class="input100"></asp:requiredfieldvalidator>
-                    <div class="wrap-input100 validate-input m-b-25">
-
-                        <span class="focus-input100"></span>
-                        <asp:TextBox runat="server" id="txtbxFirstName" class="input100" placeholder="Firstname"></asp:TextBox>
-                    </div>
-                 </div>
-    
-                 <div>
-                    <asp:requiredfieldvalidator display="Dynamic" runat="server" ID="ValLastName" ControlToValidate="txtbxLastName" ErrorMessage="Lastname field cannot be empty" style="color:red" class="input100"></asp:requiredfieldvalidator>
-                    <div class="wrap-input100 validate-input m-b-25">
-                        <span class="focus-input100"></span>
-                    <asp:TextBox runat="server" id="txtbxLastName" class="input100" placeholder="Last Name"></asp:TextBox>
-                    </div>
-                  </div>
     
                   <div>
                       <asp:requiredfieldvalidator display="Dynamic" runat="server" ID="ValDate" ControlToValidate="txtbxDate" ErrorMessage="Date field cannot be empty" style="color:red" class="input100"></asp:requiredfieldvalidator>
@@ -103,36 +87,11 @@
                         <asp:TextBox runat="server" TextMode="Date" ID="txtbxDate" class="input100"></asp:TextBox>
                     </div>
                   </div>
-                <div>
-                    <asp:requiredfieldvalidator display="Dynamic" runat="server" ID="ValAddress" ControlToValidate="txtbxAddress" ErrorMessage="Address field cannot be empty" style="color:red" class="input100"></asp:requiredfieldvalidator>
-                    <div class="wrap-input100 validate-input m-b-25">
-                        
-                        <span class="focus-input100"></span>
-                        <asp:TextBox runat="server" ID="txtbxAddress" class="input100" placeholder="Address"></asp:TextBox>
-                    </div>
-                </div>
-                <div>
-                    <asp:requiredfieldvalidator display="Dynamic" runat="server" ID="ValConPhone" ControlToValidate="txtbxConPhone" ErrorMessage="Phone number field cannot be empty" style="color:red" class="input100"></asp:requiredfieldvalidator>
-                        <asp:RegularExpressionValidator Display="Dynamic" ID="regexPhone" runat="server" ValidationExpression="^[0-9]{10}$" ControlToValidate="txtbxConPhone" ErrorMessage="Invalid Phone Number (10 digits)" style="color:red" class="input100"></asp:RegularExpressionValidator>
-                    <div class="wrap-input100 validate-input m-b-25">
-                        <span class="focus-input100"></span>
-                        <asp:TextBox runat="server" ID="txtbxConPhone" class="input100" placeholder="Contact Phone"></asp:TextBox>
-                    </div>
-                </div>
-    
-                 <div>
-                        <asp:requiredfieldvalidator display="Dynamic" runat="server" ID="ValConEmailEmpty" ControlToValidate="txtbxConEmail" ErrorMessage="Email field cannot be empty" style="color:red" class="input100"></asp:requiredfieldvalidator>
-                        <asp:RegularExpressionValidator Display="Dynamic" ID="ValConEmail" runat="server" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="txtbxConEmail" ErrorMessage="Invalid Email Format" style="color:red" class="input100"></asp:RegularExpressionValidator>
-                    <div class="wrap-input100 validate-input m-b-25">
-                        <span class="focus-input100"></span>
-                        <asp:TextBox runat="server" ID="txtbxConEmail" class="input100" placeholder="Contact Email"></asp:TextBox>
-                    </div>
-                </div>
     
                   <div>
                     <div class="wrap-input100 validate-input m-b-25">
                         <span class="focus-input100"></span>
-                        <asp:TextBox runat="server" ID="txtbxDescription" TextMode="MultiLine" class="input100" placeholder="Description"></asp:TextBox>
+                        <asp:TextBox runat="server" ID="txtbxDescription" TextMode="MultiLine" class="input100" placeholder="Description" MaxLength="50"></asp:TextBox>
                     </div>
                       
                 </div>
@@ -145,7 +104,7 @@
                 <div>
                     <asp:requiredfieldvalidator display="Dynamic" runat="server" ID="ValENEdit" ControlToValidate="txtbxEventNameEdit" ErrorMessage="Event name field cannot be empty" style="color:red" class="input100"></asp:requiredfieldvalidator>
                      <div class="wrap-input100 validate-input m-b-25">
-                        <asp:TextBox runat="server" ID="txtbxEventNameEdit" class="input100" placeholder="EventName"></asp:TextBox> 
+                        <asp:TextBox runat="server" ID="txtbxEventNameEdit" class="input100" placeholder="EventName" MaxLength="30"></asp:TextBox> 
                          <span class="focus-input100"></span>
                     </div>
                 </div>
@@ -162,7 +121,7 @@
     
                 <div>
                      <div class="wrap-input100 validate-input m-b-25">
-                        <asp:TextBox runat="server" ID="txtbxDescriptionEdit" TextMode="MultiLine" class="input100" placeholder="Description"></asp:TextBox>
+                        <asp:TextBox runat="server" ID="txtbxDescriptionEdit" TextMode="MultiLine" class="input100" placeholder="Description" MaxLength="50"></asp:TextBox>
                          <span class="focus-input100"></span>
                         </div>
                 </div>

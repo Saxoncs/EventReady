@@ -149,6 +149,7 @@
     <Content Include="Style\Content\bootstrap.css" />
     <Content Include="Style\Content\bootstrap.min.css" />
     <Content Include="Style\Content\Site.css" />
+    <Content Include="Style\Image\backgroundImage.jpg" />
     <Content Include="Style\StyleSheetStyle.css" />
     <Content Include="Web.config" />
     <Content Include="Style\StyleTemplate\magnific-popup.css" />
@@ -178,10 +179,7 @@
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\active.js" />
     <Content Include="js\jquery-3.1.1.min.js" />
-    <Content Include="home.html" />
-    <Content Include="Guide.html" />
     <None Include=".DS_Store" />
-    <Content Include="login.html" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Application Layer\Budget.aspx.cs">
