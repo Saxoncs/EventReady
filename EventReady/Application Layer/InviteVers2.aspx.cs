@@ -15,7 +15,7 @@ namespace EventReady.Application_Layer
     {
         //List<String> guestListTemp;
         protected EventBL eventbl;
-        protected String eventID; 
+        protected String eventID;
         //protected List<String> list;
         TextBox tb;
         static int i = 0;
@@ -55,6 +55,7 @@ namespace EventReady.Application_Layer
         {
             //Session timeout
             UserBL session = (UserBL)Session["user"];
+            
 
             if (session == null)
             {
@@ -150,10 +151,14 @@ namespace EventReady.Application_Layer
             //Adds details to the event based on edited values or creating a new event
             //if (Session["eventEdit"] != null)
             //{
-                //eventbl = (EventBL)Session["eventEdit"];
 
-                body = body.Replace("{EventName}", eventbl.EventName);
-                body = body.Replace("{Date}", eventbl.EventDate);
+            // eventbl = (EventBL)Session["selectedEvent"];
+                eventbl = new EventBL();
+                eventID = Request.QueryString["eventId"];
+                eventbl = eventbl.GetActiveEvent(eventID);
+
+                body = body.Replace("{EventName}", eventbl.name);
+                body = body.Replace("{Date}", eventbl.deadline.ToString());
                 //body = body.Replace("{Phone}", eventbl.ContactPhone);
                 //body = body.Replace("{Email}", eventbl.ContactEmail);
                 //body = body.Replace("{Address}", eventbl.EventAddress);
@@ -246,7 +251,7 @@ namespace EventReady.Application_Layer
 
                         EmailBL emailInfo = new EmailBL();
 
-                        eventID = Request.QueryString["eventValue"];
+                        eventID = Request.QueryString["eventId"];
                         //needs eventId
                         
                         emailInfo.AddToGuestList(((TextBox)ctr).Text, eventID);

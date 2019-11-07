@@ -210,6 +210,53 @@ namespace EventReady.Data_Access_Layer
         }
 
 
+
+        //Function for taking the Events associated with a specified user and returning a strongly typed list of Event classes - Saxon
+        [DataObjectMethod(DataObjectMethodType.Select)]
+        public static Event GetEvent(string eventId)
+        {
+            string sql = "SELECT eventId, name, description, daysDelayed, start, deadline, active, userId FROM Event WHERE eventId = @eventId";
+            Event singleEvent = new Event();
+            //try to read a connection from database
+            try
+            {
+                using (SqlConnection con = new SqlConnection(GetConnectionString()))
+                {
+                    using (SqlCommand cmd = new SqlCommand(sql, con))
+                    {
+                        cmd.Parameters.AddWithValue("eventId", eventId);
+                        con.Open();
+                        SqlDataReader dr = cmd.ExecuteReader();
+                        //need to name an individual event singleEvent to prevent errors -Saxon
+
+                        //I need to look up how to change values into not strings... it's possible that you just store the values as strings for now then change them later but that seems odd -Saxon
+                        while (dr.Read())
+                        {
+
+                            singleEvent.eventId = dr["eventId"].ToString();
+                            singleEvent.name = dr["name"].ToString();
+                            singleEvent.description = dr["description"].ToString();
+                            singleEvent.daysDelayed = dr.GetInt16(dr.GetOrdinal("daysDelayed"));
+                            singleEvent.start = dr.GetDateTime(dr.GetOrdinal("start"));
+                            singleEvent.deadline = dr.GetDateTime(dr.GetOrdinal("deadline"));
+                            singleEvent.active = dr.GetBoolean(dr.GetOrdinal("active"));
+                            singleEvent.userId = dr["userId"].ToString();
+
+                        }
+                        dr.Close();
+                    }
+                }
+                return singleEvent;
+            }
+            catch
+            {
+                throw new Exception("Unable to access Event table in the database");
+            }
+        }
+
+
+
+
         // Function for removing a Step - Saxon
 
         // returns the connection string being used in the web config file. - Saxon
@@ -217,6 +264,8 @@ namespace EventReady.Data_Access_Layer
         {
             return ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
         }
+
+
 
 
     }

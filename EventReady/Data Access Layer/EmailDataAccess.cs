@@ -34,7 +34,7 @@ namespace EventReady.Data_Access_Layer
         public static List<Guest> GetGuests(string eventId)
         {
             List<Guest> guestList = new List<Guest>();
-            string sql = "SELECT name, email, active, eventId FROM Guest WHERE eventId = @eventId ORDER BY name";
+            string sql = "SELECT name, email, active, rsvp, eventId FROM Guest WHERE eventId = @eventId ORDER BY name";
 
             using (SqlConnection con = new SqlConnection(GetConnectionString()))
             {
@@ -51,6 +51,7 @@ namespace EventReady.Data_Access_Layer
                         guest.name = dr["name"].ToString();
                         guest.email = dr["email"].ToString();
                         guest.eventId = dr["eventId"].ToString();
+                        guest.rsvp = dr["rsvp"].ToString();
                         guest.active = dr.GetBoolean(dr.GetOrdinal("active"));
                         guestList.Add(guest);
 
@@ -101,23 +102,20 @@ namespace EventReady.Data_Access_Layer
         public static int AddGuest(Guest guest)
 
         {
-            string sql = "INSERT INTO Guest VALUES (@email, @name, @eventId, 'Not Responded', true)";
+            string sql = "INSERT INTO Guest VALUES (@email, @name, @eventId, 'No Response', 'true')";
 
             using (SqlConnection con = new SqlConnection(GetConnectionString()))
             {
                 using (SqlCommand cmd = new SqlCommand(sql, con))
                 {
+
                     cmd.Parameters.AddWithValue("name", guest.name);
                     cmd.Parameters.AddWithValue("email", guest.email);
                     cmd.Parameters.AddWithValue("eventId", guest.eventId);
-
                     con.Open();
-
                     return cmd.ExecuteNonQuery();
                 }
             }
-
-
         }
 
 
