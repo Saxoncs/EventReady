@@ -58,6 +58,7 @@
 				<div class="login100-form-title p-b-37" >
     
     <form id="form1" runat="server">
+        <!-- Creating an calendar and editing its theme -->
         <asp:Calendar ID="calEvents" OnDayRender="calEvent_DayRender" runat="server" BackColor="White" BorderColor="Black" DayNameFormat="Shortest" Font-Names="Times New Roman" Font-Size="10pt" ForeColor="Black" Height="344px" NextPrevFormat="FullMonth" TitleFormat="Month" Width="1126px">
             <DayHeaderStyle BackColor="#CCCCCC" Font-Bold="True" Font-Size="7pt" ForeColor="#333333" Height="10pt" />
             <DayStyle Width="14%" />

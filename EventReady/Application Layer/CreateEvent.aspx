@@ -58,9 +58,6 @@
     <form runat="server">
         
                 <div class="login100-form-title p-b-37" >
-				    <!--<div>
-                        <img src="../Image/er.jpg"  style="width:80px;height:80px;"/> 
-				    </div>-->
                     <h1>Event Ready</h1>
 				</div>
                 <span class="login100-form-title p-b-37">
@@ -69,6 +66,7 @@
                 <%if (eventToEdit == null)
                     {%>
                 <p>THIS MEANS THAT THE THERE IS NO EVENT TO EDIT</p>
+                <!-- Event name textbox -->
                 <div>
                     <asp:requiredfieldvalidator display="Dynamic" ID="ValEventName" ControlToValidate="txtbxEventName" ErrorMessage="Event name field cannot be empty" style="color:red" runat="server" class="input100"></asp:requiredfieldvalidator>
                     <div class="wrap-input100 validate-input m-b-25">
@@ -76,7 +74,7 @@
                         <asp:TextBox runat="server" ID="txtbxEventName" class="input100" placeholder="Event Name" MaxLength="30"></asp:TextBox> 
                     </div>
                 </div>
-    
+                    <!-- Date Textbox -->
                   <div>
                       <asp:requiredfieldvalidator display="Dynamic" runat="server" ID="ValDate" ControlToValidate="txtbxDate" ErrorMessage="Date field cannot be empty" style="color:red" class="input100"></asp:requiredfieldvalidator>
                         <asp:CompareValidator Display="Dynamic" ID="valDateCheck" Operator="GreaterThanEqual" type="Date" ControltoValidate="txtbxDate" ErrorMessage="Date has to be today or later" runat="server" style="color:red" class="input100"/>
@@ -88,6 +86,7 @@
                     </div>
                   </div>
     
+                    <!-- DEscription textbox -->
                   <div>
                     <div class="wrap-input100 validate-input m-b-25">
                         <span class="focus-input100"></span>
@@ -101,6 +100,7 @@
     <% else if (eventToEdit != null )
         {%>
     <p>THIS MEANS THAT THERE IS AN EVENT TO EDIT</p>
+                <!-- Event name textbox -->
                 <div>
                     <asp:requiredfieldvalidator display="Dynamic" runat="server" ID="ValENEdit" ControlToValidate="txtbxEventNameEdit" ErrorMessage="Event name field cannot be empty" style="color:red" class="input100"></asp:requiredfieldvalidator>
                      <div class="wrap-input100 validate-input m-b-25">
@@ -108,7 +108,7 @@
                          <span class="focus-input100"></span>
                     </div>
                 </div>
-
+                <!-- Date Textbox -->
                 <div>
                     <asp:requiredfieldvalidator display="Dynamic" runat="server" ID="ValDateEdit" ControlToValidate="txtbxDateEdit" ErrorMessage="Date field cannot be empty" style="color:red" class="input100"></asp:requiredfieldvalidator>
                         <asp:CompareValidator Display="Dynamic" ID="valDateCheckEdit" Operator="GreaterThanEqual" type="Date" ControltoValidate="txtbxDateEdit" ErrorMessage="Date has to be today or later" runat="server" style="color:red" class="input100"/>
@@ -118,7 +118,7 @@
                          <span class="focus-input100"></span>
                     </div>
                 </div>
-    
+                <!-- DEscription textbox -->
                 <div>
                      <div class="wrap-input100 validate-input m-b-25">
                         <asp:TextBox runat="server" ID="txtbxDescriptionEdit" TextMode="MultiLine" class="input100" placeholder="Description" MaxLength="50"></asp:TextBox>

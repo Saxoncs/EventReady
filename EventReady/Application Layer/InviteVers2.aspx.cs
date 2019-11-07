@@ -64,10 +64,26 @@ namespace EventReady.Application_Layer
             //Needed this in page load or the textbox IDs would not be saved on page load
             foreach (string textboxId in TextBoxIdCollection)
             {
+                // Adding validators to every textbox created
                 var textbox = new TextBox { ID = textboxId };
+                RequiredFieldValidator validator = new RequiredFieldValidator();
+                validator.ControlToValidate = textbox.ID;
+                validator.ErrorMessage = "Textbox cannot be empty";
+                validator.ForeColor = System.Drawing.ColorTranslator.FromHtml("#ff0000");
+                validator.Display = ValidatorDisplay.Dynamic;
+                validator.Font.Size = new System.Web.UI.WebControls.FontUnit("14px");
+                RegularExpressionValidator validtorReg = new RegularExpressionValidator();
+                validtorReg.ControlToValidate = textbox.ID;
+                validtorReg.ErrorMessage = "Incorrect Email";
+                validtorReg.ForeColor = System.Drawing.ColorTranslator.FromHtml("#ff0000");
+                validtorReg.Display = ValidatorDisplay.Dynamic;
+                validtorReg.Font.Size = new System.Web.UI.WebControls.FontUnit("14px");
+                validtorReg.ValidationExpression = @"\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*";
                 textbox.Text = "Email here";
                 textbox.CssClass = "input100";
                 textbox.MaxLength = 30;
+                PlaceHolder1.Controls.Add(validtorReg);
+                PlaceHolder1.Controls.Add(validator);
                 PlaceHolder1.Controls.Add(textbox);
             }
 
@@ -91,11 +107,27 @@ namespace EventReady.Application_Layer
             {
                 for (int i = 1; i <= total; i++)
                 {
+                    // Adding validators to every textbox created
                     var textbox = new TextBox { ID = "TextBox" + i };
                     textbox.Text = "Email here";
                     textbox.CssClass = "input100";
                     textbox.MaxLength = 30;
+                    RequiredFieldValidator validator = new RequiredFieldValidator();
+                    validator.ControlToValidate = textbox.ID;
+                    validator.ErrorMessage = "Textbox cannot be empty";
+                    validator.ForeColor = System.Drawing.ColorTranslator.FromHtml("#ff0000");
+                    validator.Display = ValidatorDisplay.Dynamic;
+                    validator.Font.Size = new System.Web.UI.WebControls.FontUnit("14px");
+                    RegularExpressionValidator validtorReg = new RegularExpressionValidator();
+                    validtorReg.ControlToValidate = textbox.ID;
+                    validtorReg.ErrorMessage = "Incorrect Email";
+                    validtorReg.ForeColor = System.Drawing.ColorTranslator.FromHtml("#ff0000");
+                    validtorReg.Display = ValidatorDisplay.Dynamic;
+                    validtorReg.Font.Size = new System.Web.UI.WebControls.FontUnit("14px");
+                    validtorReg.ValidationExpression = @"\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*";
                     collection.Add(textbox.ID);
+                    PlaceHolder1.Controls.Add(validtorReg);
+                    PlaceHolder1.Controls.Add(validator);
                     PlaceHolder1.Controls.Add(textbox);
                     
                 }
