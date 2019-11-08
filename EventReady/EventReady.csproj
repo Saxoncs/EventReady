@@ -75,10 +75,8 @@
     <Content Include="Application Layer\Calendar.aspx" />
     <Content Include="Application Layer\CreateEvent.aspx" />
     <Content Include="Application Layer\EmailTemplate.html" />
-    <Content Include="Application Layer\EventDetails.aspx" />
     <Content Include="Application Layer\Events.aspx" />
-    <Content Include="Application Layer\ForgotPassword.aspx" />
-    <Content Include="Application Layer\GuestList.aspx" />
+    <Content Include="Application Layer\forgotpasswordtest.aspx" />
     <Content Include="Application Layer\Guide.aspx" />
     <Content Include="Application Layer\Home.aspx" />
     <Content Include="Application Layer\InviteVers2.aspx" />
@@ -189,13 +187,6 @@
     <Compile Include="Application Layer\CreateEvent.aspx.designer.cs">
       <DependentUpon>CreateEvent.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Application Layer\EventDetails.aspx.cs">
-      <DependentUpon>EventDetails.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Application Layer\EventDetails.aspx.designer.cs">
-      <DependentUpon>EventDetails.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Application Layer\Events.aspx.cs">
       <DependentUpon>Events.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -203,19 +194,12 @@
     <Compile Include="Application Layer\Events.aspx.designer.cs">
       <DependentUpon>Events.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Application Layer\ForgotPassword.aspx.cs">
-      <DependentUpon>ForgotPassword.aspx</DependentUpon>
+    <Compile Include="Application Layer\forgotpasswordtest.aspx.cs">
+      <DependentUpon>forgotpasswordtest.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Application Layer\ForgotPassword.aspx.designer.cs">
-      <DependentUpon>ForgotPassword.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Application Layer\GuestList.aspx.cs">
-      <DependentUpon>GuestList.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Application Layer\GuestList.aspx.designer.cs">
-      <DependentUpon>GuestList.aspx</DependentUpon>
+    <Compile Include="Application Layer\forgotpasswordtest.aspx.designer.cs">
+      <DependentUpon>forgotpasswordtest.aspx</DependentUpon>
     </Compile>
     <Compile Include="Application Layer\Guide.aspx.cs">
       <DependentUpon>Guide.aspx</DependentUpon>
