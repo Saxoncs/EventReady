@@ -75,21 +75,18 @@ namespace EventReady.Data_Access_Layer
 
         // updates a specific guest entry with a new set of values provided in the form of a guest class - Saxon
         [DataObjectMethod(DataObjectMethodType.Update)]
-        public static int UpdateGuestList(Guest original_guest, Guest guest)
+        public static int UpdateGuestRSVP(Guest guest)
         {
-            string sql = "UPDATE Guest SET name = @name, email = @email WHERE eventId = @original_eventId AND name = @original_name AND email = @original_email";
+            string sql = "UPDATE Guest SET rsvp = @rsvp WHERE eventId = @eventId AND email = @email";
             using (SqlConnection con = new SqlConnection(GetConnectionString()))
             {
                 using (SqlCommand cmd = new SqlCommand(sql, con))
                 {
-                    //new values
+                    //values
                     cmd.Parameters.AddWithValue("name", guest.name);
                     cmd.Parameters.AddWithValue("email", guest.email);
+                    cmd.Parameters.AddWithValue("rsvp", guest.rsvp);
 
-                    //original values
-                    cmd.Parameters.AddWithValue("original_name", original_guest.name);
-                    cmd.Parameters.AddWithValue("original_email", original_guest.email);
-                    cmd.Parameters.AddWithValue("original_eventId", original_guest.eventId);
 
                     con.Open();
                     return cmd.ExecuteNonQuery();

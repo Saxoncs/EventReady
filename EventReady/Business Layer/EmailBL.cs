@@ -46,19 +46,44 @@ namespace EventReady.Business_Layer
         }
 
 
-        public void AddToGuestList(string email, string eventId)
+        public int AddToGuestList(string email, string eventId)
         {
             Guest guest = new Guest();
             guest.name = "";
             guest.email = email;
             guest.eventId = eventId;
 
-            AddGuest(guest);
+            int successCheck = AddGuest(guest);
+
+            return successCheck;
 
 
         }
         
+        public int ChangeGuestRSVP(GuestBL guestToRSVP, int response)
+        {
+            Guest original_Guest = new Guest();
+            Guest guest = new Guest();
 
+            guest.name = guestToRSVP.name;
+            guest.email = guestToRSVP.email;
+            guest.eventId = guestToRSVP.eventId;
+
+            if (response == 1)
+            {
+                guest.rsvp = "Attending";
+            }
+            else if (response == 2)
+            {
+                guest.rsvp = "Not Attending";
+            }
+            else return 0;
+
+            int successCheck = UpdateGuestRSVP(guest);
+
+            return successCheck;
+
+        }
       
 
     }
