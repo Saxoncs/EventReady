@@ -49,7 +49,7 @@ namespace EventReady.Business_Layer
                     selectedGuest.rsvp = selectedGuest.rsvp;
 
 
-                } else return null;
+                }
             }
             return selectedGuest;
         }

@@ -83,9 +83,9 @@ namespace EventReady.Data_Access_Layer
                 using (SqlCommand cmd = new SqlCommand(sql, con))
                 {
                     //values
-                    cmd.Parameters.AddWithValue("name", guest.name);
                     cmd.Parameters.AddWithValue("email", guest.email);
                     cmd.Parameters.AddWithValue("rsvp", guest.rsvp);
+                    cmd.Parameters.AddWithValue("eventId", guest.eventId);
 
 
                     con.Open();
