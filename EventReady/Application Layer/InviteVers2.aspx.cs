@@ -153,8 +153,8 @@ namespace EventReady.Application_Layer
                 //Replace certain values in the email template with given variables
                 body = body.Replace("{EventName}", eventbl.name);
                 body = body.Replace("{Date}", eventbl.deadline.ToString());
+                body = body.Replace("{EventId}", eventID.ToString());
 
-           
             return body;
             
         }
