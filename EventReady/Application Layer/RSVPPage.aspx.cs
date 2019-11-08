@@ -35,6 +35,8 @@ namespace EventReady.Application_Layer
             //Convert data access guests to native guests - Saxon
             guestList = email.GetActiveGuests(selectedEvent);
 
+           
+
         }
 
 

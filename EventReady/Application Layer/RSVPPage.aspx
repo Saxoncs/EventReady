@@ -51,7 +51,7 @@
                                 
                             </td>
                             
-                                
+                          
                            <!-- Adds rsvp status -->
                             <td class="text-left">
                                 <p class="text-list-colour"> <%= guestRSVP %> </p>
