@@ -46,7 +46,7 @@ namespace EventReady.Application_Layer
             //This will be used to connect email to the database
             UserBL user = userInfo.GetLogingUser(email);
 
-            if (GlobalData.userMap.ContainsKey(email))
+            if (user != null)
             {
                 
                     lblEmailMessage.Visible = false;
@@ -76,10 +76,10 @@ namespace EventReady.Application_Layer
                     msg.To.Add(new MailAddress(txtForgottenEmail.Text));
                     msg.Subject = "Event Ready - Account Password Retrieval";
                     //If html does not exist return non-html email
-                    msg.Body = GetForgotPasswordMessage(false, GlobalData.userMap[email].Password);
+                    msg.Body = GetForgotPasswordMessage(false, user.Password);
 
                     //create an alternate HTML view that includes images and formatting 
-                    string html = GetForgotPasswordMessage(true, GlobalData.userMap[email].Password);
+                    string html = GetForgotPasswordMessage(true, user.Password);
                     AlternateView view = AlternateView
                         .CreateAlternateViewFromString(
                             html, null, "text/html");
