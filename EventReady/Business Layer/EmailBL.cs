@@ -34,6 +34,26 @@ namespace EventReady.Business_Layer
             return activeGuests;
         }
 
+        public GuestBL GetActiveGuest(string eventId, string email)
+        {
+            List<Guest> guestList = GetGuests(eventId);
+            GuestBL selectedGuest = new GuestBL();
+            foreach (Guest guest in guestList)
+            {
+                if (guest.active && guest.email == email)
+                {
+
+                    selectedGuest.name = guest.name;
+                    selectedGuest.email = guest.email;
+                    selectedGuest.eventId = guest.eventId;
+                    selectedGuest.rsvp = selectedGuest.rsvp;
+
+
+                } else return null;
+            }
+            return selectedGuest;
+        }
+
 
         public class GuestBL
         {
