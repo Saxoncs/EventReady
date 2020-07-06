@@ -1,7 +1,11 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Application Layer/MasterPage.Master" AutoEventWireup="true" CodeBehind="EventDetails.aspx.cs" Inherits="EventReady.Application_Layer.EventDetails" %>
-<%@ Import Namespace="EventReady.Business_Layer" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="forgotpasswordtest.aspx.cs" Inherits="EventReady.Application_Layer.forgotpasswordtest" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="../Style/StyleTemplate/bootstrap.min.css"/>
 <!--===============================================================================================-->
@@ -37,96 +41,65 @@
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>
-    <script src="../Style/StyleSheetStyle.css"></script>
-</asp:Content>
-
-
-
-
-
-
-
-
-
-
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div style="width: 100%;
-    min-height: 100vh;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    padding: 15px;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    z-index: 1;">
-		<div class="wrap-login100 p-l-55 p-r-55 p-t-80 p-b-30">
-			<form class="login100-form validate-form" runat="server">
-				<div class="login100-form-title p-b-37" >
-                
-					
-    
-      <h2>Confirmed Details:</h2> <br/>
-      
-      
-      
-    
-    <asp:Label runat="server" class="detail" ID="lblEName" Text=""></asp:Label>
-    <asp:Label runat="server" class="detail" ID="lblFName" Text=""></asp:Label> <br />
-    <asp:Label runat="server" class="detail" ID="lblLName" Text=""></asp:Label> <br />
-    <asp:Label runat="server" class="detail" ID="lblEDate" Text=""></asp:Label> <br />
-    <asp:Label runat="server" class="detail" ID="lblEAddress" Text=""></asp:Label> <br />
-    <asp:Label runat="server" class="detail" ID="lblEDescription" Text=""></asp:Label> <br />
-    <asp:Label runat="server" class="detail" ID="lblEEmail" Text=""></asp:Label> <br />
-    <asp:Label runat="server" class="detail" ID="lblEPhone" Text=""></asp:Label> <br/>
-
-    
-    <div class="container-login100-form-btn">
-    <asp:Button runat="server" class="login100-form-btn"  ID="Button1" Text="Confirm" OnClick="btnConfirm_Click"/> 
-    </div><br/>
-				   
-
-
-
-
-
-        <% if (Session["event"] != null)
-    {
-        UserBL user = (UserBL)Session["user"]; %>
-                    <div class="container-login100-form-btn">
         
-                    <input type="button" class="login100-form-btn" value="Back" onclick="window.location.href = 'CreateEvent.aspx?check=value&user=<%=user.Email%>'; return false"/>
-                    
-                    </div>
-        <% 
-    }
-    else if (Session["eventEdit"] != null)
-    {
-        int value = Convert.ToInt32(Session["eventValue"]);%>
-                    <div class="container-login100-form-btn">
-        <input type="button" class="login100-form-btn" value="Back" onclick="window.location.href = 'CreateEvent.aspx?value=<%=value%>'; return false"/>
-        </div>
-        <% 
-    }%>
+</head>
+<body>
+    <div class="container-login100" style="background-image: url('../Image/backgroundImage.jpg');"> <!--style="background-image: url('../Image/header-bg.jpg');"-->
+		<div class="wrap-login100 p-l-55 p-r-55 p-t-80 p-b-30">
+    <form id="form1" runat="server">
+        
+			
+				<div class="login100-form-title p-b-37" >
 
-                  
-    
-   
-
-    
-                    
-
-
-
-
-
-                      
-                    
+				<div>
+                    <img src="../Image/er.jpg"  style="width:80px;height:80px;"/> 
 				</div>
 
-				
+					<h1>Event Ready</h1>
+				</div>
+				<span class="login100-form-title p-b-37">
+					Enter the email you are registered with
+				</span>
+                    <!-- Validators for email -->
+                    <asp:RequiredFieldValidator display="Dynamic" runat="server" ControlToValidate="txtForgottenEmail" class="input100" ErrorMessage="Email field cannot be empty" style="color:red"/>
+                    <asp:RegularExpressionValidator Display="Dynamic" ID="valForgottenPassword" class="input100" runat="server" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="txtForgottenEmail" ErrorMessage="Invalid Email Format" style="color:red"></asp:RegularExpressionValidator>
+             <div>
+                 <!-- Email Field -->
+                    <div class="wrap-input100 validate-input m-b-25">
+                        <asp:TextBox ID="txtForgottenEmail" runat="server" class="input100" placeholder="Email" MaxLength="80"/>
+                        <span class="focus-input100"></span>
+                    </div>
+            </div>
+
+            <br/>
+
+
+                <!-- Continue Button -->
+				<div  class="container-login100-form-btn">
+					<asp:Button runat="server" OnClick="btnContinue_Click" class="login100-form-btn" Text="Continue"/>
+                   			
+                </div>
+                <!-- Error Message that will display if an email does not exist -->
+                <div class="text-center">
+                    <asp:label runat="server" ID="lblEmailMessage" Visible="false" style="color:red;"> This email is not registered at EventReady </asp:label>	
+                </div>
+                <!-- Link back to login page -->
+                <div class="text-center">
+					<a href="LoginVer2.aspx" class="txt2 hov1">
+						Back to Login
+					</a>
+				</div>
+
+
+            
+
+
+        
+
+
+
+
+
 
 			</form>
 
@@ -134,7 +107,11 @@
 		</div>
 	</div>
 
-   
 
-</asp:Content>
 
+	<div id="dropDownSelect1"></div>
+
+
+ 
+</body>
+</html>
